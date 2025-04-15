@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+body{
+  background-color: #FFF7D8;
+}
+
+h1{
+  font-size: 30px;
+  font-weight: 700;
+}
+
+h2{
+  font-size: 20px;
+  font-weight: 550;
+}
+
+h3{
+  font-size: 15px;
+  font-weight: 550;
+}
+
+.card_font{
+  font-size: 10px;
+}
+
+@media screen and (min-width: 1536px) {
+  .card_list{
+    width: auto;
+  }
+  .filter{
+    width: 1240px;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1535px) {
+  .card_list{
+    width: 961px;
+  }
+  .filter{
+    width: 926px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .filter{
+    width: 644px;
+  }
+}
