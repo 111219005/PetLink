@@ -87,6 +87,9 @@ body p{
 .intro1-c{
   display: flex;
   padding-bottom: 85px;
+  @media(max-width: 768px){
+    padding-bottom: 85px;
+  }
 }
 .intro1-l{
   width: 50%;
@@ -123,7 +126,6 @@ body p{
   .intro1-c {
     flex-direction: column;
     align-items: center;
-    margin-bottom: 36px;
   }
 
   .intro1-l,
