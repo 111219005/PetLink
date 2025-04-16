@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './Intro.css'
 import Navbar from '../../components/Navbar'
+import { Link } from 'react-router';
 
 function Intro() {
   const [count, setCount] = useState(0)
@@ -71,7 +72,9 @@ function Intro() {
             <img className="item item5" src="./img/intro7.png"></img>
             <img className="item item6" src="./img/intro8.png"></img>
           </div>
+          <Link to="/">
           <button className="home">前往認養！</button>
+          </Link>
         </div>
   
     </>
