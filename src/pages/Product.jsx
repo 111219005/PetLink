@@ -14,8 +14,8 @@ export default function Product() {
 
   return (
     <>
-        <h1>Product：{product.id}</h1>
-        {/* <PetDetail /> */}
+      {/*<h1>Product：{product.id}</h1>*/}
+        <PetDetail product={product}/>
     </>
   );
 }
