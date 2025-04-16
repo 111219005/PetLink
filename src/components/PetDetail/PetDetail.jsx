@@ -1,11 +1,15 @@
 import { useState } from 'react'
 import './PetDetail.css'
+import Navbar from '../../components/Navbar'
 
 function ProductDetail({ product }) {
   const [count, setCount] = useState(0)
 
   return (
     <>
+
+    <Navbar />
+    
       <div className="content">
         <div class="detail-top">
           <div className="detail-img">
@@ -22,7 +26,7 @@ function ProductDetail({ product }) {
             <div class="card">
               <div class="section-title">基本資料</div>
               <div class="info-grid">
-                <div class="label">品種</div><div class="value">{product.brees}</div>
+                <div class="label">品種</div><div class="value">{product.breed}</div>
                 <div class="label">性別</div><div class="value">{product.gender}</div>
 
                 <div class="label">年齡</div><div class="value">{product.age}</div>
