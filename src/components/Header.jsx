@@ -15,9 +15,9 @@ export default function Header() {
                         PetLink遠端認養平台
                     </h1>
                     <div className="flex flex-col gap-2 justify-center items-center">
-                        <p>沒時間養寵物？但你依然可以給他一個家！</p>
-                        <p>你出資助；我來照顧，讓愛不缺席！</p>
-                        <p>遠端領養毛孩，定期關注牠的可愛日常。</p>
+                        <p className="!text-base">沒時間養寵物？但你依然可以給他一個家！</p>
+                        <p className="!text-base">你出資助；我來照顧，讓愛不缺席！</p>
+                        <p className="!text-base">遠端領養毛孩，定期關注牠的可愛日常。</p>
                         <Link to="/introduction">
                             <button className="text-white bg-[#7392B9] flex justify-center items-center py-2 px-4 my-4 rounded-lg">
                                 查看更多

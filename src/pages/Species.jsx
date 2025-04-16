@@ -58,7 +58,7 @@ export default function Species() {
     });
 
     return (
-        <>
+        <div className="bg-[#FFF7D8]">
             <Navbar />
             <div className="flex justify-center items-center">
                 <div className="filter mt-5">
@@ -85,6 +85,6 @@ export default function Species() {
                     <h2>無符合的資料</h2>
                 </div>
             )}
-        </>
+        </div>
     );
 }

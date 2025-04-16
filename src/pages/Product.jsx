@@ -1,18 +1,21 @@
 import { useParams } from "react-router";
-import PetDetail from "../components/PetDetail/PetDetail";
+import dogData from "../json/dog.json";
+import catData from "../json/cat.json";
+import PetDetail from "../components/PetDetail/PetDetail.jsx"
 
 export default function Product() {
-    const { productSpecies, productId } = useParams();
-    const productData = productSpecies === "dog" ? require("../json/dog.json") : require("../json/cat.json");
-    const product = productData.find((item) => item.id === parseInt(productId, 10));
+  const { productSpecies, productId } = useParams();
+  const productData = productSpecies === "dog" ? dogData : catData;
+  const product = productData.find((item) => item.id === parseInt(productId, 10));
 
-    if (!product) {
-        return <div>找不到對應的商品資料</div>;
-    }
+  if (!product) {
+    return <div>找不到對應的商品資料</div>;
+  }
 
-    return (
-        <>
-            <PetDetail product={product} />
-        </>
-    );
+  return (
+    <>
+        {/* <h1>Product：{product.id}</h1> */}
+        <PetDetail />
+    </>
+  );
 }

@@ -8,7 +8,7 @@ import ProductList from "../components/ProductList.jsx";
 
 export default function Home() {
     return (
-        <>
+        <div className="bg-[#FFF7D8]">
             <Navbar />
             <Header />
             <Category />
@@ -30,6 +30,6 @@ export default function Home() {
                     </Link>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
