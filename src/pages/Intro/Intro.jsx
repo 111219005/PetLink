@@ -7,8 +7,8 @@ function Intro() {
 
   return (
     <>
-    <Navbar />
-      <div className="content">
+      <Navbar />
+  
         <div className="bigpic">
           <h1 className="bigpic-h">PetLink遠端認養平台</h1>
           <h4 className="bigpic-c">你出資助，我來照顧，一起給毛孩一個溫暖的家！</h4>
@@ -59,8 +59,8 @@ function Intro() {
                 <h3 className="intro3-r-p">☆定期更新，真實互動：<br></br>透過影片、照片，讓你感受毛孩的陪伴。</h3>
               </div>
             </div>
-        </div>
           </div>
+        </div>
         <div className="intro4">
           <h1 className="intro4-h">立即加入，成為毛孩的遠端家人！</h1>
           <div className="pics">
@@ -69,11 +69,11 @@ function Intro() {
             <img className="item item3" src="./img/intro9.png"></img>
             <img className="item item4" src="./img/intro6.png"></img>
             <img className="item item5" src="./img/intro7.png"></img>
-            <img className="item item6"src="./img/intro8.png"></img>
+            <img className="item item6" src="./img/intro8.png"></img>
           </div>
           <button className="home">前往認養！</button>
         </div>
-      </div>
+  
     </>
   )
 }

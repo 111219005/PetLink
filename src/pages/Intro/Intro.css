@@ -39,20 +39,16 @@ body h6{
 body p{
   font-size: 10px;
 }
-/*intro*/
-.content{
-  margin-top: 50px;
-  @media(max-width: 768px){
-    margin-top: 62px;
-  }
-}
+
 /*bigpic*/
 .bigpic{
   background-color: #FFF7D8;
   text-align: center;
   padding-top: 50px;
+  padding-bottom: 35px;
   @media(max-width: 768px){
     padding-top: 16px;
+    margin-top: 62px;
   }
 }
 .bigpic-h{
@@ -71,7 +67,7 @@ body p{
 .bigpic-img{
   width: 100%;
   height: auto;
-  margin-bottom: 35px;
+  margin-bottom: 0px;
   @media(max-width: 768px){
     height: 275px;
     object-fit: cover;
