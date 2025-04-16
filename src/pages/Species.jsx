@@ -5,6 +5,7 @@ import dog from "../json/dog.json";
 import cat from "../json/cat.json";
 import ProductList from "../components/ProductList.jsx";
 import Filter from "../components/Filter.jsx";
+import Footer from "../components/Footer/Footer.jsx"
 
 export default function Species() {
     const { productSpecies } = useParams();
@@ -85,6 +86,7 @@ export default function Species() {
                     <h2>無符合的資料</h2>
                 </div>
             )}
+            <Footer />
         </div>
     );
 }

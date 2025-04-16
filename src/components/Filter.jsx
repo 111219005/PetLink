@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import { FaFilter } from "react-icons/fa"; // 安裝 react-icons 使用篩選圖標
 
 export default function Filter({ gender, size, ageRange, setGender, setSize, setAgeRange }) {
@@ -16,14 +16,29 @@ export default function Filter({ gender, size, ageRange, setGender, setSize, set
         }
     };
 
+    // 設置初始篩選狀態，依據螢幕大小
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 768) {
+                setIsFilterOpen(true); // md 以上展開
+            } else {
+                setIsFilterOpen(false); // md 以下關閉
+            }
+        };
+        handleResize(); // 初次設定
+        window.addEventListener("resize", handleResize); // 監聽螢幕大小變化
+        return () => window.removeEventListener("resize", handleResize); // 清除事件監聽
+    }, []);
+
     return (
-        <div className="flex items-center justify-center">
+        <div className="relative w-full">
             {/* Filter Icon for Mobile */}
             <button
-                className="block md:hidden justify-end "
+                className="absolute right-4 top-2 flex items-center justify-center bg-[#7392B9] text-white rounded-full w-10 h-10 md:hidden"
                 onClick={() => setIsFilterOpen(!isFilterOpen)}
             >
-                
+                {/* 篩選圖標或文字 */}
+                <img src="/img/filter.png"/>
             </button>
 
             {/* Filter Content */}

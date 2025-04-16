@@ -2,7 +2,7 @@ import {Link} from "react-router";
 
 export default function ProductItem({ product }) {
     return (
-        <div className="sm:w-55 md:w-55 lg:w-53 pt-3 px-3 lg:px-4">
+        <div className="sm:w-55 md:w-55 lg:w-53 pt-3 px-3 lg:px-4 hover:scale-105">
             {/* 圖片 */}
             <Link to={`/${product.species}/${product.id}`}>
                 <img className="w-full h-40 object-cover rounded-t-lg" src={product.cover} alt={product.name} />
