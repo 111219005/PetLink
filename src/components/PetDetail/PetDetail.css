@@ -244,3 +244,95 @@ html{
       padding-top: 0px;
     }
   }
+  [data-theme="light"]{
+    html{
+      background-color: white;
+    }
+    .content{
+      background-color: #FFF7D8;
+      color: black;
+    }
+    .section-title{
+      background-color: white;
+      color: black;
+    }
+    .label{
+      background-color: #FAAA5D;
+      color: black;
+    }
+    .value{
+      color: #000000;
+    }
+    .btn-secondary{
+      background-color: #7392B9;
+      color: white;
+    }
+    .btn-secondary:hover{
+      background-color: white;
+      color: #7392B9;
+    }
+    .btn-primary{
+      background-color: #9AA57C;
+      color: white;
+    }
+    .btn-primary:hover{
+      background-color: white;
+      color: #9AA57C;
+    }
+    .btn-group{
+      background-color: #FFF7D8;
+    }
+    .detail-comment-h{
+      background-color: white;
+      color: black;
+    }
+    .detail-comment-c{
+      color: black;
+    }
+  }
+  [data-theme="dark"]{
+    html{
+      background-color: #572918;
+    }
+    .content{
+      background-color: #D3B997;
+      color: #2C1C1A;
+    }
+    .section-title{
+      background-color: #98694E;
+      color: #2C1C1A;
+    }
+    .label{
+      background-color: #2C1C1A;
+      color: #BD9C8E;
+    }
+    .value{
+      color: #000000;
+    }
+    .btn-secondary{
+      background-color: #572918;
+      color: white;
+    }
+    .btn-secondary:hover{
+      background-color: white;
+      color: #572918;
+    }
+    .btn-primary{
+      background-color: black;
+      color: white;
+    }
+    .btn-primary:hover{
+      background-color: white;
+      color: black;
+    }
+    .btn-group{
+      background-color: #D3B997;
+    }
+    .detail-comment-h{
+      background-color: #98694E;
+      color: #2C1C1A;
+    }
+    .detail-comment-c{
+      color: #2C1C1A;
+    }
+  }
