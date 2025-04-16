@@ -1,6 +1,5 @@
 /*basic*/
 html{
-  background-color: #FFFFFF; 
   box-sizing: border-box;
 }
 *,*:before,*:after{
@@ -345,4 +344,21 @@ body p{
 .home:hover{
   background-color: white;
   color: #7392B9;
+}
+/*ColorMode*/
+[data-theme="light"]{
+  html{
+    background-color: #FFFFFF; 
+  }
+  .bigpic{
+    background-color: #FFF7D8;
+  }
+}
+[data-theme="dark"]{
+  html{
+    background-color: #572918;
+  }
+  .bigpic{
+    background-color: #D3B997;
+  }
 }
