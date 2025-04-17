@@ -5,7 +5,7 @@ import AddToBasket from '../AddToBasket'
 import Footer from '../../components/Footer/Footer.jsx'
 
 function ProductDetail({ product }) {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
