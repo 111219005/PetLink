@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './PetDetail.css'
 import Navbar from '../../components/Navbar'
+import AddToBasket from '../AddToBasket'
 
 function ProductDetail({ product }) {
   const [count, setCount] = useState(0)
@@ -11,7 +12,7 @@ function ProductDetail({ product }) {
     <Navbar />
     
       <div className="content">
-        <div class="detail-top">
+        <div className="detail-top">
           <div className="detail-img">
             <img
               alt={product.name}
@@ -23,30 +24,30 @@ function ProductDetail({ product }) {
             <h1 className="detail-c-name">{product.name}</h1>
             <h3 className="detail-c-key">{product.area }| {product.personality}</h3>
 
-            <div class="card">
-              <div class="section-title">基本資料</div>
-              <div class="info-grid">
-                <div class="label">品種</div><div class="value">{product.breed}</div>
-                <div class="label">性別</div><div class="value">{product.gender}</div>
+            <div className="card">
+              <div className="section-title">基本資料</div>
+              <div className="info-grid">
+                <div className="label">品種</div><div className="value">{product.breed}</div>
+                <div className="label">性別</div><div className="value">{product.gender}</div>
 
-                <div class="label">年齡</div><div class="value">{product.age}</div>
-                <div class="label">體型</div><div class="value">{product.size}</div>
+                <div className="label">年齡</div><div className="value">{product.age}</div>
+                <div className="label">體型</div><div className="value">{product.size}</div>
 
-                <div class="label">毛色</div><div class="value">{product.furColor}</div>
-                <div class="label">健康狀況</div><div class="value">{product.health}</div>
+                <div className="label">毛色</div><div className="value">{product.furColor}</div>
+                <div className="label">健康狀況</div><div className="value">{product.health}</div>
               </div>
 
-              <div class="section-title">領養需求(每月)</div>
-              <div class="info-grid">
-                <div class="label">食物</div><div class="value">{product.food}</div>
-                <div class="label">生活用品</div><div class="value">{product.daily}</div>
-                <div class="label">醫療</div><div class="value">{product.medical}</div>
-                <div class="label">娛樂訓練</div><div class="value">{product.train}</div>
+              <div className="section-title">領養需求(每月)</div>
+              <div className="info-grid">
+                <div className="label">食物</div><div className="value">{product.food}</div>
+                <div className="label">生活用品</div><div className="value">{product.daily}</div>
+                <div className="label">醫療</div><div className="value">{product.medical}</div>
+                <div className="label">娛樂訓練</div><div className="value">{product.train}</div>
               </div>
 
-              <div class="btn-group">
-                <button class="btn btn-secondary">加入收藏清單</button>
-                <button class="btn btn-primary">直接認養</button>
+              <div className="btn-group">
+                <AddToBasket className="btn btn-secondary" product={product}/>
+                <button className="btn btn-primary">直接認養</button>
               </div>
             </div>
           </div>

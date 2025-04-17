@@ -1,6 +1,8 @@
 import { Link } from "react-router";
 import { useState } from "react";
 import HamMenu from "./HamMenu";
+import ModeIcon from "./ModeIcon";
+import CartSummary from "./CartSummary";
 
 const NavBarContent = ({ isMobile = false }) => (
     <div
@@ -8,17 +10,17 @@ const NavBarContent = ({ isMobile = false }) => (
             isMobile ? "flex flex-col gap-4 p-4 ms-15" : "grid md:grid-cols-2 px-30 py-2 bg-white"
         } text-black w-full`}
     >
-        <Link to="/">首頁</Link>
+        <Link to="/" className="hover:text-[#7392B9] text-[20px]">首頁</Link>
         <div
             className={`${
                 isMobile ? "flex flex-col items-start gap-4" : "flex justify-end items-center gap-4"
             }`}
         >
-            {!isMobile && <Link to="/"><img src="/img/moon.png" alt="dark mode" /></Link>}
-            <Link to="/SignIn">登入</Link>
-            <Link to="/LogIn">註冊</Link>
-            <Link to="/"><img src="/img/heart.png" alt="cart" /></Link>
-            {isMobile && <Link to="/"><img src="/img/moon.png" alt="dark mode" /></Link>}
+            {!isMobile && <Link to="/"><ModeIcon size={25} /></Link>}
+            <Link to="/SignIn" className="hover:text-[#7392B9] text-[20px]">登入</Link>
+            <Link to="/LogIn" className="hover:text-[#7392B9] text-[20px]">註冊</Link>
+            <CartSummary />
+            {isMobile && <Link to="/"><ModeIcon size={25} /></Link>}
         </div>
     </div>
 );

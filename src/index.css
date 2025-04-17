@@ -46,3 +46,45 @@ h3{
     width: 644px;
   }
 }
+
+/* 進度條顏色 */
+.Toastify__progress-bar.progress-bar-custom {
+  background-color: #7392B9 !important;
+}
+
+/* 成功狀態下的圖示顏色 */
+.Toastify__toast--success .Toastify__icon {
+  color: #7392B9 !important; /* 設置勾選圖示顏色 */
+  background-color: #7392B9 !important;
+}
+
+/* 自定义 Toast 容器样式 */
+.custom-toast {
+  background-color: #f4f4f4; /* 背景颜色 */
+  border: 1px solid #7392B9; /* 边框颜色 */
+  border-radius: 8px; /* 圆角 */
+  color: #333; /* 默认文字颜色 */
+}
+
+/* 自定义 Toast 文本样式 */
+.custom-toast-body {
+  font-weight: bold;
+  font-size: 16px;
+  color: #7392B9; /* 文本颜色 */
+}
+
+/* 自定义进度条样式 */
+.custom-toast-progress {
+  background-color: #7392B9; /* 进度条颜色 */
+}
+
+/* 覆盖默认的图标样式 */
+.Toastify__toast-icon svg {
+  fill: #7392B9; /* 图标填充颜色 */
+  width: 24px; /* 图标大小 */
+  height: 24px;
+}
+
+.Toastify__progress-bar--wrp{
+  background-color: #7392B950; /* 进度条颜色 */
+}
