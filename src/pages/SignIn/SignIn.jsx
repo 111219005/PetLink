@@ -1,10 +1,12 @@
 import './SignIn.css'
+import { useNavigate } from 'react-router';
 export default function SignIn() {
+    const navigate = useNavigate();
     return (
         <>
             <div className="content">
             <img className="bg" src="/img/nature.png" alt="背景圖片" />
-            <div className="back">
+            <div className="back" onClick={() => navigate(-1)} style={{ cursor: 'pointer' }}>
                 <img className="arrow" src="/img/arrow.png" alt="返回箭頭" />
                 <h2 className="SignIn-h">登入</h2>
             </div>
