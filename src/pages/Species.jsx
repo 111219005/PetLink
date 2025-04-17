@@ -82,8 +82,8 @@ export default function Species() {
             {filteredData.length > 0 ? (
                 <ProductList products={filteredData} start={0} end={24} className="layout-content" />
             ) : (
-                <div className="mt-10 ms-10 md:ms-17 lg:ms-26 xl:ms-30 flex justify-center items-center">
-                    <h2>無符合的資料</h2>
+                <div className="h-90 mt-10 md:ms-17 lg:ms-26 xl:ms-30 flex justify-center bg-[#FFF7D8]">
+                    <h2>無符合的資料！</h2>
                 </div>
             )}
             <Footer />
