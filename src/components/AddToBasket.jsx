@@ -17,6 +17,7 @@ export default function AddToBasket({ product, className }) {
 
         // 顯示通知
         toast.success(`已將 ${product.name} 加入收藏清單！`, {
+            position: "bottom-right",
             className: "bg-blue-500 text-white rounded-lg shadow-lg custom-toast",
             bodyClassName: "font-bold custom-toast-body",
             progressClassName: "progress-bar-custom custom-toast-progress",
