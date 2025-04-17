@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { Helmet } from 'react-helmet-async';
 import Category from "../components/Category.jsx";
 import Header from "../components/Header.jsx";
 import Navbar from "../components/Navbar.jsx";
@@ -8,8 +9,12 @@ import ProductList from "../components/ProductList.jsx";
 import Footer from "../components/Footer/Footer.jsx"
 
 export default function Home() {
+    const title="Home"
     return (
         <div className="bg-[#FFF7D8]">
+            <Helmet>
+                <title>{title}</title>
+            </Helmet>
             <Navbar />
             <Header />
             <Category />

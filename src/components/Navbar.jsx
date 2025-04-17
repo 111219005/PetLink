@@ -1,8 +1,8 @@
 import { Link } from "react-router";
 import { useState } from "react";
 import HamMenu from "./HamMenu";
-import ModeIcon from "./ModeIcon";
 import CartSummary from "./CartSummary";
+import SetColorMode from "./SetColorMode";
 
 const NavBarContent = ({ isMobile = false }) => (
     <div
@@ -16,11 +16,11 @@ const NavBarContent = ({ isMobile = false }) => (
                 isMobile ? "flex flex-col items-start gap-4" : "flex justify-end items-center gap-4"
             }`}
         >
-            {!isMobile && <Link to="/"><ModeIcon size={25} /></Link>}
+            {!isMobile && <SetColorMode />}
             <Link to="/SignIn" className="hover:text-[#7392B9] text-[20px]">登入</Link>
             <Link to="/LogIn" className="hover:text-[#7392B9] text-[20px]">註冊</Link>
             <CartSummary />
-            {isMobile && <Link to="/"><ModeIcon size={25} /></Link>}
+            {isMobile && <SetColorMode />}
         </div>
     </div>
 );

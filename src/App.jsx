@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import { store, persistor } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react'
 import { Provider } from 'react-redux'
+import { HelmetProvider } from 'react-helmet-async'
 import "./App.css";
 import Home from "./pages/Home";
 import Product from "./pages/Product";
@@ -19,17 +20,19 @@ function App() {
       <ToastContainer position="top-right" autoClose={3000} />
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <BrowserRouter>
-            <ScrollToTop />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="introduction" element={<Intro />} />
-              <Route path=":productSpecies" element={<Species />} />
-              <Route path=":productSpecies/:productId" element={<Product />} />
-              <Route path="SignIn" element={<SignIn />} />
-              <Route path="LogIn" element={<LogIn />} />
-            </Routes>
-          </BrowserRouter>
+          <HelmetProvider context={{}}>
+            <BrowserRouter>
+              <ScrollToTop />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="introduction" element={<Intro />} />
+                <Route path=":productSpecies" element={<Species />} />
+                <Route path=":productSpecies/:productId" element={<Product />} />
+                <Route path="SignIn" element={<SignIn />} />
+                <Route path="LogIn" element={<LogIn />} />
+              </Routes>
+            </BrowserRouter>
+          </HelmetProvider>
         </PersistGate>
       </Provider>
     </>
