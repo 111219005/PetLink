@@ -1,36 +1,29 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import CartIcon from "./CartIcon";
-// import BasketModal from "./BasketModal"
 import { selectCartItems } from "../redux/cartSlice";
+import CartIcon from "./CartIcon";
 
 function CartSummary() {
-   const [isOpen, setIsOpen] = useState(false);
-   const cartItems = useSelector(selectCartItems);
-   const count = (cartItems.length > 0) ?
-      cartItems.reduce((sum, item) => sum + item.qty, 0)
-      : 0;
-   const toggleOpen = () => setIsOpen(!isOpen);
+    const [isOpen, setIsOpen] = useState(false);
+    const cartItems = useSelector(selectCartItems);
 
-   return (
-      <>
-         <nav
-            onClick={toggleOpen}
-            className="inline-block right-2 md:right-6 cursor-pointer"
-         >
-            <div className="indicator">
-                    {count > 0 && <span className="indicator-item badge badge-primary text-white">{count}</span>}
-                    <CartIcon size={32} color="#EBE1D2" />
-                </div>
-                <p className="text-xs opacity-60 mt-[-4px]">shopping cart</p>
-         </nav>
-         {/* <BasketModal
-            isOpen={isOpen}
-            toggleModal={toggleOpen}
-         /> */}
-      </>
+    // 計算購物車中的商品總數
+    const count = cartItems.reduce((sum, item) => sum + (item.qty || 0), 0);
 
-   );
+    const toggleOpen = () => setIsOpen(!isOpen);
+
+    return (
+        <nav onClick={toggleOpen} className="relative cursor-pointer">
+            <div className="relative">
+                {count > 0 && (
+                    <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-[#FAAA5D] text-white text-xs rounded-full w-5 h-5 flex items-center justify-center z-10">
+                        {count}
+                    </span>
+                )}
+                <CartIcon size={25} className="text-gray-800" />
+            </div>
+        </nav>
+    );
 }
 
 export default CartSummary;

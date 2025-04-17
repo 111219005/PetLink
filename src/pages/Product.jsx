@@ -2,6 +2,7 @@ import { useParams } from "react-router";
 import dogData from "../json/dog.json";
 import catData from "../json/cat.json";
 import PetDetail from "../components/PetDetail/PetDetail.jsx"
+import Footer from "../components/Footer/Footer.jsx";
 
 export default function Product() {
   const { productSpecies, productId } = useParams();

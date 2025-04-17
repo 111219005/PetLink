@@ -1,8 +1,8 @@
 import { Link } from "react-router";
 import { useState } from "react";
 import HamMenu from "./HamMenu";
-import CartIcon from "./CartIcon";
 import ModeIcon from "./ModeIcon";
+import CartSummary from "./CartSummary";
 
 const NavBarContent = ({ isMobile = false }) => (
     <div
@@ -19,7 +19,7 @@ const NavBarContent = ({ isMobile = false }) => (
             {!isMobile && <Link to="/"><ModeIcon size={25} /></Link>}
             <Link to="/" className="hover:text-[#7392B9] text-[20px]">登入</Link>
             <Link to="/" className="hover:text-[#7392B9] text-[20px]">註冊</Link>
-            <Link to="/"><CartIcon size={25}/></Link>
+            <CartSummary />
             {isMobile && <Link to="/"><ModeIcon size={25} /></Link>}
         </div>
     </div>
