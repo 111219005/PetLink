@@ -1,6 +1,5 @@
 /*basic*/
 html{
-    background-color: #FFF7D8; 
     box-sizing: border-box;
   }
   *,*:before,*:after{
@@ -43,7 +42,10 @@ html{
   .content{
     padding-top: 0px;
     padding-bottom: 0px;
+    margin-top: 0px;
   }
   .bg{
     width: 100%;
+    height: 100%;
+
   }
