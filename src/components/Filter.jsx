@@ -31,71 +31,74 @@ export default function Filter({ gender, size, ageRange, setGender, setSize, set
     }, []);
 
     return (
-        <div className="relative w-full">
-            {/* Filter Icon for Mobile */}
-            <button
-                className="absolute right-4 top-2 flex items-center justify-center bg-[#7392B9] text-white rounded-full w-10 h-10 md:hidden"
-                onClick={() => setIsFilterOpen(!isFilterOpen)}
-            >
-                {/* 篩選圖標或文字 */}
-                <img src="/img/filter.png"/>
-            </button>
-
-            {/* Filter Content */}
-            <div
-                className={`filter w-full md:block transition-all duration-300 ${
-                    isFilterOpen ? "max-h-screen opacity-100" : "max-h-0 overflow-hidden opacity-0"
-                }`}
-            >
-                <h3 className="mt-5">條件篩選</h3>
-
-                {/* 性別篩選 */}
-                <div className="flex gap-4 my-2 justify-start items-center">
-                    <h3>性別</h3>
-                    {genders.map((item) => (
-                        <button
-                            key={item}
-                            className={`rounded-lg py-1 px-2 ${
-                                gender.includes(item) ? "bg-[#7392B9] text-white" : "bg-[#9AA57C] text-white"
-                            }`}
-                            onClick={() => toggleSelection(gender, item, setGender)}
-                        >
-                            {item}
-                        </button>
-                    ))}
+        <div className="w-full flex flex-col items-center">
+            <div className="relative w-[95%] xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">
+                {/* Filter Icon for Mobile */}
+                <div className="h-10">
+                    <button
+                        className="absolute right-2 top-2 flex items-center justify-center text-white rounded-full w-10 h-10 md:hidden"
+                        onClick={() => setIsFilterOpen(!isFilterOpen)}
+                    >
+                        {/* 篩選圖標或文字 */}
+                        <img src="/img/filter.png" />
+                    </button>
                 </div>
 
-                {/* 體型篩選 */}
-                <div className="flex gap-4 my-2 justify-start items-center">
-                    <h3>體型</h3>
-                    {sizes.map((item) => (
-                        <button
-                            key={item}
-                            className={`rounded-lg py-1 px-2 ${
-                                size.includes(item) ? "bg-[#7392B9] text-white" : "bg-[#9AA57C] text-white"
-                            }`}
-                            onClick={() => toggleSelection(size, item, setSize)}
-                        >
-                            {item}
-                        </button>
-                    ))}
+                {/* Filter Content */}
+                <div
+                    className={`filter w-full transition-all duration-300 ${isFilterOpen ? "max-h-screen opacity-100" : "max-h-0 overflow-hidden opacity-0"} md:max-h-none md:opacity-100 md:block`}
+                >
+                    <h3 className="mt-5">條件篩選</h3>
+
+                    {/* 性別篩選 */}
+                    <div className="flex flex-col md:flex-row gap-1 md:gap-4 my-2 justify-start items-start md:items-center">
+                        <h3 className="text-lg font-bold">性別</h3>
+                        <div className="flex gap-2">
+                            {genders.map((item) => (
+                                <button
+                                    key={item}
+                                    className={`text-[12px] md:text-base rounded-lg md:py-2 py-1 md:px-4 px-2 ${gender.includes(item) ? "bg-[#7392B9] text-white" : "bg-[#9AA57C] text-white"}`}
+                                    onClick={() => toggleSelection(gender, item, setGender)}
+                                >
+                                    {item}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* 體型篩選 */}
+                    <div className="flex flex-col md:flex-row gap-1 md:gap-4 my-2 justify-start items-start md:items-center">
+                        <h3 className="text-lg font-bold">體型</h3>
+                        <div className="flex gap-2">
+                            {sizes.map((item) => (
+                                <button
+                                    key={item}
+                                    className={`text-[12px] md:text-base rounded-lg md:py-2 py-1 md:px-4 px-2 ${size.includes(item) ? "bg-[#7392B9] text-white" : "bg-[#9AA57C] text-white"}`}
+                                    onClick={() => toggleSelection(size, item, setSize)}
+                                >
+                                    {item}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* 年齡篩選 */}
+                    <div className="flex flex-col md:flex-row gap-1 md:gap-4 my-2 justify-start items-start md:items-center">
+                        <h3 className="text-lg font-bold">年齡</h3>
+                        <div className="flex gap-2">
+                            {ageRanges.map((range) => (
+                                <button
+                                    key={range}
+                                    className={`text-[12px] md:text-base rounded-lg md:py-2 py-1 md:px-4 px-2 ${ageRange.includes(range) ? "bg-[#7392B9] text-white" : "bg-[#9AA57C] text-white"}`}
+                                    onClick={() => toggleSelection(ageRange, range, setAgeRange)}
+                                >
+                                    {range}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
                 </div>
 
-                {/* 年齡篩選 */}
-                <div className="flex gap-4 my-2 justify-start items-center">
-                    <h3>年齡</h3>
-                    {ageRanges.map((range) => (
-                        <button
-                            key={range}
-                            className={`rounded-lg py-1 px-2 ${
-                                ageRange.includes(range) ? "bg-[#7392B9] text-white" : "bg-[#9AA57C] text-white"
-                            }`}
-                            onClick={() => toggleSelection(ageRange, range, setAgeRange)}
-                        >
-                            {range}
-                        </button>
-                    ))}
-                </div>
             </div>
         </div>
     );

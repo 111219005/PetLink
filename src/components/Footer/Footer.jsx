@@ -3,7 +3,7 @@ import "./Footer.css"; // 假設有使用 CSS 樣式檔案
 
 export default function Footer() {
   return (
-    <div className="footer">
+    <div className="footer hidden md:block">
       <div className="footer-top">
         <div className="left">
           <h2>

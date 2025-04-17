@@ -9,7 +9,6 @@ h3{
     padding-top: 30px;
     padding-left: 92px;
     padding-right: 92px;
-    margin-top: 40px;
     position: relative;
     @media(max-width: 360px){
         height: 580px;
