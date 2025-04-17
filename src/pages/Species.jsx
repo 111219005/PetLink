@@ -86,6 +86,7 @@ export default function Species() {
                     <h2>無符合的資料！</h2>
                 </div>
             )}
+            <div className='h-10'></div>
             <Footer />
         </div>
     );
