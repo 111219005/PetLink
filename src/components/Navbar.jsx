@@ -15,8 +15,8 @@ const NavBarContent = ({ isMobile = false }) => (
             }`}
         >
             {!isMobile && <Link to="/"><img src="/img/moon.png" alt="dark mode" /></Link>}
-            <Link to="/">登入</Link>
-            <Link to="/">註冊</Link>
+            <Link to="/SignIn">登入</Link>
+            <Link to="/LogIn">註冊</Link>
             <Link to="/"><img src="/img/heart.png" alt="cart" /></Link>
             {isMobile && <Link to="/"><img src="/img/moon.png" alt="dark mode" /></Link>}
         </div>
