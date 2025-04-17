@@ -8,6 +8,8 @@ import Product from "./pages/Product";
 import Species from "./pages/Species";
 import ScrollToTop from "./components/ScrollToTop";
 import Intro from "./pages/Intro/Intro";
+import SignIn from "./pages/SignIn/SignIn";
+import LogIn from "./pages/LogIn/LogIn";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

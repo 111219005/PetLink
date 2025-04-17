@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './Intro.css'
 import Navbar from '../../components/Navbar'
 import { Link } from 'react-router';
+import Footer from "../../components/Footer/Footer.jsx"
 
 function Intro() {
   const [count, setCount] = useState(0)
@@ -76,7 +77,7 @@ function Intro() {
           <button className="home">前往認養！</button>
           </Link>
         </div>
-  
+        <Footer />
     </>
   )
 }
