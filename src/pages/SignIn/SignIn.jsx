@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import './SignIn.css'
 import { useNavigate } from 'react-router';
 export default function SignIn() {
@@ -22,7 +23,9 @@ export default function SignIn() {
                 </div>
                 <div className="function">
                     <h6 className="forget">忘記密碼？</h6>
-                    <h6 className="regist">註冊</h6>
+                    <Link to="/LogIn">
+                        <h6 className="regist">註冊</h6>
+                    </Link>
                 </div>
                 <div className="btn">
                     <button className="SignIn">登入</button>

@@ -11,7 +11,7 @@ html {
 
 body {
   margin: 0;
-  color: #333;
+  color: black;
 }
 
 /* 標題字體設定 */
@@ -227,12 +227,6 @@ body p  { font-size: 10px; }
     padding: 30px 20px 40px 20px;
     height: auto;
     border-radius: 20px;
-    background-color: transparent;
-  }
-
-  .name, .code {
-    padding: 10px 12px 6px 12px;
-    margin-bottom: 24px;
   }
 
   .area label {
@@ -263,10 +257,7 @@ body p  { font-size: 10px; }
     margin-top: -10px;
     margin-bottom: 30px;
   }
-  .area .forget,
-  .area .regist {
-    color: black;
-  }
+
 
   .divider {
     margin-top: 170px;
@@ -296,4 +287,98 @@ body p  { font-size: 10px; }
     left: 20px;
     font-size: 18px;
   }
+}
+[data-theme="lighr"]{
+  html{
+    background-color: #FFF7D8;
+  }
+  body{
+    color: black;
+  }
+  .back{
+    color: black;
+  }
+  .area{
+    background: #FAAA5DCC;
+  }
+  .area input{
+    border-bottom: 1px solid black;
+  }
+  .name, .code {
+    background-color: white;
+  }
+  .area label{
+    color: #00000099;
+  }
+  .area .forget,
+  .area .regist {
+  color: white;
+}
+.area .forget:hover,
+.area .regist:hover {
+  color: #7392B9;
+}
+.SignIn {
+  background-color: #9AA57C;
+  color: white;
+}
+.SignIn:hover {
+  background-color: white;
+  color: #9AA57C;
+}
+.divider .line {
+  background-color: white;
+}
+.divider span {
+  margin: 0 15px;
+  font-size: 14px;
+  color: white;
+}
+}
+[data-theme="dark"]{
+  html{
+    background-color: #D3B997;
+  }
+  body{
+    color: #2C1C1A;
+  }
+  .back{
+    color: #2C1C1A;
+  }
+  .area{
+    background: #98694ECC;
+  }
+  .area input{
+    border-bottom: 1px solid #D3B997;
+  }
+  .name, .code {
+    background-color: #572918;
+  }
+  .area label{
+    color: #BD9C8E;
+  }
+  .area .forget,
+  .area .regist {
+  color: #2C1C1A;
+}
+.area .forget:hover,
+.area .regist:hover {
+  color: white;
+}
+.SignIn {
+  background-color: #2C1C1A;
+  color: white;
+}
+.SignIn:hover {
+  background-color: white;
+  color: #2C1C1A;
+}
+.divider .line {
+  background-color: #572918;
+}
+.divider span {
+  margin: 0 15px;
+  font-size: 14px;
+  color: #572918;
+}
 }
