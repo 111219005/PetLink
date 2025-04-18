@@ -34,7 +34,7 @@ export default function Filter({ gender, size, ageRange, setGender, setSize, set
         <div className="w-full flex flex-col items-center">
             <div className="relative w-[95%] xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">
                 {/* Filter Icon for Mobile */}
-                <div className="h-7">
+                <div className="h-9">
                     <button
                         className="absolute right-2 top-2 flex items-center justify-center text-white rounded-full w-10 h-10 md:hidden"
                         onClick={() => setIsFilterOpen(!isFilterOpen)}
