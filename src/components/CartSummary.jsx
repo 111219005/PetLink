@@ -16,7 +16,7 @@ function CartSummary() {
         <nav onClick={toggleOpen} className="relative cursor-pointer">
             <div className="relative">
                 {count > 0 && (
-                    <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-[#FAAA5D] text-white text-xs rounded-full w-5 h-5 flex items-center justify-center z-10">
+                    <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 count-bg text-white text-xs rounded-full w-5 h-5 flex items-center justify-center z-10">
                         {count}
                     </span>
                 )}

@@ -9,6 +9,7 @@ const colorSlice = createSlice({
   reducers: {
     setColorMode: (state, action) => {
       state.lightMode = action.payload;
+      localStorage.setItem('theme', action.payload ? 'light' : 'dark'); // 存入 localStorage
     },
   },
 });

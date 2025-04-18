@@ -6,23 +6,25 @@ import HamMenu from "./HamMenu";
 import CartSummary from "./CartSummary";
 import SetColorMode from "./SetColorMode";
 
-const NavBarContent = ({ isMobile = false}) => (
+const NavBarContent = ({ isMobile = false, onToggleTheme }) => (
     <div
         className={`navbar ${
-            isMobile ? "flex flex-col gap-4 p-4 ms-15" : "grid md:grid-cols-2 px-30 py-2 bg-white"
-        } text-black w-full`}
+            isMobile ? "flex flex-col gap-4 p-4 ms-15" : "grid md:grid-cols-2 px-30 py-2"
+        } w-full ${
+            isMobile ? "bg-gray-800 text-white" : "bg-white text-black"
+        }`}
     >
-        <Link to="/" className="hover:text-[#7392B9] text-[20px]">首頁</Link>
+        <Link to="/" className="nav-h text-[20px]">首頁</Link>
         <div
             className={`${
                 isMobile ? "flex flex-col items-start gap-4" : "flex justify-end items-center gap-4"
             }`}
         >
-            {!isMobile && <SetColorMode />}
-            <Link to="/SignIn" className="hover:text-[#7392B9] text-[20px]">登入</Link>
-            <Link to="/LogIn" className="hover:text-[#7392B9] text-[20px]">註冊</Link>
+            {!isMobile && <SetColorMode onToggleTheme={onToggleTheme} />}
+            <Link to="/SignIn" className="nav-h text-[20px]">登入</Link>
+            <Link to="/LogIn" className="nav-h text-[20px]">註冊</Link>
             <CartSummary />
-            {isMobile && <SetColorMode />}
+            {isMobile && <SetColorMode onToggleTheme={onToggleTheme} />}
         </div>
     </div>
 );
@@ -35,17 +37,15 @@ export default function Navbar() {
     useEffect(() => {
         const savedTheme = localStorage.getItem("theme") || "light";
         const isLightMode = savedTheme === "light";
-        dispatch(setColorMode(isLightMode)); // 同步 Redux
+        dispatch(setColorMode(isLightMode));
         document.documentElement.setAttribute("data-theme", savedTheme);
     }, [dispatch]);
-    
-    localStorage.removeItem("theme");
 
     const toggleTheme = () => {
         const newTheme = lightMode ? "dark" : "light";
         document.documentElement.setAttribute("data-theme", newTheme);
         localStorage.setItem("theme", newTheme);
-        dispatch(setColorMode(!lightMode)); // 更新 Redux 狀態
+        dispatch(setColorMode(!lightMode));
     };
 
     return (

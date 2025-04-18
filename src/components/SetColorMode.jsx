@@ -13,7 +13,7 @@ export default function SetColorMode() {
             lightMode ? "dark" : "light"
         ); // 更新 HTML 標籤的 data-theme
     };
-    
+
     console.log("Current mode:", lightMode ? "Light" : "Dark");
 
     return (
@@ -25,7 +25,14 @@ export default function SetColorMode() {
                 {lightMode ? (
                     <ModeIcon size={25} /> // Dark Mode 圖示
                 ) : (
-                    <img src="/img/sun.svg" alt="light mode" /> // Light Mode 圖示
+                    <img
+                        src="/img/sun.svg"
+                        alt="light mode"
+                        className="transition duration-300"
+                        onMouseEnter={(e) => e.currentTarget.src = "/img/sun-dark.svg"}
+                        onMouseLeave={(e) => e.currentTarget.src = "/img/sun.svg"}
+                    />
+
                 )}
             </button>
         </div>

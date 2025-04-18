@@ -64,44 +64,31 @@ h3 {
   background-color: #7392B9 !important;
 }
 
-/* 自定义 Toast 容器样式 */
 .custom-toast {
   background-color: #f4f4f4;
-  /* 背景颜色 */
   border: 1px solid #7392B9;
-  /* 边框颜色 */
   border-radius: 8px;
-  /* 圆角 */
   color: #333;
-  /* 默认文字颜色 */
 }
 
-/* 自定义 Toast 文本样式 */
 .custom-toast-body {
   font-weight: bold;
   font-size: 16px;
   color: #7392B9;
-  /* 文本颜色 */
 }
 
-/* 自定义进度条样式 */
 .custom-toast-progress {
   background-color: #7392B9;
-  /* 进度条颜色 */
 }
 
-/* 覆盖默认的图标样式 */
 .Toastify__toast-icon svg {
   fill: #7392B9;
-  /* 图标填充颜色 */
   width: 24px;
-  /* 图标大小 */
   height: 24px;
 }
 
 .Toastify__progress-bar--wrp {
   background-color: #7392B950;
-  /* 进度条颜色 */
 }
 
 [data-theme="light"] {
@@ -143,6 +130,22 @@ h3 {
 
   .filter-h{
     background-color: #7392B9;
+  }
+
+  .navbar{
+    background-color: white;
+  }
+
+  .nav-h:hover{
+    color: #7392B9;
+  }
+
+  .cart-bg{
+    color: black;
+  }
+
+  .count-bg{
+    background-color: #FAAA5D;
   }
 }
 
@@ -195,6 +198,23 @@ h3 {
 
   .filter-h{
     background-color: #2C1C1A;
+  }
+
+  .navbar{
+    background-color: #572918;
+    color: white;
+  }
+
+  .nav-h:hover{
+    color: #FAAA5D;
+  }
+
+  .cart-bg{
+    color: white;
+  }
+
+  .count-bg{
+    background-color: #D3B997;
   }
 }
 

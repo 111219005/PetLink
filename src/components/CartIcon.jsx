@@ -1,6 +1,15 @@
+import { useSelector } from "react-redux";
+import { selectLightMode } from "../redux/colorSlice.js";
+
 export default function CartIcon({ size }) {
+    const lightMode = useSelector(selectLightMode); // 從 Redux 取得當前模式
+
     return (
-        <div className="text-black hover:text-[#7392B9] transition-colors duration-300">
+        <div
+            className={` ${
+                lightMode ? "text-black hover:text-[#7392B9]" : "text-white hover:text-[#FAAA5D]"
+            }`}
+        >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={size}

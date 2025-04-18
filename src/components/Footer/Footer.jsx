@@ -1,7 +1,10 @@
 import React from "react";
 import "./Footer.css"; // 假設有使用 CSS 樣式檔案
+import { useSelector } from "react-redux";
+import { selectLightMode } from "../../redux/colorSlice";
 
 export default function Footer() {
+  const lightMode = useSelector(selectLightMode);
   return (
     <div className="footer hidden md:block">
       <div className="footer-top">
@@ -116,7 +119,7 @@ export default function Footer() {
             className="footer-a"
           >
             <h6 data-zh="開發者支持" data-en="Developer support">
-            關於PetLink
+              關於PetLink
             </h6>
           </a>
           <a
@@ -126,7 +129,7 @@ export default function Footer() {
             className="footer-a"
           >
             <h6 data-zh="平臺問題回報" data-en="Platform issue report">
-            加入我們
+              加入我們
             </h6>
           </a>
           <a
@@ -136,7 +139,7 @@ export default function Footer() {
             className="footer-a"
           >
             <h6 data-zh="更多影音作品" data-en="More video content">
-            PetLink條款
+              PetLink條款
             </h6>
           </a>
           <a
@@ -146,7 +149,7 @@ export default function Footer() {
             className="footer-a"
           >
             <h6 data-zh="更多影音作品" data-en="More video content">
-            隱私權政策
+              隱私權政策
             </h6>
           </a>
           <a
@@ -156,7 +159,7 @@ export default function Footer() {
             className="footer-a"
           >
             <h6 data-zh="更多影音作品" data-en="More video content">
-            照顧者中心
+              照顧者中心
             </h6>
           </a>
           <a
@@ -166,50 +169,52 @@ export default function Footer() {
             className="footer-a"
           >
             <h6 data-zh="更多影音作品" data-en="More video content">
-            聯絡媒體
+              聯絡媒體
             </h6>
           </a>
         </div>
         <div className="right">
-          <h3>FOLLOW</h3>
-          <div className="grid grid-cols-3">
-          <a
-            href="https://www.instagram.com/tiatde/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer-a"
-          >
-            <img
-              src="/img/Instagram.png"
-              alt="Instagram"
-              className="instagram"
-            />
-          </a>
-          <a
-            href="https://www.facebook.com/profile.php?id=100004458227420"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer-a"
-          >
-            <img
-              src="/img/Facebook.png"
-              alt="Facebook"
-              className="facebook"
-            />
-          </a>
-          <a
-            href="https://www.youtube.com/@yijuchao5024"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer-a"
-          >
-            <img
-              src="/img/Threads.png"
-              alt="Youtube"
-              className="youtube"
-            />
-          </a>
-          </div>
+            <h3>FOLLOW</h3>
+            <div className="grid grid-cols-3">
+                <a
+                    href="https://www.instagram.com/tiatde/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-a"
+                >
+                    <img
+                        src={lightMode ? "/img/Instagram.png" : "/img/Instagram-dark.png"}
+                        alt="Instagram"
+                        className="instagram"
+                    />
+                </a>
+                <a
+                    href="https://www.facebook.com/profile.php?id=100004458227420"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-a"
+                >
+                    <img
+                        src={lightMode ? "/img/Facebook.png" : "/img/Facebook-dark.png"}
+                        alt="Facebook"
+                        className="facebook"
+                    />
+                </a>
+                <div className="relative left-1 top-1">
+                <a
+                    href="https://www.youtube.com/@yijuchao5024"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-a"
+                >
+                    <img
+                        src={lightMode ? "/img/Threads.png" : "/img/Threads-dark.png"}
+                        alt="Threads"
+                        className="Threads"
+                    />
+                </a>
+                </div>
+            </div>
         </div>
       </div>
       <div className="footer-bottom">
