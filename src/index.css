@@ -52,39 +52,10 @@ h3 {
   }
 }
 
-/* 進度條顏色 */
-.Toastify__progress-bar.progress-bar-custom {
-  background-color: #7392B9 !important;
-}
 
-/* 成功狀態下的圖示顏色 */
-.Toastify__toast--success .Toastify__icon {
-  color: #7392B9 !important;
-  /* 設置勾選圖示顏色 */
-  background-color: #7392B9 !important;
-}
-
-.custom-toast {
-  background-color: #f4f4f4;
-  border: 1px solid #7392B9;
-  border-radius: 8px;
-  color: #333;
-}
-
-.custom-toast-body {
-  font-weight: bold;
-  font-size: 16px;
-  color: #7392B9;
-}
 
 .custom-toast-progress {
   background-color: #7392B9;
-}
-
-.Toastify__toast-icon svg {
-  fill: #7392B9;
-  width: 24px;
-  height: 24px;
 }
 
 .Toastify__progress-bar--wrp {
@@ -92,6 +63,39 @@ h3 {
 }
 
 [data-theme="light"] {
+  .Toastify__progress-bar--bg{
+    background-color: #9AA57C;
+  }
+
+  .custom-toast-body {
+    font-weight: bold;
+    font-size: 16px;
+    color: #7392B9;
+  }
+
+  .Toastify__toast-icon svg {
+    fill: #7392B9;
+    width: 24px;
+    height: 24px;
+  }
+
+  .custom-toast {
+    background-color: #f4f4f4;
+    border: 1px solid #7392B9;
+    border-radius: 8px;
+    color: #333;
+  }
+
+  .Toastify__toast--success .Toastify__icon {
+    color: #7392B9 !important;
+    /* 設置勾選圖示顏色 */
+    background-color: #7392B9 !important;
+  }
+
+  .Toastify__progress-bar.progress-bar-custom {
+    background-color: #7392B9 !important;
+  }
+
   .header-bg{
     background-color: #9AA57C !important;
   }
@@ -173,6 +177,39 @@ h3 {
 }
 
 [data-theme="dark"] {
+  .Toastify__progress-bar--bg{
+    background-color: #98694E;
+  }
+
+  .custom-toast-body {
+    font-weight: bold;
+    font-size: 16px;
+    color: #98694E;
+  }
+  
+  .Toastify__toast-icon svg {
+    fill: #2C1C1A;
+    width: 24px;
+    height: 24px;
+  }
+
+  .custom-toast {
+    background-color: #98694E;
+    border: 1px solid #2C1C1A;
+    border-radius: 8px;
+    color: #000000;
+  }
+
+  .Toastify__toast--success .Toastify__icon {
+    color: #2C1C1A !important;
+    /* 設置勾選圖示顏色 */
+    background-color: #2C1C1A !important;
+  }
+
+  .Toastify__progress-bar.progress-bar-custom {
+    background-color: #2C1C1A !important;
+  }
+
   .header-bg{
     background-color: #98694E !important;
   }
