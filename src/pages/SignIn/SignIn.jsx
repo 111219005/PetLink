@@ -5,7 +5,7 @@ export default function SignIn() {
     const navigate = useNavigate();
     return (
         <>
-            <div className="content">
+            {/* <div className="content">
             <img className="bg" src="/img/nature.png" alt="背景圖片" />
             <div className="back" onClick={() => navigate(-1)} style={{ cursor: 'pointer' }}>
                 <img className="arrow" src="/img/arrow.png" alt="返回箭頭" />
@@ -50,7 +50,7 @@ export default function SignIn() {
                     </div>
                 </div>
             </form>
-        </div>
+        </div> */}
         </>
     )
 }
