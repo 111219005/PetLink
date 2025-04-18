@@ -1,5 +1,6 @@
 import { useParams } from "react-router";
 import { useState } from "react";
+import { Helmet } from 'react-helmet-async';
 import Navbar from "../components/Navbar.jsx";
 import dog from "../json/dog.json";
 import cat from "../json/cat.json";
@@ -10,6 +11,7 @@ import Footer from "../components/Footer/Footer.jsx"
 export default function Species() {
     const { productSpecies } = useParams();
     const data = productSpecies === "dog" ? dog : cat;
+    const title = "Species";
 
     // 篩選器狀態（改為數組）
     const [gender, setGender] = useState([]);
@@ -59,13 +61,16 @@ export default function Species() {
     });
 
     return (
-        <div className="bg-[#FFF7D8]">
+        <div className="home-bg">
+            <Helmet>
+                <title>{title}</title>
+            </Helmet>
             <Navbar />
             <div className="flex justify-center items-center">
                 <div className="filter mt-5">
-                <h1>
-                    {productSpecies === "dog" ? "狗" : "貓"}
-                </h1>
+                    <h1>
+                        {productSpecies === "dog" ? "狗" : "貓"}
+                    </h1>
                 </div>
             </div>
 
@@ -82,7 +87,7 @@ export default function Species() {
             {filteredData.length > 0 ? (
                 <ProductList products={filteredData} start={0} end={24} className="layout-content" />
             ) : (
-                <div className="h-90 mt-10 md:ms-17 lg:ms-26 xl:ms-30 flex justify-center bg-[#FFF7D8]">
+                <div className="h-90 mt-10 md:ms-17 lg:ms-26 xl:ms-30 flex justify-center home-bg">
                     <h2>無符合的資料！</h2>
                 </div>
             )}

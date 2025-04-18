@@ -1,48 +1,53 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-body{
+body {
   background-color: #FFF7D8;
 }
 
-h1{
+h1 {
   font-size: 30px;
   font-weight: 700;
 }
 
-h2{
+h2 {
   font-size: 20px;
   font-weight: 550;
 }
 
-h3{
+h3 {
   font-size: 15px;
   font-weight: 550;
 }
 
-.card_font{
+.card_font {
   font-size: 10px;
 }
 
 @media screen and (min-width: 1536px) {
-  .card_list{
+  .card_list {
     width: auto;
   }
-  .filter{
+
+  .filter {
     width: 1240px;
   }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1535px) {
-  .card_list{
+  .card_list {
     width: 961px;
   }
-  .filter{
+
+  .filter {
     width: 926px;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-  .filter{
+  .filter {
     width: 644px;
   }
 }
@@ -54,37 +59,171 @@ h3{
 
 /* 成功狀態下的圖示顏色 */
 .Toastify__toast--success .Toastify__icon {
-  color: #7392B9 !important; /* 設置勾選圖示顏色 */
+  color: #7392B9 !important;
+  /* 設置勾選圖示顏色 */
   background-color: #7392B9 !important;
 }
 
-/* 自定义 Toast 容器样式 */
 .custom-toast {
-  background-color: #f4f4f4; /* 背景颜色 */
-  border: 1px solid #7392B9; /* 边框颜色 */
-  border-radius: 8px; /* 圆角 */
-  color: #333; /* 默认文字颜色 */
+  background-color: #f4f4f4;
+  border: 1px solid #7392B9;
+  border-radius: 8px;
+  color: #333;
 }
 
-/* 自定义 Toast 文本样式 */
 .custom-toast-body {
   font-weight: bold;
   font-size: 16px;
-  color: #7392B9; /* 文本颜色 */
+  color: #7392B9;
 }
 
-/* 自定义进度条样式 */
 .custom-toast-progress {
-  background-color: #7392B9; /* 进度条颜色 */
+  background-color: #7392B9;
 }
 
-/* 覆盖默认的图标样式 */
 .Toastify__toast-icon svg {
-  fill: #7392B9; /* 图标填充颜色 */
-  width: 24px; /* 图标大小 */
+  fill: #7392B9;
+  width: 24px;
   height: 24px;
 }
 
-.Toastify__progress-bar--wrp{
-  background-color: #7392B950; /* 进度条颜色 */
+.Toastify__progress-bar--wrp {
+  background-color: #7392B950;
+}
+
+[data-theme="light"] {
+  .header-bg{
+    background-color: #9AA57C !important;
+  }
+
+  .header-lit{
+    background-color: #FFF7D8;
+  }
+
+  .header-btn{
+    background-color: #7392B9;
+  }
+  
+  .home-bg{
+    background-color: #FFF7D8;
+  }
+
+  .home-btn{
+    background-color: #7392B9;
+  }
+
+  .item-intro{
+    background-color: #FAAA5D;
+  }
+
+  .item-bg{
+    background-color: #FFFFFF;
+  }
+
+  .item-text{
+    color: black;
+  }
+
+  .filter-bg{
+    background-color: #9AA57C;
+  }
+
+  .filter-h{
+    background-color: #7392B9;
+  }
+
+  .navbar{
+    background-color: white;
+  }
+
+  .nav-h:hover{
+    color: #7392B9;
+  }
+
+  .cart-bg{
+    color: black;
+  }
+
+  .count-bg{
+    background-color: #FAAA5D;
+  }
+}
+
+@media (min-width: 640px) {
+  [data-theme="light"] .header-bg {
+    background-color: #9AA57C !important;
+  }
+
+  [data-theme="light"] .header-lit {
+    background-color: transparent; /* 或者其他顏色，確保不覆蓋 */
+  }
+}
+
+[data-theme="dark"] {
+  .header-bg{
+    background-color: #98694E !important;
+  }
+
+  .header-lit{
+    background-color: #D3B997;
+  }
+  
+  .header-btn{
+    background-color: #2C1C1A;
+  }
+
+  .home-bg{
+    background-color: #D3B997;
+  }
+
+  .home-btn{
+    background-color: #2C1C1A;
+  }
+
+  .item-intro{
+    background-color: #2C1C1A;
+  }
+
+  .item-bg{
+    background-color: #98694E;
+  }
+
+  .item-text{
+    color: white;
+  }
+
+  .filter-bg{
+    background-color: #572918;
+  }
+
+  .filter-h{
+    background-color: #2C1C1A;
+  }
+
+  .navbar{
+    background-color: #572918;
+    color: white;
+  }
+
+  .nav-h:hover{
+    color: #FAAA5D;
+  }
+
+  .cart-bg{
+    color: white;
+  }
+
+  .count-bg{
+    background-color: #D3B997;
+  }
+}
+
+@media (min-width: 640px) {
+  [data-theme="dark"] .header-bg {
+    background-color: #98694E !important;
+  }
+
+  [data-theme="dark"] .header-lit {
+    background-color: transparent; /* 或者其他顏色，確保不覆蓋 */
+  }
 }

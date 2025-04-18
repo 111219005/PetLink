@@ -34,7 +34,7 @@ export default function Filter({ gender, size, ageRange, setGender, setSize, set
         <div className="w-full flex flex-col items-center">
             <div className="relative w-[95%] xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">
                 {/* Filter Icon for Mobile */}
-                <div className="h-5">
+                <div className="h-10">
                     <button
                         className="absolute right-2 top-2 flex items-center justify-center text-white rounded-full w-10 h-10 md:hidden"
                         onClick={() => setIsFilterOpen(!isFilterOpen)}
@@ -57,7 +57,7 @@ export default function Filter({ gender, size, ageRange, setGender, setSize, set
                             {genders.map((item) => (
                                 <button
                                     key={item}
-                                    className={`text-[12px] md:text-base rounded-lg md:py-2 py-1 md:px-4 px-2 cursor-pointer hover:bg-[#7392B9] ${gender.includes(item) ? "bg-[#7392B9] text-white" : "bg-[#9AA57C] text-white"}`}
+                                    className={`text-[12px] md:text-base rounded-lg md:py-2 py-1 md:px-4 px-2 cursor-pointer hover:filter-h ${gender.includes(item) ? "filter-h text-white" : "filter-bg text-white"}`}
                                     onClick={() => toggleSelection(gender, item, setGender)}
                                 >
                                     {item}
@@ -73,7 +73,7 @@ export default function Filter({ gender, size, ageRange, setGender, setSize, set
                             {sizes.map((item) => (
                                 <button
                                     key={item}
-                                    className={`text-[12px] md:text-base rounded-lg md:py-2 py-1 md:px-4 px-2 cursor-pointer hover:bg-[#7392B9] ${size.includes(item) ? "bg-[#7392B9] text-white" : "bg-[#9AA57C] text-white"}`}
+                                    className={`text-[12px] md:text-base rounded-lg md:py-2 py-1 md:px-4 px-2 cursor-pointer hover:filter-h ${size.includes(item) ? "filter-h text-white" : "filter-bg text-white"}`}
                                     onClick={() => toggleSelection(size, item, setSize)}
                                 >
                                     {item}
@@ -89,7 +89,7 @@ export default function Filter({ gender, size, ageRange, setGender, setSize, set
                             {ageRanges.map((range) => (
                                 <button
                                     key={range}
-                                    className={`text-[12px] md:text-base rounded-lg md:py-2 py-1 md:px-4 px-2 cursor-pointer hover:bg-[#7392B9] ${ageRange.includes(range) ? "bg-[#7392B9] text-white" : "bg-[#9AA57C] text-white"}`}
+                                    className={`text-[12px] md:text-base rounded-lg md:py-2 py-1 md:px-4 px-2 cursor-pointer hover:filter-h ${ageRange.includes(range) ? "filter-h text-white" : "filter-bg text-white"}`}
                                     onClick={() => toggleSelection(ageRange, range, setAgeRange)}
                                 >
                                     {range}
