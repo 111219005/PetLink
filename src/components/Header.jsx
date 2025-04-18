@@ -3,7 +3,7 @@ import { Link } from "react-router";
 export default function Header() {
     return (
         <>
-            <div className="bg-[#9AA57C] w-full h-150 md:h-80 flex flex-col md:flex-row md:grid md:grid-cols-2 justify-center items-center gap-4 md:pr-10">
+            <div className="bg-primary w-full h-150 md:h-80 flex flex-col md:flex-row md:grid md:grid-cols-2 justify-center items-center gap-4 md:pr-10">
                 <img
                     src="img/cat.png"
                     className="relative w-140 h-80 mt-10 md:w-717px md:h-90 md:mt-2 col-span-1 z-10 top-15 sm:top-0"
