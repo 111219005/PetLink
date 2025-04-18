@@ -23,7 +23,7 @@ export default function Home() {
                 <ProductList products={dog} start={0} end={10} className="layout-content" />
                 <div className="flex justify-center items-center mb-10">
                     <Link to={`/dog`}>
-                        <button className="text-white home-btn py-2 px-4 mt-7 rounded-lg cursor-pointer hover:text-[#7392B9] hover:bg-white">查看更多</button>
+                        <button className="home-btn py-2 px-4 mt-7 rounded-lg cursor-pointer">查看更多</button>
                     </Link>
                 </div>
             </div>
@@ -33,7 +33,7 @@ export default function Home() {
                 <ProductList products={cat} start={0} end={10} className="layout-content" />
                 <div className="flex justify-center items-center">
                     <Link to={`/cat`} >
-                        <button className="text-white home-btn py-2 px-4 mt-7 mb-10 rounded-lg cursor-pointer hover:text-[#7392B9] hover:bg-white">查看更多</button>
+                        <button className="home-btn py-2 px-4 mt-7 mb-10 rounded-lg cursor-pointer">查看更多</button>
                     </Link>
                 </div>
             </div>

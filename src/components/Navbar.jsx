@@ -9,15 +9,15 @@ import SetColorMode from "./SetColorMode";
 const NavBarContent = ({ isMobile = false, onToggleTheme }) => (
     <div
         className={`navbar ${
-            isMobile ? "flex flex-col gap-4 p-4 ms-15" : "grid md:grid-cols-2 px-30 py-2"
+            isMobile ? "flex flex-col gap-4 p-4 ms-15 max-w-[50%]" : "grid md:grid-cols-2 px-30 py-2"
         } w-full ${
             isMobile ? "bg-gray-800 text-white" : "bg-white text-black"
         }`}
     >
-        <Link to="/" className="nav-h text-[20px]">首頁</Link>
+        <Link to="/" className="nav-h text-[20px] w-[40px]">首頁</Link>
         <div
             className={`${
-                isMobile ? "flex flex-col items-start gap-4" : "flex justify-end items-center gap-4"
+                isMobile ? "flex flex-col items-start gap-4 w-full" : "flex justify-end items-center gap-4"
             }`}
         >
             {!isMobile && <SetColorMode onToggleTheme={onToggleTheme} />}
@@ -56,7 +56,7 @@ export default function Navbar() {
             </div>
 
             {/* 手機導覽列 */}
-            <div className="md:hidden">
+            <div className="md:hidden !navbar">
                 <HamMenu
                     className="absolute top-4 left-4 z-50"
                     onClick={() => setIsOpen(!isOpen)}
@@ -64,10 +64,10 @@ export default function Navbar() {
                 />
                 <div
                     className={`fixed top-0 left-0 z-40 h-full w-64 bg-white p-4 transform transition-transform duration-300 ${
-                        isOpen ? "translate-x-0" : "-translate-x-full"
+                        isOpen ? "translate-x-0 navbar" : "-translate-x-full navbar"
                     }`}
                 >
-                    <h2 className="text-gray-800 text-xl font-bold mt-15 ms-10">Menu</h2>
+                    <h2 className="text-xl font-bold mt-15 ms-10">Menu</h2>
                     <NavBarContent isMobile onToggleTheme={toggleTheme} />
                 </div>
                 {isOpen && (

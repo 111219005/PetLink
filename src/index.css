@@ -102,6 +102,12 @@ h3 {
 
   .header-btn{
     background-color: #7392B9;
+    color: white;
+  }
+
+  .header-btn:hover{
+    background-color: white;
+    color: #7392B9;
   }
   
   .home-bg{
@@ -110,6 +116,12 @@ h3 {
 
   .home-btn{
     background-color: #7392B9;
+    color: white;
+  }
+
+  .home-btn:hover{
+    background-color: white;
+    color: #7392B9;
   }
 
   .item-intro{
@@ -133,7 +145,8 @@ h3 {
   }
 
   .navbar{
-    background-color: white;
+    background-color: white !important;
+    color: black;
   }
 
   .nav-h:hover{
@@ -178,6 +191,12 @@ h3 {
 
   .home-btn{
     background-color: #2C1C1A;
+    color: white;
+  }
+
+  .home-btn:hover{
+    background-color: white;
+    color: #2C1C1A;
   }
 
   .item-intro{
@@ -201,7 +220,7 @@ h3 {
   }
 
   .navbar{
-    background-color: #572918;
+    background-color: #572918 !important;
     color: white;
   }
 
