@@ -7,16 +7,14 @@ export default function SetColorMode() {
     const dispatch = useDispatch();
 
     const toggleColor = () => {
-        const isLightMode = lightMode;
-        dispatch(setColorMode(!isLightMode));
-
-        // 使用 DaisyUI 的 `data-theme` 切換主題
-        if (isLightMode) {
-            document.documentElement.setAttribute("data-theme", "dark");
-        } else {
-            document.documentElement.setAttribute("data-theme", "light");
-        }
+        dispatch(setColorMode(!lightMode)); // 更新 Redux 狀態
+        document.documentElement.setAttribute(
+            "data-theme",
+            lightMode ? "dark" : "light"
+        ); // 更新 HTML 標籤的 data-theme
     };
+    
+    console.log("Current mode:", lightMode ? "Light" : "Dark");
 
     return (
         <div className="flex justify-center items-center">

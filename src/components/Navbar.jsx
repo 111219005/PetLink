@@ -1,10 +1,12 @@
 import { Link } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
+import { selectLightMode, setColorMode } from "../redux/colorSlice";
 import { useEffect, useState } from "react";
 import HamMenu from "./HamMenu";
 import CartSummary from "./CartSummary";
 import SetColorMode from "./SetColorMode";
 
-const NavBarContent = ({ isMobile = false, onToggleTheme }) => (
+const NavBarContent = ({ isMobile = false}) => (
     <div
         className={`navbar ${
             isMobile ? "flex flex-col gap-4 p-4 ms-15" : "grid md:grid-cols-2 px-30 py-2 bg-white"
@@ -27,25 +29,29 @@ const NavBarContent = ({ isMobile = false, onToggleTheme }) => (
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
-    const [theme, setTheme] = useState("light");
+    const lightMode = useSelector(selectLightMode);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const savedTheme = localStorage.getItem("theme") || "light";
-        setTheme(savedTheme);
+        const isLightMode = savedTheme === "light";
+        dispatch(setColorMode(isLightMode)); // 同步 Redux
         document.documentElement.setAttribute("data-theme", savedTheme);
-    }, []);
+    }, [dispatch]);
+    
+    localStorage.removeItem("theme");
 
     const toggleTheme = () => {
-        const newTheme = theme === "light" ? "dark" : "light";
+        const newTheme = lightMode ? "dark" : "light";
         document.documentElement.setAttribute("data-theme", newTheme);
         localStorage.setItem("theme", newTheme);
-        setTheme(newTheme);
+        dispatch(setColorMode(!lightMode)); // 更新 Redux 狀態
     };
 
     return (
         <>
             {/* 桌面導覽列 */}
-            <div className="hidden md:flex justify-around">
+            <div className="hidden md:flex justify-around bg-blue">
                 <NavBarContent onToggleTheme={toggleTheme} />
             </div>
 

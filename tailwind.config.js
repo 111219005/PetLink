@@ -2,8 +2,9 @@ const { join } = require("path");
 const { extend } = require("lodash");
 
 module.exports = {
+  important: true,
     content: [
-        './src/**/*.{js,jsx,ts,tsx}',
+        './src/**/*.{js,jsx,ts,tsx,html}',
         './index.html',
     ],
     theme: {
