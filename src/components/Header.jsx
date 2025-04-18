@@ -19,7 +19,7 @@ export default function Header() {
                         <p className="!text-base">你出資助；我來照顧，讓愛不缺席！</p>
                         <p className="!text-base">遠端領養毛孩，定期關注牠的可愛日常。</p>
                         <Link to="/introduction">
-                            <button className="header-btn text-white flex justify-center items-center py-2 px-4 my-4 rounded-lg cursor-pointer hover:text-[#7392B9] hover:bg-white">
+                            <button className="header-btn text-white flex justify-center items-center py-2 px-4 my-4 rounded-lg cursor-pointer">
                                 查看更多
                             </button>
                         </Link>
