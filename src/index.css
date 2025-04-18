@@ -217,6 +217,12 @@ h3 {
   
   .header-btn{
     background-color: #2C1C1A;
+    color: white;
+  }
+
+  .header-btn:hover{
+    background-color: white;
+    color: #2C1C1A;
   }
 
   .home-bg{
