@@ -1,11 +1,9 @@
-import { useState } from 'react'
 import './PetDetail.css'
 import Navbar from '../../components/Navbar'
 import AddToBasket from '../AddToBasket'
 import Footer from '../../components/Footer/Footer.jsx'
 
 function ProductDetail({ product }) {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -60,8 +58,9 @@ function ProductDetail({ product }) {
           <div className="detail-comment-c">{product.comment}</div>
         </div>
       </div>
-      <Footer />
+    <Footer/>
     </>
+    
   )
 }
 
