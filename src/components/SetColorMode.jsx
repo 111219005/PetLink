@@ -20,7 +20,7 @@ export default function SetColorMode() {
         <div className="flex justify-center items-center">
             <button
                 onClick={toggleColor}
-                className="text-black hover:text-[#7392B9] transition-colors duration-300"
+                className="text-black hover:text-[#7392B9] transition-colors duration-300 cursor-pointer"
             >
                 {lightMode ? (
                     <ModeIcon size={25} /> // Dark Mode 圖示
