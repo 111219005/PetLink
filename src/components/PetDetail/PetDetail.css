@@ -87,7 +87,7 @@ html{
   }
   .detail-img-img{
     width: 100%;
-    height: 500px;
+    height: 534px;
     object-fit: cover;
     @media(max-width: 768px){
       height: 440px;
@@ -129,7 +129,7 @@ html{
     background-color: white;
     text-align: center;
     border-radius: 5px;
-    margin-bottom: 22px;
+    margin-bottom: 25px;
     height: 25px;
     font-size: 18px;
     @media(max-width: 768px){
@@ -141,16 +141,14 @@ html{
     grid-template-columns: auto auto auto auto;
     gap: 20.5px 8%;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 30px;
     @media(max-width: 768px){
       margin-bottom: 25px;
     }
   }
   .label {
-    background-color: #f8b46a;
-    color: white;
-    border-radius: 3px;
-    text-align: center;
+    font-weight: bold;
+    color: black;
     @media(max-width: 768px){
       font-size: 15px;
     }
@@ -257,7 +255,6 @@ html{
       color: black;
     }
     .label{
-      background-color: #FAAA5D;
       color: black;
     }
     .value{
@@ -288,6 +285,8 @@ html{
     }
     .detail-comment-c{
       color: black;
+      line-height: 170%;
+      letter-spacing: 0.5px;
     }
   }
   [data-theme="dark"]{
@@ -303,8 +302,7 @@ html{
       color: #2C1C1A;
     }
     .label{
-      background-color: #2C1C1A;
-      color: #BD9C8E;
+      color: #000000;
     }
     .value{
       color: #000000;
