@@ -23,29 +23,21 @@ body h5 { font-size: 13px; }
 body h6 { font-size: 12px; }
 body p  { font-size: 10px; }
 
-@media(max-width: 768px) {
-  body h1 { font-size: 20px; }
-  body h3 { font-size: 12px; }
-  body h4 { font-size: 10px; }
-}
-
 /* 整體畫面區域 */
 .content {
-  padding: 0;
-  margin: 0;
-  position: relative;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  height: auto;
+  position: relative;
   overflow: hidden;
 }
 
 /* 背景圖片 */
 .bg {
-  position: absolute;
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
   object-fit: cover;
   z-index: 0;
   opacity: 0.9;
@@ -63,24 +55,7 @@ body p  { font-size: 10px; }
   z-index: 2;
   cursor: pointer;
 }
-
 /* 登入表單 */
-.area {
-  position: absolute;
-  top: 29px;
-  left: 158px;
-  width: 100%;
-  max-width: 500px;
-  min-height: 600px;
-  height: auto;
-  background: #FAAA5DCC;
-  border-radius: 30px;
-  padding-top: 41px;
-  padding-left: 33px;
-  padding-right: 33px;
-  padding-bottom: 45px;
-  z-index: 1;
-}
 
 .name{
   margin-bottom: 24px;
@@ -154,8 +129,13 @@ body p  { font-size: 10px; }
 }
 
 /* 登入按鈕 */
-.btn{
+.btn1{
   text-align: center;
+  margin-top: 34px;
+  margin-bottom: 108px;
+  @media(max-width:768px){
+    text-align: center;
+  }
 }
 .SignIn {
   width: 100%;
@@ -167,7 +147,6 @@ body p  { font-size: 10px; }
   font-size: 20px;
   font-weight: 600;
   cursor: pointer;
-  margin-top: 34px;
   transition: background-color 0.3s ease;
   width: 133px;
 }
@@ -178,11 +157,10 @@ body p  { font-size: 10px; }
 }
 
 /* 分隔線 */
-divider {
+.divider {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 30px 0 15px 0; /* 修改為較自然的上下間距 */
 }
 
 .divider .line {
@@ -198,98 +176,27 @@ divider {
 }
 
 /* 社群按鈕區塊 */
-.social-login {
-  margin-top: 30px; /* 統一由這裡控制間距，不用靠 divider 本身的 margin */
-}
 
-.social-buttons {
+.socialbuttons {
   display: flex;
   justify-content: center;
   gap: 53px;
+  @media(max-width:410px){
+    gap: 10px;
+  }
 }
 
 .social-button img {
   width: 50px;
   height: 50px;
-  object-fit: cover;
   transition: transform 0.2s ease;
 }
 
 .social-button img:hover {
   transform: scale(1.1);
 }
-/*響應式*/
-@media (max-width: 768px) {
-  .area {
-    width: 85%;
-    top: 60px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 30px 20px 40px 20px;
-    height: auto;
-    border-radius: 20px;
-  }
 
-  .area label {
-    font-size: 14px;
-  }
-
-  .area input {
-    font-size: 18px;
-  }
-
-  .eye {
-    right: 12px;
-    bottom: 12px;
-    width: 25px;
-    height: 18px;
-  }
-
-  .SignIn {
-    width: 100%;
-    font-size: 18px;
-    padding: 10px 0;
-    margin-top: 20px;
-    margin-left: 50%;
-  }
-
-  .function {
-    font-size: 13px;
-    margin-top: -10px;
-    margin-bottom: 30px;
-  }
-
-
-  .divider {
-    margin-top: 170px;
-    margin-bottom: 15px;
-  }
-
-  .divider .line {
-    width: 40%;
-  }
-
-  .divider span {
-    font-size: 13px;
-    margin: 0 8px;
-  }
-
-  .social-buttons {
-    gap: 24px;
-  }
-
-  .social-button img {
-    width: 32px;
-    height: 32px;
-  }
-
-  .back {
-    top: 20px;
-    left: 20px;
-    font-size: 18px;
-  }
-}
-[data-theme="lighr"]{
+[data-theme="light"]{
   html{
     background-color: #FFF7D8;
   }
@@ -300,7 +207,7 @@ divider {
     color: black;
   }
   .area{
-    background: #FAAA5DCC;
+    background: #000000;
   }
   .area input{
     border-bottom: 1px solid black;

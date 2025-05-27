@@ -1,4 +1,4 @@
-/* 基本設置 */
+基本設置
 html {
     box-sizing: border-box;
     background-color: #FFF7D8;
@@ -23,15 +23,8 @@ html {
   body h6 { font-size: 12px; }
   body p  { font-size: 10px; }
   
-  @media(max-width: 768px) {
-    body h1 { font-size: 20px; }
-    body h3 { font-size: 12px; }
-    body h4 { font-size: 10px; }
-  }
-  
   /* 整體畫面區域 */
   .content {
-    padding: 0;
     margin: 0;
     position: relative;
     min-height: 100vh;
@@ -42,15 +35,16 @@ html {
   
   /* 背景圖片 */
   .bg {
-    position: absolute;
+    position: fixed; 
     top: 0;
-    left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     z-index: 0;
     opacity: 0.9;
-  }
+}
   
   /* 返回箭頭與登入標題 */
   .back {
@@ -64,15 +58,13 @@ html {
     z-index: 2;
     cursor: pointer;
   }
-  
   /* 登入表單 */
   .area {
-    position: absolute;
-    top: 29px;
-    left: 158px;
-    width: 100%;
-    max-width: 500px;
-    height: 90%;
+    position: relative;
+    margin-top: 25px;
+    margin-left: 158px;
+    margin-bottom: 25px;
+    width: 500px;
     background: #FAAA5DCC;
     border-radius: 30px;
     padding-top: 41px;
@@ -80,13 +72,21 @@ html {
     padding-right: 33px;
     padding-bottom: 45px;
     z-index: 1;
+    @media(max-width: 768px){
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 100px;
+    }
   }
   
   .name, .email, .code{
-    margin-bottom: 6px;
+    margin-bottom: 24px;
+    height: 51px;
   }
   .sure{
     margin-bottom: 13px;
+    height: 51px;
   }
   
   .area label {
@@ -137,7 +137,10 @@ html {
   /* 忘記密碼 / 註冊 */
   .function{
     display: flex;
-    justify-content: flex-end;
+    justify-content: end;
+    margin-top: 13px;
+    text-decoration: underline;
+    text-decoration-color: white;
   }
   .area .sign {
     font-size: 13px;
@@ -151,8 +154,12 @@ html {
   }
   
   /* 登入按鈕 */
-  .btn{
+  .btn2{
     text-align: center;
+    margin-top: 117px;
+    @media(max-width: 768px){
+      text-align: center;
+    }
   }
   .LogIn {
     width: 100%;
@@ -164,7 +171,6 @@ html {
     font-size: 20px;
     font-weight: 600;
     cursor: pointer;
-    margin-top: 117px;
     transition: background-color 0.3s ease;
     width: 133px;
   }
@@ -208,90 +214,14 @@ html {
   .social-button img {
     width: 50px;
     height: 50px;
-    object-fit: cover;
     transition: transform 0.2s ease;
   }
   
   .social-button img:hover {
     transform: scale(1.1);
   }
-  /*響應式*/
-  @media (max-width: 768px) {
-    .area {
-      width: 85%;
-      top: 60px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 30px 20px 40px 20px;
-      min-height: 600px;
-      height: auto;
-      border-radius: 20px;
-    }
-  
-    .name, .code, .email, .sure {
-      padding: 10px 12px 6px 12px;
-      margin-bottom: 24px;
-    }
-  
-    .area label {
-      font-size: 14px;
-    }
-  
-    .area input {
-      font-size: 18px;
-    }
-  
-    .eye {
-      right: 12px;
-      bottom: 12px;
-      width: 25px;
-      height: 18px;
-    }
-  
-    .LogIn {
-      width: 100%;
-      font-size: 18px;
-      padding: 10px 0;
-      margin-top: 20px;
-      margin-left: 50%;
-    }
-  
-    .function {
-      font-size: 13px;
-      margin-top: -10px;
-      margin-bottom: 30px;
-    }
-  
-    .divider {
-      margin-top: 170px;
-      margin-bottom: 15px;
-    }
-  
-    .divider .line {
-      width: 40%;
-    }
-  
-    .divider span {
-      font-size: 13px;
-      margin: 0 8px;
-    }
-  
-    .social-buttons {
-      gap: 24px;
-    }
-  
-    .social-button img {
-      width: 32px;
-      height: 32px;
-    }
-  
-    .back {
-      top: 20px;
-      left: 20px;
-      font-size: 18px;
-    }
-  }
-  [data-theme="lighr"]{
+
+  [data-theme="light"]{
     html{
       background-color: #FFF7D8;
     }
@@ -309,9 +239,13 @@ html {
     }
     .name, .code, .email, .sure {
       background-color: white;
+      height: 51px;
     }
     .area label{
       color: #00000099;
+    }
+    .function{
+      text-decoration-color: #FFFFFF;
     }
     .area .sign {
     color: white;
@@ -357,6 +291,9 @@ html {
     }
     .area label{
       color: #BD9C8E;
+    }
+    .function{
+      text-decoration-color: #572918;
     }
     .area .sign {
     color: #2C1C1A;

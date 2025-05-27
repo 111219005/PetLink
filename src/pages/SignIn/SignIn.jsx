@@ -1,11 +1,11 @@
 import { Link } from 'react-router';
-import './SignIn.css'
+import './SIgnIn.css'
 import { useNavigate } from 'react-router';
 export default function SignIn() {
     const navigate = useNavigate();
     return (
         <>
-            {/* <div className="content">
+            <div className="content">
             <img className="bg" src="/img/nature.png" alt="背景圖片" />
             <div className="back" onClick={() => navigate(-1)} style={{ cursor: 'pointer' }}>
                 <img className="arrow" src="/img/arrow.png" alt="返回箭頭" />
@@ -27,17 +27,17 @@ export default function SignIn() {
                         <h6 className="regist">註冊</h6>
                     </Link>
                 </div>
-                <div className="btn">
+                <div className="btn1">
                     <button className="SignIn">登入</button>
                 </div>
-                <div className="social-login">
+                <div className="sociallogin">
                     <div className="divider">
                         <div className="line"></div>
                         <span>or</span>
                         <div className="line"></div>
                     </div>
 
-                    <div className="social-buttons">
+                    <div className="socialbuttons">
                         <a href="#" className="social-button">
                             <img src="/img/facebook-icon.png" alt="Facebook" />
                         </a>
@@ -50,7 +50,7 @@ export default function SignIn() {
                     </div>
                 </div>
             </form>
-        </div> */}
+        </div>
         </>
     )
 }
