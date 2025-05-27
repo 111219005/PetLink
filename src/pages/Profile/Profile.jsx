@@ -32,7 +32,7 @@ export default function Profile() {
                 </div>
                 <div className="area">
                     <div className="card-header">
-                        Profile
+                        個人資訊
                     </div>
                     <div className="card-body">
                     <div className="avatar-bg">
@@ -46,7 +46,7 @@ export default function Profile() {
                         <p className="user-name">{user?.displayName || "使用者"}</p>
                         <p className="user-email">{user?.email}</p>
                         <button type="button" className="btn signout-btn" onClick={handleSignOut}>
-                            Sign Out
+                            登出
                         </button>
                     </div>
                 </div>
