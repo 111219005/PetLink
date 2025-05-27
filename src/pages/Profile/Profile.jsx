@@ -38,7 +38,7 @@ export default function Profile() {
                     <div className="avatar-bg">
                         <img
                             className="avatar-img"
-                            src={`https://api.dicebear.com/7.x/pixel-art/svg?seed=${Math.floor(Math.random() * 10000)}`}
+                            src={`https://api.dicebear.com/7.x/lorelei/svg?seed=${Math.floor(Math.random() * 10000)}`}
                             alt="使用者大頭貼"
                         />
                     </div>
