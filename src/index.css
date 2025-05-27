@@ -49,7 +49,8 @@ h3 {
   }
 }
 
-
+@media screen and (max-width: 767px) {
+}
 
 .custom-toast-progress {
   background-color: #7392B9;
@@ -125,8 +126,18 @@ h3 {
     color: #7392B9;
   }
 
+  .category:hover{
+    color: #7392B9;
+  }
+
+  .categoryBar-mobile{
+    background-color: white;
+  }
+
   .item-intro{
-    background-color: #FAAA5D;
+    color: #FAAA5D;
+    background-color: white;
+    border: #FAAA5D 1px solid;
   }
 
   .item-bg{
@@ -160,6 +171,10 @@ h3 {
 
   .count-bg{
     background-color: #FAAA5D;
+  }
+
+  .cart-bg{
+    background-color: #FFF7D8;
   }
 }
 
@@ -239,8 +254,18 @@ h3 {
     color: #2C1C1A;
   }
 
+  .category:hover{
+    color: #572918;
+  }
+
+  .categoryBar-mobile{
+    background-color: #572918;
+  }
+
   .item-intro{
-    background-color: #2C1C1A;
+    color: black;
+    background-color: none;
+    border: #2C1C1A 1px solid;
   }
 
   .item-bg{
@@ -273,6 +298,10 @@ h3 {
   }
 
   .count-bg{
+    background-color: #D3B997;
+  }
+
+  .cart-bg{
     background-color: #D3B997;
   }
 }

@@ -57,7 +57,7 @@ export default function Navbar() {
             {/* 手機導覽列 */}
             <div className="md:hidden !navbar">
                 <HamMenu
-                    className="absolute top-4 left-4 z-50"
+                    className="absolute top-1 left-2 z-50"
                     onClick={() => setIsOpen(!isOpen)}
                     isOpen={isOpen}
                 />
