@@ -11,6 +11,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Intro from "./pages/Intro/Intro";
 import SignIn from "./pages/SignIn/SignIn";
 import LogIn from "./pages/LogIn/LogIn";
+import Cart from "./pages/Cart"
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -30,6 +31,7 @@ function App() {
                 <Route path=":productSpecies/:productId" element={<Product />} />
                 <Route path="SignIn" element={<SignIn />} />
                 <Route path="LogIn" element={<LogIn />} />
+                <Route path="cart" element={<Cart />} />
               </Routes>
             </BrowserRouter>
           </HelmetProvider>

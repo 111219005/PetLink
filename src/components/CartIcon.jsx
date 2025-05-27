@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { selectLightMode } from "../redux/colorSlice.js";
-
 export default function CartIcon({ size }) {
     const lightMode = useSelector(selectLightMode); // 從 Redux 取得當前模式
 
