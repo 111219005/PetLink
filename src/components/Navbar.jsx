@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import HamMenu from "./HamMenu";
 import CartSummary from "./CartSummary";
 import SetColorMode from "./SetColorMode";
+import UserInfo from "./UserInfo";
 
 const NavBarContent = ({ isMobile = false, onToggleTheme }) => (
     <div
@@ -21,7 +22,7 @@ const NavBarContent = ({ isMobile = false, onToggleTheme }) => (
             }`}
         >
             {!isMobile && <SetColorMode onToggleTheme={onToggleTheme} />}
-            <Link to="/SignIn" className="nav-h text-[20px]"><img src="/img/person.png" alt="Person" /></Link>
+            <Link to="/LogIn"> <UserInfo /></Link>
             <Link to="/cart"><CartSummary /></Link>
             {isMobile && <SetColorMode onToggleTheme={onToggleTheme} />}
         </div>
