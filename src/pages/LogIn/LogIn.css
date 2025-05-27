@@ -258,6 +258,7 @@ body p  { font-size: 10px; }
   }
   .area input{
     border-bottom: 1px solid #D3B997;
+    color: #D3B997
   }
   .name, .code {
     background-color: #572918;

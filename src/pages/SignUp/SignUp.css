@@ -285,6 +285,7 @@ html {
     }
     .area input{
       border-bottom: 1px solid #D3B997;
+      color: #D3B997;
     }
     .name, .code, .email, .sure {
       background-color: #572918;

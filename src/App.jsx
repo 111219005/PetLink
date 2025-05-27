@@ -14,6 +14,7 @@ import LogIn from "./pages/LogIn/LogIn";
 import Cart from "./pages/Cart"
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Profile from './pages/Profile/Profile';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
                 <Route path="SignUp" element={<SignUp />} />
                 <Route path="LogIn" element={<LogIn />} />
                 <Route path="cart" element={<Cart />} />
+                <Route path="Profile" element={<Profile />} />
               </Routes>
             </BrowserRouter>
           </HelmetProvider>
