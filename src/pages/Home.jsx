@@ -16,10 +16,11 @@ export default function Home() {
                 <title>{title}</title>
             </Helmet>
             <Navbar />
-            <Header />
             <Category />
+            <Header />
+            <div className="h-20"></div>
             <div id="dog_section" className="w-full flex flex-col items-center">
-                <h1 className="xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">狗</h1>
+                <h1 className="xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">DOGS 狗</h1>
                 <ProductList products={dog} start={0} end={10} className="layout-content" />
                 <div className="flex justify-center items-center mb-10">
                     <Link to={`/dog`}>
@@ -29,7 +30,7 @@ export default function Home() {
             </div>
 
             <div id="cat_section" className="w-full flex flex-col items-center">
-                <h1 className="xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">貓</h1>
+                <h1 className="xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">CATS 貓</h1>
                 <ProductList products={cat} start={0} end={10} className="layout-content" />
                 <div className="flex justify-center items-center">
                     <Link to={`/cat`} >

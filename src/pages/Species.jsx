@@ -11,7 +11,7 @@ import Footer from "../components/Footer/Footer.jsx"
 export default function Species() {
     const { productSpecies } = useParams();
     const data = productSpecies === "dog" ? dog : cat;
-    const title = "Species";
+    const title = productSpecies === "dog" ? "Dogs" : "Cats";
 
     // 篩選器狀態（改為數組）
     const [gender, setGender] = useState([]);
@@ -67,9 +67,9 @@ export default function Species() {
             </Helmet>
             <Navbar />
             <div className="flex justify-center items-center">
-                <div className="filter mt-5">
+                <div className="filter mt-10">
                     <h1>
-                        {productSpecies === "dog" ? "狗" : "貓"}
+                        {productSpecies === "dog" ? "DOGS 狗" : "CATS 貓"}
                     </h1>
                 </div>
             </div>
