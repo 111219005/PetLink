@@ -9,7 +9,7 @@ import Product from "./pages/Product";
 import Species from "./pages/Species";
 import ScrollToTop from "./components/ScrollToTop";
 import Intro from "./pages/Intro/Intro";
-import SignIn from "./pages/SignIn/SignIn";
+import SignUp from "./pages/SignUp/SignUp";
 import LogIn from "./pages/LogIn/LogIn";
 import Cart from "./pages/Cart"
 import { ToastContainer } from "react-toastify";
@@ -29,7 +29,7 @@ function App() {
                 <Route path="introduction" element={<Intro />} />
                 <Route path=":productSpecies" element={<Species />} />
                 <Route path=":productSpecies/:productId" element={<Product />} />
-                <Route path="SignIn" element={<SignIn />} />
+                <Route path="SignUp" element={<SignUp />} />
                 <Route path="LogIn" element={<LogIn />} />
                 <Route path="cart" element={<Cart />} />
               </Routes>

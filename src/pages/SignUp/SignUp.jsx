@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
-import './SignIn.css'
+import './SignUp.css'
 import { useNavigate } from 'react-router';
-export default function SignIn() {
+export default function SignUp() {
     const navigate = useNavigate();
     return (
         <>
@@ -9,7 +9,7 @@ export default function SignIn() {
                 <img className="bg" src="/img/nature.png" alt="背景圖片" />
                 <div className="back" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
                     <img className="arrow" src="/img/arrow.png" alt="返回箭頭" />
-                    <h2 className="SignIn-h">註冊</h2>
+                    <h2 className="SignUp-h">註冊</h2>
                 </div>
                 <form className="area">
                     <div className="name">
@@ -36,7 +36,7 @@ export default function SignIn() {
                         </Link>
                     </div>
                     <div className="btn2">
-                        <button className="SignIn">註冊</button>
+                        <button className="SignUp">註冊</button>
                     </div>
                 </form>
             </div>

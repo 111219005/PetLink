@@ -161,7 +161,7 @@ html {
       text-align: center;
     }
   }
-  .SignIn {
+  .SignUp {
     width: 100%;
     padding: 8px 40px;
     background-color: #7392B9;
@@ -175,7 +175,7 @@ html {
     width: 133px;
   }
   
-  .SignIn:hover {
+  .SignUp:hover {
     background-color: white;
     color: #7392B9;
   }
@@ -201,7 +201,7 @@ html {
   }
   
   /* 社群按鈕區塊 */
-  .social-Signin {
+  .social-SignUp {
     margin-top: 33vh;
   }
   
@@ -253,11 +253,11 @@ html {
   .area .sign:hover {
     color: #9AA57C;
   }
-  .SignIn {
+  .SignUp {
     background-color: #7392B9;
     color: white;
   }
-  .SignIn:hover {
+  .SignUp:hover {
     background-color: white;
     color: #7392B9;
   }
@@ -301,11 +301,11 @@ html {
   .area .sign:hover {
     color: white;
   }
-  .SignIn {
+  .SignUp {
     background-color: #2C1C1A;
     color: white;
   }
-  .SignIn:hover {
+  .SignUp:hover {
     background-color: white;
     color: #2C1C1A;
   }

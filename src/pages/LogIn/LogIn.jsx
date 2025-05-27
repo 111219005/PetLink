@@ -23,7 +23,7 @@ export default function LogIn() {
                 </div>
                 <div className="function">
                     <h6 className="forget">忘記密碼？</h6>
-                    <Link to="/SignIn">
+                    <Link to="/SignUp">
                         <h6 className="regist">註冊</h6>
                     </Link>
                 </div>
