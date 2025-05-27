@@ -21,9 +21,7 @@ const NavBarContent = ({ isMobile = false, onToggleTheme }) => (
             }`}
         >
             {!isMobile && <SetColorMode onToggleTheme={onToggleTheme} />}
-            <Link to="/SignIn" className="nav-h text-[20px]">登入</Link>
-            <Link to="/LogIn" className="nav-h text-[20px]">註冊</Link>
-            {/* person.png */}
+            <Link to="/SignIn" className="nav-h text-[20px]"><img src="/img/person.png" alt="Person" /></Link>
             <Link to="/cart"><CartSummary /></Link>
             {isMobile && <SetColorMode onToggleTheme={onToggleTheme} />}
         </div>
