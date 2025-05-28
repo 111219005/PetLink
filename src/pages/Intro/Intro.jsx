@@ -45,12 +45,12 @@ function Intro() {
           你出資助，我來照顧，一起給毛孩一個溫暖的家！
         </motion.h4>
         <motion.img
-        className="bigpic-img"
-        src="./img/bigpic.png"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-      />
+          className="bigpic-img"
+          src="./img/bigpic.png"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        />
       </div>
       <motion.div className="intro1" layout>
         <motion.h1 className="intro1-h" layout>我們在做什麼？</motion.h1>
