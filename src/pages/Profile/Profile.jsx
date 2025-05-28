@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router'; // 用 react-router-dom 的 useNavigate
 import '../Profile/Profile.css';
 import { useEffect, useState } from 'react';
+import { motion } from "framer-motion";
 
 export default function Profile() {
     const navigate = useNavigate();
@@ -25,16 +26,26 @@ export default function Profile() {
     };
 
     return (
-        <div className="content">
+        <motion.div
+            className="content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+        >
             <img className="bg" src="/img/nature.png" alt="背景圖片" />
             <div className="back" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
                 <img className="arrow" src="/img/arrow.png" alt="返回箭頭" />
+            </div>
+            <motion.div
+                className="area"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.3 }}
+            >
+                <div className="card-header">
+                    個人資訊
                 </div>
-                <div className="area">
-                    <div className="card-header">
-                        個人資訊
-                    </div>
-                    <div className="card-body">
+                <div className="card-body">
                     <div className="avatar-bg">
                         <img
                             className="avatar-img"
@@ -45,12 +56,20 @@ export default function Profile() {
                     <div className="user-info">
                         <p className="user-name">{user?.displayName || "使用者"}</p>
                         <p className="user-email">{user?.email}</p>
-                        <button type="button" className="btn signout-btn" onClick={handleSignOut}>
+                        <motion.button
+                            className="btn signout-btn"
+                            type="button"
+                            onClick={handleSignOut}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            transition={{ type: "spring", stiffness: 300 }}
+                        >
                             登出
-                        </button>
+                        </motion.button>
+
                     </div>
                 </div>
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     );
 }

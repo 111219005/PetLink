@@ -2,6 +2,7 @@ import { Link } from 'react-router';
 import './SignUp.css';
 import { useNavigate } from 'react-router';
 import { useState } from 'react';
+import { motion } from "framer-motion";
 
 export default function SignUp() {
     const navigate = useNavigate();
@@ -23,40 +24,58 @@ export default function SignUp() {
         }
 
         window.firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            return user.updateProfile({
-                displayName: username  // 把使用者名稱設定進去
-            }).then(() => {
-                return user.reload(); // 確保更新成功
-            }).then(() => {
-                console.log('註冊成功：', user);
-                alert('註冊成功！');
-                navigate('/');
+            .then((userCredential) => {
+                const user = userCredential.user;
+                return user.updateProfile({
+                    displayName: username  // 把使用者名稱設定進去
+                }).then(() => {
+                    return user.reload(); // 確保更新成功
+                }).then(() => {
+                    console.log('註冊成功：', user);
+                    alert('註冊成功！');
+                    navigate('/');
+                });
+            })
+            .catch((error) => {
+                console.error('註冊失敗：', error);
+                alert('註冊失敗：' + error.message);
             });
-        })
-        .catch((error) => {
-            console.error('註冊失敗：', error);
-            alert('註冊失敗：' + error.message);
-        });
     };
 
     return (
-        <div className="content">
+        <motion.div
+            className="content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+        >
             <img className="bg" src="/img/nature.png" alt="背景圖片" />
+
             <div className="back" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
                 <img className="arrow" src="/img/arrow.png" alt="返回箭頭" />
                 <h2 className="SignUp-h">註冊</h2>
             </div>
-            <form className="area" onSubmit={handleSignUp}>
+
+            <motion.form
+                className="area"
+                onSubmit={handleSignUp}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.3 }}
+            >
+                {/* 使用者名稱 */}
                 <div className="name">
                     <label htmlFor="name">使用者名稱</label>
                     <input type="text" id="name" value={username} onChange={(e) => setUsername(e.target.value)} required />
                 </div>
+
+                {/* 電子信箱 */}
                 <div className="email">
                     <label htmlFor="email">電子信箱</label>
                     <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 </div>
+
+                {/* 密碼 */}
                 <div className="code">
                     <label htmlFor="password">密碼</label>
                     <input
@@ -74,6 +93,8 @@ export default function SignUp() {
                         style={{ cursor: 'pointer' }}
                     />
                 </div>
+
+                {/* 確認密碼 */}
                 <div className="sure">
                     <label htmlFor="password2">確認密碼</label>
                     <input
@@ -91,15 +112,27 @@ export default function SignUp() {
                         style={{ cursor: 'pointer' }}
                     />
                 </div>
+
                 <div className="function">
                     <Link to="/LogIn">
                         <h6 className="sign">登入</h6>
                     </Link>
                 </div>
+
                 <div className="btn2">
-                    <button type="submit" className="SignUp">註冊</button>
+                    <motion.button
+            className="SignUp"
+            type="submit"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            註冊
+          </motion.button>
+
                 </div>
-            </form>
-        </div>
+            </motion.form>
+        </motion.div>
+
     );
 }
