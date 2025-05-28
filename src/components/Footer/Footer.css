@@ -1,7 +1,7 @@
 h3{
     font-size: 20px;
 }
-.footer{
+.footer-petlink{
     width: 100%;
     height: 304px;
     padding-top: 30px;
@@ -62,7 +62,7 @@ h3{
 }
 
 [data-theme="light"] {
-    .footer{
+    .footer-petlink{
         color: #00000070;
         background-color: white;
     }
@@ -73,7 +73,7 @@ h3{
 }
 
 [data-theme="dark"] {
-    .footer{
+    .footer-petlink{
         color: #FFFFFF70;
         background-color: black;
     }

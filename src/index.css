@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 body {
   background-color: #FFF7D8;
@@ -23,12 +24,37 @@ h3 {
   font-size: 10px;
 }
 
+.box {
+  position: relative;
+}
+
+.box-word {
+  display: none;
+}
+
+.box:hover>.box-word {
+  display: block;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  color: #fff;
+  font-size: .8em;
+  background: #474747;
+  padding: 5px;
+  border-radius: 5px;
+  white-space: nowrap;
+  /* 確保文字不會換行 */
+}
+
 @media screen and (min-width: 1536px) {
   .card_list {
     width: auto;
   }
 
-  .filter, .cart-title {
+  .filter,
+  .cart-title,
+  .modal-box,
+  .cart-item {
     width: 1240px;
   }
 }
@@ -38,19 +64,25 @@ h3 {
     width: 961px;
   }
 
-  .filter, .cart-title {
+  .filter,
+  .cart-title,
+  .modal-box,
+  .cart-item {
     width: 926px;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-  .filter, .cart-title {
+
+  .filter,
+  .cart-title,
+  .modal-box,
+  .cart-item {
     width: 644px;
   }
 }
 
-@media screen and (max-width: 767px) {
-}
+@media screen and (max-width: 767px) {}
 
 .custom-toast-progress {
   background-color: #7392B9;
@@ -61,7 +93,7 @@ h3 {
 }
 
 [data-theme="light"] {
-  .Toastify__progress-bar--bg{
+  .Toastify__progress-bar--bg {
     background-color: #9AA57C;
   }
 
@@ -94,87 +126,113 @@ h3 {
     background-color: #7392B9 !important;
   }
 
-  .header-bg{
+  .header-bg {
     background-color: #9AA57C !important;
   }
 
-  .header-lit{
+  .header-lit {
     background-color: #FFF7D8;
   }
 
-  .header-btn{
+  .header-btn {
     background-color: #7392B9;
     color: white;
   }
 
-  .header-btn:hover{
+  .header-btn:hover {
     background-color: white;
     color: #7392B9;
   }
-  
-  .home-bg{
+
+  .home-bg {
     background-color: #FFF7D8;
   }
 
-  .home-btn{
+  .home-btn {
     background-color: #7392B9;
     color: white;
   }
 
-  .home-btn:hover{
+  .home-btn:hover {
     background-color: white;
     color: #7392B9;
   }
 
-  .category:hover{
+  .category:hover {
     color: #7392B9;
   }
 
-  .categoryBar-mobile{
+  .categoryBar-mobile,
+  .donate {
     background-color: white;
   }
 
-  .item-intro{
+  .item-intro {
     color: #FAAA5D;
     background-color: white;
     border: #FAAA5D 1px solid;
   }
 
-  .item-bg{
+  .item-bg {
     background-color: #FFFFFF;
   }
 
-  .item-text{
+  .item-text {
     color: black;
   }
 
-  .filter-bg{
+  .filter-bg {
     background-color: #9AA57C;
   }
 
-  .filter-h{
+  .filter-h {
     background-color: #7392B9;
   }
 
-  .navbar{
+  .navbar-bg {
     background-color: white !important;
     color: black;
   }
 
-  .nav-h:hover{
+  .nav-h:hover {
     color: #7392B9;
   }
 
-  .cart-bg{
+  .cart-bg {
     color: black;
+    background-color: #FFF7D8;
   }
 
-  .count-bg{
+  .count-bg {
     background-color: #FAAA5D;
   }
 
-  .cart-bg{
-    background-color: #FFF7D8;
+  .cart-header {
+    background-color: white;
+  }
+
+  .checkbox-header,
+  .checkbox-item {
+    background-color: white;
+  }
+
+  .cart-label {
+    width: 76px;
+    color: white;
+    background-color: #FAAA5D;
+    border-radius: 10px;
+    padding: 0px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cart-item-no {
+    background-color: #FAAA5D29;
+  }
+
+  .cart-item-yes {
+    background-color: #FAAA5D;
   }
 }
 
@@ -184,12 +242,13 @@ h3 {
   }
 
   [data-theme="light"] .header-lit {
-    background-color: transparent; /* 或者其他顏色，確保不覆蓋 */
+    background-color: transparent;
+    /* 或者其他顏色，確保不覆蓋 */
   }
 }
 
 [data-theme="dark"] {
-  .Toastify__progress-bar--bg{
+  .Toastify__progress-bar--bg {
     background-color: #98694E;
   }
 
@@ -198,7 +257,7 @@ h3 {
     font-size: 16px;
     color: #98694E;
   }
-  
+
   .Toastify__toast-icon svg {
     fill: #2C1C1A;
     width: 24px;
@@ -222,87 +281,119 @@ h3 {
     background-color: #2C1C1A !important;
   }
 
-  .header-bg{
+  .header-bg {
     background-color: #98694E !important;
   }
 
-  .header-lit{
+  .header-lit {
     background-color: #D3B997;
   }
-  
-  .header-btn{
+
+  .header-btn {
     background-color: #2C1C1A;
     color: white;
   }
 
-  .header-btn:hover{
+  .header-btn:hover {
     background-color: white;
     color: #2C1C1A;
   }
 
-  .home-bg{
+  .home-bg {
     background-color: #D3B997;
   }
 
-  .home-btn{
+  .home-btn {
     background-color: #2C1C1A;
     color: white;
   }
 
-  .home-btn:hover{
+  .home-btn:hover {
     background-color: white;
     color: #2C1C1A;
   }
 
-  .category:hover{
+  .category:hover {
     color: #572918;
   }
 
-  .categoryBar-mobile{
+  .categoryBar-mobile,
+  .donate {
     background-color: #572918;
   }
 
-  .item-intro{
+  .donate {
+    color: white;
+  }
+
+  .item-intro {
     color: black;
     background-color: none;
     border: #2C1C1A 1px solid;
   }
 
-  .item-bg{
+  .item-bg {
     background-color: #98694E;
   }
 
-  .item-text{
+  .item-text {
     color: white;
   }
 
-  .filter-bg{
+  .filter-bg {
     background-color: #572918;
   }
 
-  .filter-h{
+  .filter-h {
     background-color: #2C1C1A;
   }
 
-  .navbar{
+  .navbar-bg {
     background-color: #572918 !important;
     color: white;
   }
 
-  .nav-h:hover{
+  .nav-h:hover {
     color: #FAAA5D;
   }
 
-  .cart-bg{
+  .cart-bg {
     color: white;
-  }
-
-  .count-bg{
     background-color: #D3B997;
   }
 
-  .cart-bg{
+  .count-bg {
     background-color: #D3B997;
+  }
+
+  .cart-header {
+    background-color: #2C1C1A;
+  }
+
+  .checkbox-header {
+    background-color: #D3B997;
+  }
+
+  .checkbox-item {
+    background-color: #572918;
+  }
+
+  .cart-label {
+    width: 76px;
+    color: black;
+    background-color: #D3B997;
+    border-radius: 10px;
+    padding: 0px 6px;
+  }
+
+  .cart-item-no {
+    background-color: #98694E29;
+    color: black;
+  }
+
+  .cart-item-yes {
+    background-color: #98694E;
+    color: white;
   }
 }
 
@@ -312,6 +403,7 @@ h3 {
   }
 
   [data-theme="dark"] .header-lit {
-    background-color: transparent; /* 或者其他顏色，確保不覆蓋 */
+    background-color: transparent;
+    /* 或者其他顏色，確保不覆蓋 */
   }
 }
