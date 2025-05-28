@@ -1,26 +1,28 @@
-import { useNavigate } from 'react-router'; // 用 react-router-dom 的 useNavigate
+import { useNavigate } from 'react-router';  // react-router-dom 才有 useNavigate
 import '../Profile/Profile.css';
 import { useEffect, useState } from 'react';
 import { motion } from "framer-motion";
+import { auth } from '../../api/firebaseConfig';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 export default function Profile() {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        const unsubscribe = firebase.auth().onAuthStateChanged((currentUser) => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser) {
                 setUser(currentUser);
             } else {
-                navigate('/login'); // 未登入導回登入頁
+                navigate('/login');
             }
         });
 
-        return () => unsubscribe(); // 清除監聽
+        return () => unsubscribe();
     }, [navigate]);
 
     const handleSignOut = () => {
-        firebase.auth().signOut().then(() => {
+        signOut(auth).then(() => {
             navigate('/login');
         });
     };
@@ -66,7 +68,6 @@ export default function Profile() {
                         >
                             登出
                         </motion.button>
-
                     </div>
                 </div>
             </motion.div>
