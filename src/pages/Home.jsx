@@ -7,9 +7,10 @@ import dog from "../json/dog.json";
 import cat from "../json/cat.json";
 import ProductList from "../components/ProductList.jsx";
 import Footer from "../components/Footer/Footer.jsx"
+import TopBar from "../components/TopBar.jsx";
 
 export default function Home() {
-    const title="Home"
+    const title="PetLink"
     return (
         <div className="home-bg">
             <Helmet>
@@ -17,6 +18,7 @@ export default function Home() {
             </Helmet>
             <Navbar />
             <Category />
+            <TopBar />
             <Header />
             <div className="h-20"></div>
             <div id="dog_section" className="w-full flex flex-col items-center">
