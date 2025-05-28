@@ -98,12 +98,28 @@ function ProductDetail({ product }) {
                 transition={{ delay: 0.5, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <AddToBasket className="btn btn-secondary" product={product} />
-                <motion.button whileTap={{ scale: 0.95 }} className="btn btn-primary">
+
+                <motion.div
+                  style={{ flex: 1 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <AddToBasket className="btn btn-secondary" product={product} style={{ width: "100%" }} />
+                </motion.div>
+
+                <motion.button
+                  className="btn btn-primary"
+                  style={{ flex: 1, width: "100%" }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                   直接認養
                 </motion.button>
               </motion.div>
             </motion.div>
+
           </div>
 
         </div>
@@ -128,10 +144,7 @@ function ProductDetail({ product }) {
 
           <motion.div
             className="detail-comment-c"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-            viewport={{ once: true }}
+
           >
             {product.comment}
           </motion.div>

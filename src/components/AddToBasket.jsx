@@ -25,7 +25,7 @@ export default function AddToBasket({ product, className }) {
     };
 
     return (
-        <button onClick={addToCart} className={className}>
+        <button onClick={addToCart} className={className} style={{ width: "100%" }}>
             加入收藏清單
         </button>
     );
