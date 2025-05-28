@@ -22,7 +22,7 @@ const NavBarContent = ({ isMobile = false, onToggleTheme }) => (
             }`}
         >
             {!isMobile && <SetColorMode onToggleTheme={onToggleTheme} />}
-            <Link to="/LogIn"> <UserInfo /></Link>
+            <UserInfo />
             <Link to="/cart"><CartSummary /></Link>
             {isMobile && <SetColorMode onToggleTheme={onToggleTheme} />}
         </div>
