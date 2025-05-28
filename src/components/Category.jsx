@@ -1,7 +1,6 @@
 export default function Category() {
     return (
         <>
-            {/* 電腦 */}
             <div className="w-full md:flex items-center h-[50px] px-30 categoryBar hidden">
                 <div className="absolute left-30">
                     <img className="items-start cursor-pointer" src="/img/PetLink.png" alt="PetLink" />
@@ -11,9 +10,6 @@ export default function Category() {
                     <a href="#cat_section"><h2 className="inline-block col-span-1 hover:scale-150 category flex justify-center items-center">貓</h2></a>
                 </div>
             </div>
-
-            {/* 手機 */}
-            <div className="md:hidden w-full h-[50px] categoryBar-mobile"></div>
         </>
     );
 }

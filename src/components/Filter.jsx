@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
-// import { FaFilter } from "react-icons/fa"; // 安裝 react-icons 使用篩選圖標
+import { useSelector } from "react-redux";
+import { selectLightMode } from "../redux/colorSlice";
 
 export default function Filter({ gender, size, ageRange, setGender, setSize, setAgeRange }) {
+    const lightMode = useSelector(selectLightMode);
+
     const [isFilterOpen, setIsFilterOpen] = useState(false); // 控制篩選區塊顯示/隱藏
 
     const ageRanges = ["一歲以下", "一歲至三歲", "三歲至七歲", "七歲以上"];
@@ -40,7 +43,7 @@ export default function Filter({ gender, size, ageRange, setGender, setSize, set
                         onClick={() => setIsFilterOpen(!isFilterOpen)}
                     >
                         {/* 篩選圖標或文字 */}
-                        <img src="/img/filter.png" />
+                        <img src={lightMode ? "/img/filter.png" : "/img/filter-dark.png"} />
                     </button>
                 </div>
 

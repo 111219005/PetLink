@@ -7,6 +7,7 @@ import cat from "../json/cat.json";
 import ProductList from "../components/ProductList.jsx";
 import Filter from "../components/Filter.jsx";
 import Footer from "../components/Footer/Footer.jsx"
+import TopBar from "../components/TopBar.jsx";
 
 export default function Species() {
     const { productSpecies } = useParams();
@@ -66,8 +67,9 @@ export default function Species() {
                 <title>{title}</title>
             </Helmet>
             <Navbar />
+            <TopBar />
             <div className="flex justify-center items-center">
-                <div className="filter mt-10">
+                <div className="filter mt-5">
                     <h1>
                         {productSpecies === "dog" ? "DOGS 狗" : "CATS 貓"}
                     </h1>
