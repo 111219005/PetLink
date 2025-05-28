@@ -105,7 +105,7 @@ function ProductDetail({ product }) {
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <AddToBasket className="btn btn-secondary" product={product} style={{ width: "100%" }} />
+                  <AddToBasket className="btn btn-secondary" product={product} style={{ width: "100%"}} />
                 </motion.div>
 
                 <motion.button

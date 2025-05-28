@@ -177,6 +177,7 @@ html{
   .btn-secondary {
     background-color: #7392B9;
     color: white;
+    box-shadow: none;
   }
   .btn-secondary:hover{
     background-color: white;
@@ -185,6 +186,7 @@ html{
   .btn-primary {
     background-color: #9AA57C;
     color: white;
+    box-shadow: none;
   }
   .btn-primary:hover{
     background-color: white;
