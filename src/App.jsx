@@ -15,6 +15,8 @@ import Cart from "./pages/Cart"
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Profile from './pages/Profile/Profile';
+import { feedProducts } from "./api/fireStore";
+//feedProducts();
 
 function App() {
   return (
