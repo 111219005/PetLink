@@ -114,6 +114,7 @@ body p  { font-size: 10px; }
   display: flex;
   justify-content: end;
 }
+
 .area .forget,
 .area .regist {
   justify-content: space-between;

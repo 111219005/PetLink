@@ -2,6 +2,7 @@ import { Link } from 'react-router';
 import './LogIn.css';
 import { useNavigate } from 'react-router';
 import { useEffect, useState } from 'react';
+import { motion } from "framer-motion";
 
 export default function LogIn() {
     const navigate = useNavigate();
@@ -24,34 +25,45 @@ export default function LogIn() {
     };
 
     return (
-        <div className="content">
+        <motion.div
+            className="content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+        >
             <img className="bg" src="/img/nature.png" alt="背景圖片" />
             <div className="back" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
                 <img className="arrow" src="/img/arrow.png" alt="返回箭頭" />
                 <h2 className="LogIn-h">登入</h2>
             </div>
-            <form className="area" onSubmit={handleLogin}>
+            <motion.form
+                className="area"
+                onSubmit={handleLogin}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.3 }}
+            >
                 <div className="name">
                     <label htmlFor="name">電子郵件</label>
                     <input type="email" id="name" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 </div>
                 <div className="code">
-                <label htmlFor="password">密碼：</label>
-                <input
-                    type={showPassword ? "text" : "password"}
-                    id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <img
-                    src="/img/eye.png"
-                    className="eye"
-                    alt={showPassword ? "隱藏密碼" : "顯示密碼"}
-                    onClick={() => setShowPassword(!showPassword)}
-                    style={{ cursor: "pointer" }}
-                />
-            </div>
+                    <label htmlFor="password">密碼：</label>
+                    <input
+                        type={showPassword ? "text" : "password"}
+                        id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    <img
+                        src="/img/eye.png"
+                        className="eye"
+                        alt={showPassword ? "隱藏密碼" : "顯示密碼"}
+                        onClick={() => setShowPassword(!showPassword)}
+                        style={{ cursor: "pointer" }}
+                    />
+                </div>
                 <div className="function">
                     <h6 className="forget">忘記密碼？</h6>
                     <Link to="/SignUp">
@@ -59,7 +71,16 @@ export default function LogIn() {
                     </Link>
                 </div>
                 <div className="btn1">
-                    <button type="submit" className="LogIn">登入</button>
+                    <motion.button
+                        className="LogIn"
+                        type="submit"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                    >
+                        登入
+                    </motion.button>
+
                 </div>
                 <div className="sociallogin">
                     <div className="divider">
@@ -79,7 +100,7 @@ export default function LogIn() {
                         </a>
                     </div>
                 </div>
-            </form>
-        </div>
+            </motion.form>
+        </motion.div>
     );
 }
