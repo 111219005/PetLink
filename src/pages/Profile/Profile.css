@@ -57,6 +57,7 @@
   cursor: pointer;
   font-weight: 600;
   transition: background-color 0.3s ease;
+  width: 133px;
 }
 
 .signout-btn:hover {

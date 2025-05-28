@@ -58,7 +58,6 @@ body p{
 .bigpic-c{
   margin-top: 0px;
   margin-top: 5px;
-  margin-bottom: 13px;
   @media(max-width: 768px){
     margin-top: 3px;
   }
