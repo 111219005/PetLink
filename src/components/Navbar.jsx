@@ -9,7 +9,7 @@ import UserInfo from "./UserInfo";
 
 const NavBarContent = ({ isMobile = false, onToggleTheme }) => (
     <div
-        className={`navbar ${
+        className={`navbar-bg ${
             isMobile ? "flex flex-col gap-4 p-4 ms-15 max-w-[50%]" : "grid md:grid-cols-2 px-30 py-2"
         } w-full ${
             isMobile ? "bg-gray-800 text-white" : "bg-white text-black"
@@ -23,7 +23,7 @@ const NavBarContent = ({ isMobile = false, onToggleTheme }) => (
         >
             {!isMobile && <SetColorMode onToggleTheme={onToggleTheme} />}
             <UserInfo />
-            <Link to="/cart"><CartSummary /></Link>
+            <Link to="/cart" className="box"><CartSummary /><div className="box-word">收藏</div></Link>
             {isMobile && <SetColorMode onToggleTheme={onToggleTheme} />}
         </div>
     </div>
@@ -56,7 +56,7 @@ export default function Navbar() {
             </div>
 
             {/* 手機導覽列 */}
-            <div className="md:hidden !navbar">
+            <div className="md:hidden !navbar-bg">
                 <HamMenu
                     className="absolute top-1 left-2 z-50"
                     onClick={() => setIsOpen(!isOpen)}
@@ -64,7 +64,7 @@ export default function Navbar() {
                 />
                 <div
                     className={`fixed top-0 left-0 z-40 h-full w-64 bg-white p-4 transform transition-transform duration-300 ${
-                        isOpen ? "translate-x-0 navbar" : "-translate-x-full navbar"
+                        isOpen ? "translate-x-0 navbar-bg" : "-translate-x-full navbar-bg"
                     }`}
                 >
                     <h2 className="text-xl font-bold mt-15 ms-10">Menu</h2>

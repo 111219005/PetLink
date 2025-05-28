@@ -6,7 +6,7 @@ import { selectLightMode } from "../../redux/colorSlice";
 export default function Footer() {
   const lightMode = useSelector(selectLightMode);
   return (
-    <div className="footer hidden md:block">
+    <div className="footer-petlink hidden md:block">
       <div className="footer-top">
         <div className="left">
           <h2>

@@ -17,7 +17,7 @@ export default function SetColorMode() {
     console.log("Current mode:", lightMode ? "Light" : "Dark");
 
     return (
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center box">
             <button
                 onClick={toggleColor}
                 className="text-black hover:text-[#7392B9] transition-colors duration-300 cursor-pointer"
@@ -35,6 +35,7 @@ export default function SetColorMode() {
 
                 )}
             </button>
+            <div className="box-word">{lightMode ? "深色模式" : "淺色模式"}</div>
         </div>
     );
 }
