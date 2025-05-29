@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import { Helmet } from 'react-helmet-async';
 import dogData from "../json/dog.json";
 import catData from "../json/cat.json";
-import PetDetail from "../components/PetDetail/PetDetail.jsx"
+import PetDetail from "../components/PetDetail/PetDetail"
 import Footer from "../components/Footer/Footer.jsx";
 
 export default function Product() {

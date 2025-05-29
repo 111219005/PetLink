@@ -1,22 +1,23 @@
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import './SignUp.css';
-import { useNavigate } from 'react-router';
 import { useState } from 'react';
 import { motion } from "framer-motion";
+import { auth } from '../../api/firebaseConfig';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
 export default function SignUp() {
     const [isHover, setIsHover] = useState(false);
     const navigate = useNavigate();
 
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    const [username, setUsername] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [confirmPassword, setConfirmPassword] = useState<string>('');
 
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
 
-    const handleSignUp = (e) => {
+    const handleSignUp = async (e: React.FormEvent) => {
         e.preventDefault();
 
         if (password !== confirmPassword) {
@@ -24,23 +25,23 @@ export default function SignUp() {
             return;
         }
 
-        window.firebase.auth().createUserWithEmailAndPassword(email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                return user.updateProfile({
-                    displayName: username  // 把使用者名稱設定進去
-                }).then(() => {
-                    return user.reload(); // 確保更新成功
-                }).then(() => {
-                    console.log('註冊成功：', user);
-                    alert('註冊成功！');
-                    navigate('/');
-                });
-            })
-            .catch((error) => {
-                console.error('註冊失敗：', error);
-                alert('註冊失敗：' + error.message);
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            await updateProfile(user, {
+                displayName: username,
             });
+
+            await user.reload();
+
+            console.log('註冊成功：', user);
+            alert('註冊成功！');
+            navigate('/');
+        } catch (error: any) {
+            console.error('註冊失敗：', error);
+            alert('註冊失敗：' + error.message);
+        }
     };
 
     return (
@@ -60,6 +61,7 @@ export default function SignUp() {
                     alt="返回箭頭" />
                 <h2 className="SignUp-h" style={{ color: isHover ? '#9a9590' : 'black' }}>註冊</h2>
             </div>
+
             <motion.form
                 className="area"
                 onSubmit={handleSignUp}
@@ -67,19 +69,28 @@ export default function SignUp() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.3 }}
             >
-                {/* 使用者名稱 */}
                 <div className="name">
                     <label htmlFor="name">使用者名稱</label>
-                    <input type="text" id="name" value={username} onChange={(e) => setUsername(e.target.value)} required />
+                    <input
+                        type="text"
+                        id="name"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
                 </div>
 
-                {/* 電子信箱 */}
                 <div className="email">
                     <label htmlFor="email">電子信箱</label>
-                    <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    <input
+                        type="email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
                 </div>
 
-                {/* 密碼 */}
                 <div className="code">
                     <label htmlFor="password">密碼</label>
                     <input
@@ -98,7 +109,6 @@ export default function SignUp() {
                     />
                 </div>
 
-                {/* 確認密碼 */}
                 <div className="sure">
                     <label htmlFor="password2">確認密碼</label>
                     <input
@@ -133,10 +143,8 @@ export default function SignUp() {
                     >
                         註冊
                     </motion.button>
-
                 </div>
             </motion.form>
         </motion.div>
-
     );
 }

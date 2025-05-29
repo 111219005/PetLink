@@ -1,13 +1,20 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import type { RootState } from './store'; 
 
 // Part1: Define Slice (including reducers and actions)
-const lightMode = true;
-const initialState = { lightMode };
+interface ColorState {
+  lightMode: boolean;
+}
+
+const initialState: ColorState = {
+  lightMode: true,
+};
+
 const colorSlice = createSlice({
   name: 'color',
   initialState,
   reducers: {
-    setColorMode: (state, action) => {
+    setColorMode: (state, action: PayloadAction<boolean>) => {
       state.lightMode = action.payload;
       localStorage.setItem('theme', action.payload ? 'dark' : 'light'); // 存入 localStorage
     },
@@ -15,7 +22,7 @@ const colorSlice = createSlice({
 });
 
 // export state to global
-export const selectLightMode = (state) => state.color?.lightMode;
+export const selectLightMode = (state: RootState) => state.color?.lightMode;
 
 // export actions to global
 export const { setColorMode } = colorSlice.actions;

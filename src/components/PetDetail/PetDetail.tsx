@@ -1,14 +1,37 @@
-import './PetDetail.css'
-import Navbar from '../../components/Navbar'
-import AddToBasket from '../AddToBasket'
-import Footer from '../../components/Footer/Footer.jsx'
-import { motion } from "framer-motion";
+import './PetDetail.css';
+import Navbar from '../../components/Navbar';
+import AddToBasket from '../AddToBasket';
+import Footer from '../../components/Footer/Footer';
+import { motion } from 'framer-motion';
+import React from 'react';
 
-function ProductDetail({ product }) {
+// 定義 Product 型別
+interface Product {
+  name: string;
+  cover: string;
+  area: string;
+  personality: string;
+  breed: string;
+  gender: string;
+  age: string;
+  size: string;
+  furColor: string;
+  health: string;
+  food: string;
+  daily: string;
+  medical: string;
+  train: string;
+  comment: string;
+}
 
+// 定義 props
+interface ProductDetailProps {
+  product: Product;
+}
+
+const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
   return (
     <>
-
       <Navbar />
 
       <div className="content">
@@ -52,7 +75,6 @@ function ProductDetail({ product }) {
               transition={{ delay: 0.2, duration: 0.6 }}
               viewport={{ once: true }}
             >
-              {/* 基本資料區塊 */}
               <motion.div
                 className="section-title"
                 initial={{ opacity: 0, y: 10 }}
@@ -72,7 +94,6 @@ function ProductDetail({ product }) {
                 <div className="label">健康狀況</div><div className="value">{product.health}</div>
               </div>
 
-              {/* 領養需求區塊 */}
               <motion.div
                 className="section-title"
                 initial={{ opacity: 0, y: 10 }}
@@ -90,7 +111,6 @@ function ProductDetail({ product }) {
                 <div className="label">娛樂訓練</div><div className="value">{product.train}</div>
               </div>
 
-              {/* 按鈕 */}
               <motion.div
                 className="btn-group"
                 initial={{ opacity: 0, y: 10 }}
@@ -98,14 +118,13 @@ function ProductDetail({ product }) {
                 transition={{ delay: 0.5, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-
                 <motion.div
                   style={{ flex: 1 }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <AddToBasket className="btn btn-secondary" product={product} style={{ width: "100%"}} />
+                  <AddToBasket className="btn btn-secondary" product={product} style={{ width: "100%" }} />
                 </motion.div>
 
                 <motion.button
@@ -119,11 +138,8 @@ function ProductDetail({ product }) {
                 </motion.button>
               </motion.div>
             </motion.div>
-
           </div>
-
         </div>
-
 
         <motion.div
           className="detail-comment"
@@ -142,19 +158,15 @@ function ProductDetail({ product }) {
             飼主的話
           </motion.h3>
 
-          <motion.div
-            className="detail-comment-c"
-
-          >
+          <motion.div className="detail-comment-c">
             {product.comment}
           </motion.div>
         </motion.div>
-
       </div>
+
       <Footer />
     </>
+  );
+};
 
-  )
-}
-
-export default ProductDetail
+export default ProductDetail;

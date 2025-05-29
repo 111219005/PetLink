@@ -1,15 +1,16 @@
-import { useNavigate } from 'react-router';  // react-router-dom 才有 useNavigate
+import { useNavigate } from 'react-router'; 
 import '../Profile/Profile.css';
 import { useEffect, useState } from 'react';
 import { motion } from "framer-motion";
 import { auth } from '../../api/firebaseConfig';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
+import type { User } from 'firebase/auth';
 
 export default function Profile() {
-    const [isHover, setIsHover] = useState(false);
-    const [avatarSeed] = useState(() => Math.floor(Math.random() * 10000));
+    const [isHover, setIsHover] = useState<boolean>(false);
+    const [avatarSeed] = useState<number>(() => Math.floor(Math.random() * 10000));
     const navigate = useNavigate();
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState<User | null>(null);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {

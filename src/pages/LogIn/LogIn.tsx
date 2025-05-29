@@ -1,7 +1,6 @@
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import './LogIn.css';
-import { useNavigate } from 'react-router';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, FormEvent } from 'react';
 import { motion } from "framer-motion";
 
 export default function LogIn() {
@@ -10,32 +9,34 @@ export default function LogIn() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
     const [showPassword, setShowPassword] = useState(false);
 
-    const handleLogin = (e) => {
+    const handleLogin = (e: FormEvent) => {
         e.preventDefault();
+        // @ts-ignore 忽略 window.firebase 的型別檢查
         window.firebase.auth().signInWithEmailAndPassword(email, password)
-            .then((userCredential) => {
+            .then((userCredential: any) => {
                 console.log("登入成功：", userCredential.user);
                 alert("登入成功！");
-                navigate("/"); // 登入成功後導向首頁
+                navigate("/");
             })
-            .catch((error) => {
+            .catch((error: any) => {
                 alert("登入失敗：" + error.message);
             });
     };
 
     const signInWithGoogle = () => {
+        // @ts-ignore 忽略 window.firebase 的型別檢查
         const provider = new window.firebase.auth.GoogleAuthProvider();
+        // @ts-ignore
         window.firebase.auth()
             .signInWithPopup(provider)
-            .then((result) => {
+            .then((result: any) => {
                 console.log('Google 登入成功', result.user);
                 alert('Google 登入成功！');
                 navigate('/');
             })
-            .catch((error) => {
+            .catch((error: any) => {
                 console.error('Google 登入錯誤', error);
                 alert('Google 登入失敗：' + error.message);
             });
@@ -49,14 +50,23 @@ export default function LogIn() {
             transition={{ duration: 0.6 }}
         >
             <img className="bg" src="/img/nature.png" alt="背景圖片" />
-            <div className="back" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}
+            <div
+                className="back"
+                onClick={() => navigate('/')}
+                style={{ cursor: 'pointer' }}
                 onMouseEnter={() => setIsHover(true)}
-                onMouseLeave={() => setIsHover(false)}>
-                <img className="arrow"
+                onMouseLeave={() => setIsHover(false)}
+            >
+                <img
+                    className="arrow"
                     src={isHover ? '/img/arrow-hover.png' : '/img/arrow.png'}
-                    alt="返回箭頭" />
-                <h2 className="LogIn-h" style={{ color: isHover ? '#9a9590' : 'black' }}>登入</h2>
+                    alt="返回箭頭"
+                />
+                <h2 className="LogIn-h" style={{ color: isHover ? '#9a9590' : 'black' }}>
+                    登入
+                </h2>
             </div>
+
             <motion.form
                 className="area"
                 onSubmit={handleLogin}
@@ -66,7 +76,13 @@ export default function LogIn() {
             >
                 <div className="name">
                     <label htmlFor="name">電子郵件</label>
-                    <input type="email" id="name" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    <input
+                        type="email"
+                        id="name"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
                 </div>
                 <div className="code">
                     <label htmlFor="password">密碼：</label>
@@ -82,6 +98,8 @@ export default function LogIn() {
                         className="eye"
                         alt={showPassword ? "隱藏密碼" : "顯示密碼"}
                         onClick={() => setShowPassword(!showPassword)}
+                        onMouseEnter={() => setEyeHover(true)}
+                        onMouseLeave={() => setEyeHover(false)}
                         style={{ cursor: "pointer" }}
                     />
                 </div>
@@ -101,7 +119,6 @@ export default function LogIn() {
                     >
                         登入
                     </motion.button>
-
                 </div>
                 <div className="sociallogin">
                     <div className="divider">
