@@ -5,7 +5,9 @@ html {
   font-family: 'Helvetica Neue', sans-serif;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -15,13 +17,33 @@ body {
 }
 
 /* 標題字體設定 */
-body h1 { font-size: 30px; }
-body h2 { font-size: 24px; }
-body h3 { font-size: 20px; }
-body h4 { font-size: 15px; }
-body h5 { font-size: 13px; }
-body h6 { font-size: 12px; }
-body p  { font-size: 10px; }
+body h1 {
+  font-size: 30px;
+}
+
+body h2 {
+  font-size: 24px;
+}
+
+body h3 {
+  font-size: 20px;
+}
+
+body h4 {
+  font-size: 15px;
+}
+
+body h5 {
+  font-size: 13px;
+}
+
+body h6 {
+  font-size: 12px;
+}
+
+body p {
+  font-size: 10px;
+}
 
 /* 整體畫面區域 */
 .content {
@@ -34,7 +56,7 @@ body p  { font-size: 10px; }
 
 /* 背景圖片 */
 .bg {
-  position: fixed; 
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -55,12 +77,14 @@ body p  { font-size: 10px; }
   z-index: 2;
   cursor: pointer;
 }
+
 /* 登入表單 */
 
-.name{
+.name {
   margin-bottom: 24px;
 }
-.code{
+
+.code {
   margin-bottom: 13px;
 }
 
@@ -82,7 +106,8 @@ body p  { font-size: 10px; }
   box-shadow: none;
 }
 
-.name, .code {
+.name,
+.code {
   background-color: white;
   border-radius: 10px;
   padding-top: 3px;
@@ -109,8 +134,12 @@ body p  { font-size: 10px; }
   opacity: 0.8;
 }
 
+.eye:hover {
+  content: url('/img/eye-hover.png');
+}
+
 /* 忘記密碼 / 註冊 */
-.function{
+.function {
   display: flex;
   justify-content: end;
 }
@@ -130,14 +159,16 @@ body p  { font-size: 10px; }
 }
 
 /* 登入按鈕 */
-.btn1{
+.btn1 {
   text-align: center;
   margin-top: 34px;
   margin-bottom: 108px;
-  @media(max-width:768px){
+
+  @media(max-width:768px) {
     text-align: center;
   }
 }
+
 .LogIn {
   width: 100%;
   padding: 8px 40px;
@@ -182,7 +213,8 @@ body p  { font-size: 10px; }
   display: flex;
   justify-content: center;
   gap: 53px;
-  @media(max-width:410px){
+
+  @media(max-width:410px) {
     gap: 10px;
   }
 }
@@ -197,98 +229,125 @@ body p  { font-size: 10px; }
   transform: scale(1.1);
 }
 
-[data-theme="light"]{
-  html{
+[data-theme="light"] {
+  html {
     background-color: #FFF7D8;
   }
-  body{
+
+  body {
     color: black;
   }
-  .back{
+
+  .back {
     color: black;
   }
-  .area{
+
+  .area {
     background: #FAAA5DCC;
   }
-  .area input{
+
+  .area input {
     border-bottom: 1px solid black;
   }
-  .name, .code {
+
+  .name,
+  .code {
     background-color: white;
   }
-  .area label{
+
+  .area label {
     color: #00000099;
   }
+
   .area .forget,
   .area .regist {
-  color: white;
+    color: white;
+  }
+
+  .area .forget:hover,
+  .area .regist:hover {
+    color: #7392B9;
+  }
+
+  .LogIn {
+    background-color: #9AA57C;
+    color: white;
+  }
+
+  .LogIn:hover {
+    background-color: white;
+    color: #9AA57C;
+  }
+
+  .divider .line {
+    background-color: white;
+  }
+
+  .divider span {
+    margin: 0 15px;
+    font-size: 14px;
+    color: white;
+  }
 }
-.area .forget:hover,
-.area .regist:hover {
-  color: #7392B9;
-}
-.LogIn {
-  background-color: #9AA57C;
-  color: white;
-}
-.LogIn:hover {
-  background-color: white;
-  color: #9AA57C;
-}
-.divider .line {
-  background-color: white;
-}
-.divider span {
-  margin: 0 15px;
-  font-size: 14px;
-  color: white;
-}
-}
-[data-theme="dark"]{
-  html{
+
+[data-theme="dark"] {
+  html {
     background-color: #D3B997;
   }
-  body{
+
+  body {
     color: #2C1C1A;
   }
-  .back{
+
+  .back {
     color: #2C1C1A;
   }
-  .area{
+
+  .area {
     background: #98694ECC;
   }
-  .area input{
+
+  .area input {
     border-bottom: 1px solid #D3B997;
     color: #D3B997
   }
-  .name, .code {
+
+  .name,
+  .code {
     background-color: #572918;
   }
-  .area label{
+
+  .area label {
     color: #BD9C8E;
   }
+
   .area .forget,
   .area .regist {
-  color: #2C1C1A;
-}
-.area .forget:hover,
-.area .regist:hover {
-  color: white;
-}
-.LogIn {
-  background-color: #2C1C1A;
-  color: white;
-}
-.LogIn:hover {
-  background-color: white;
-  color: #2C1C1A;
-}
-.divider .line {
-  background-color: #572918;
-}
-.divider span {
-  margin: 0 15px;
-  font-size: 14px;
-  color: #572918;
-}
+    color: #2C1C1A;
+  }
+
+  .area .forget:hover,
+  .area .regist:hover {
+    color: white;
+  }
+
+  .LogIn {
+    background-color: #2C1C1A;
+    color: white;
+  }
+
+  .LogIn:hover {
+    background-color: white;
+    color: #2C1C1A;
+  }
+
+  .divider .line {
+    background-color: #572918;
+  }
+
+  .divider span {
+    margin: 0 15px;
+    font-size: 14px;
+    color: #572918;
+  }
 }

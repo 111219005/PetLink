@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import { motion } from "framer-motion";
 
 export default function LogIn() {
+    const [isHover, setIsHover] = useState(false);
+    const [eyeHover, setEyeHover] = useState(false);
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -24,6 +26,21 @@ export default function LogIn() {
             });
     };
 
+    const signInWithGoogle = () => {
+        const provider = new window.firebase.auth.GoogleAuthProvider();
+        window.firebase.auth()
+            .signInWithPopup(provider)
+            .then((result) => {
+                console.log('Google 登入成功', result.user);
+                alert('Google 登入成功！');
+                navigate('/');
+            })
+            .catch((error) => {
+                console.error('Google 登入錯誤', error);
+                alert('Google 登入失敗：' + error.message);
+            });
+    };
+
     return (
         <motion.div
             className="content"
@@ -32,9 +49,13 @@ export default function LogIn() {
             transition={{ duration: 0.6 }}
         >
             <img className="bg" src="/img/nature.png" alt="背景圖片" />
-            <div className="back" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
-                <img className="arrow" src="/img/arrow.png" alt="返回箭頭" />
-                <h2 className="LogIn-h">登入</h2>
+            <div className="back" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}
+                onMouseEnter={() => setIsHover(true)}
+                onMouseLeave={() => setIsHover(false)}>
+                <img className="arrow"
+                    src={isHover ? '/img/arrow-hover.png' : '/img/arrow.png'}
+                    alt="返回箭頭" />
+                <h2 className="LogIn-h" style={{ color: isHover ? '#9a9590' : 'black' }}>登入</h2>
             </div>
             <motion.form
                 className="area"
@@ -57,7 +78,7 @@ export default function LogIn() {
                         required
                     />
                     <img
-                        src="/img/eye.png"
+                        src={eyeHover ? '/img/eye-hover.png' : '/img/eye.png'}
                         className="eye"
                         alt={showPassword ? "隱藏密碼" : "顯示密碼"}
                         onClick={() => setShowPassword(!showPassword)}
@@ -93,7 +114,7 @@ export default function LogIn() {
                             <img src="/img/facebook-icon.png" alt="Facebook" />
                         </a>
                         <a href="#" className="social-button">
-                            <img src="/img/google-icon.png" alt="Google" />
+                            <img src="/img/google-icon.png" alt="Google" onClick={signInWithGoogle} />
                         </a>
                         <a href="#" className="social-button">
                             <img src="/img/apple-icon.png" alt="Apple" />

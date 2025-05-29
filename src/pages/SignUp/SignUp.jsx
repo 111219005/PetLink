@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { motion } from "framer-motion";
 
 export default function SignUp() {
+    const [isHover, setIsHover] = useState(false);
     const navigate = useNavigate();
 
     const [username, setUsername] = useState('');
@@ -51,11 +52,14 @@ export default function SignUp() {
         >
             <img className="bg" src="/img/nature.png" alt="背景圖片" />
 
-            <div className="back" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
-                <img className="arrow" src="/img/arrow.png" alt="返回箭頭" />
-                <h2 className="SignUp-h">註冊</h2>
+            <div className="back" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}
+                onMouseEnter={() => setIsHover(true)}
+                onMouseLeave={() => setIsHover(false)}>
+                <img className="arrow"
+                    src={isHover ? '/img/arrow-hover.png' : '/img/arrow.png'}
+                    alt="返回箭頭" />
+                <h2 className="SignUp-h" style={{ color: isHover ? '#9a9590' : 'black' }}>註冊</h2>
             </div>
-
             <motion.form
                 className="area"
                 onSubmit={handleSignUp}
@@ -121,14 +125,14 @@ export default function SignUp() {
 
                 <div className="btn2">
                     <motion.button
-            className="SignUp"
-            type="submit"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            註冊
-          </motion.button>
+                        className="SignUp"
+                        type="submit"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                    >
+                        註冊
+                    </motion.button>
 
                 </div>
             </motion.form>

@@ -6,6 +6,8 @@ import { auth } from '../../api/firebaseConfig';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 export default function Profile() {
+    const [isHover, setIsHover] = useState(false);
+    const [avatarSeed] = useState(() => Math.floor(Math.random() * 10000));
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
 
@@ -36,7 +38,11 @@ export default function Profile() {
         >
             <img className="bg" src="/img/nature.png" alt="背景圖片" />
             <div className="back" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
-                <img className="arrow" src="/img/arrow.png" alt="返回箭頭" />
+                <img className="arrow"
+                    src={isHover ? '/img/arrow-hover.png' : '/img/arrow.png'}
+                    alt="返回箭頭"
+                    onMouseEnter={() => setIsHover(true)}
+                    onMouseLeave={() => setIsHover(false)} />
             </div>
             <motion.div
                 className="area"
@@ -51,7 +57,7 @@ export default function Profile() {
                     <div className="avatar-bg">
                         <img
                             className="avatar-img"
-                            src={`https://api.dicebear.com/7.x/lorelei/svg?seed=${Math.floor(Math.random() * 10000)}`}
+                            src={`https://api.dicebear.com/7.x/lorelei/svg?seed=${avatarSeed}`}
                             alt="使用者大頭貼"
                         />
                     </div>
