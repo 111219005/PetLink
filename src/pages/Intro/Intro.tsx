@@ -1,26 +1,26 @@
-import { useState } from 'react'
-import './Intro.css'
-import Navbar from '../../components/Navbar'
+import React, { useState } from 'react';
+import './Intro.css';
+import Navbar from '../../components/Navbar';
 import { Link } from 'react-router';
-import Footer from "../../components/Footer/Footer.jsx"
-import { motion } from "framer-motion";
+import Footer from "../../components/Footer/Footer";
+import { motion, Variants } from "framer-motion";
 
-function Intro() {
-  const [count, setCount] = useState(0)
+const picsVariant: Variants = {
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    }
+  },
+  hidden: {}
+};
 
-  const picsVariant = {
-    visible: {
-      transition: {
-        staggerChildren: 0.15,
-      }
-    },
-    hidden: {}
-  };
+const picVariant: Variants = {
+  hidden: { opacity: 0, scale: 0.8, y: 20 },
+  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } }
+};
 
-  const picVariant = {
-    hidden: { opacity: 0, scale: 0.8, y: 20 },
-    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } }
-  };
+const Intro: React.FC = () => {
+  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -46,7 +46,7 @@ function Intro() {
         </motion.h4>
         <motion.img
           className="bigpic-img"
-          src="./img/bigpic.png"
+          src="/img/bigpic.png"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
@@ -58,7 +58,7 @@ function Intro() {
           <motion.div className="intro1-l" layout>
             <motion.img
               className="intro1-l-img"
-              src="./img/intro1.png"
+              src="/img/intro1.png"
               alt="intro1"
               layout
               initial={{ opacity: 0, x: -50 }}
@@ -101,7 +101,7 @@ function Intro() {
           <motion.div className="intro2-r" layout>
             <motion.img
               className="intro2-r-img"
-              src="./img/intro2.png"
+              src="/img/intro2.png"
               alt="intro2"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -116,7 +116,7 @@ function Intro() {
           <motion.div className="intro3-l" layout>
             <motion.img
               className="intro3-l-img"
-              src="./img/intro3.png"
+              src="/img/intro3.png"
               alt="intro3"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -151,7 +151,7 @@ function Intro() {
             <motion.img
               key={i}
               className={`item item${i + 1}`}
-              src={`./img/${src}`}
+              src={`/img/${src}`}
               alt={`intro${i + 4}`}
               variants={picVariant}
             />
@@ -165,13 +165,14 @@ function Intro() {
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            前往認養！
+            回首頁
           </motion.button>
         </Link>
       </motion.div>
+
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Intro
+export default Intro;
