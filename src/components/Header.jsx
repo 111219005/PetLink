@@ -5,21 +5,13 @@ export default function Header() {
     return (
         <>
             <div className="header-bg w-full h-150 md:h-80 flex flex-col md:flex-row md:grid md:grid-cols-2 justify-center items-center gap-4 md:pr-10">
-                <motion.img
+                <img
                     src="img/cat.png"
                     className="relative w-140 h-80 mt-10 md:w-717px md:h-90 md:mt-2 col-span-1 z-10 top-15 sm:top-0"
                     alt="cat"
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
                 />
 
-                <motion.div
-                    className="col-span-1 text-center md:h-386px header-lit !sm:header-bg text-black sm:text-white pt-10 sm:pt-0 w-full"
-                    initial={{ opacity: 0, x: 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                >
+                <div className="col-span-1 text-center md:h-386px header-lit !sm:header-bg text-black sm:text-white pt-10 sm:pt-0 w-full">
                     <h1 className="flex justify-center items-center mb-3">
                         PetLink遠端認養平台
                     </h1>
@@ -40,7 +32,7 @@ export default function Header() {
                             </Link>
                         </motion.div>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </>
     );

@@ -54,8 +54,13 @@ h3 {
   .filter,
   .cart-title,
   .modal-box,
-  .cart-item {
+  .cart-item,
+  .cart-Checkout {
     width: 1240px;
+  }
+
+  .checkbox-item {
+    margin-right: 15px;
   }
 }
 
@@ -67,8 +72,13 @@ h3 {
   .filter,
   .cart-title,
   .modal-box,
-  .cart-item {
+  .cart-item,
+  .cart-Checkout {
     width: 926px;
+  }
+
+  .checkbox-item {
+    margin-right: 7px;
   }
 }
 
@@ -77,7 +87,8 @@ h3 {
   .filter,
   .cart-title,
   .modal-box,
-  .cart-item {
+  .cart-item,
+  .cart-Checkout {
     width: 644px;
   }
 }
@@ -233,6 +244,16 @@ h3 {
 
   .cart-item-yes {
     background-color: #FAAA5D;
+  }
+
+  .cart-Checkout{
+    background-color: white;
+  }
+
+  .checkout-btn {
+    background-color: #FAAA5D;
+    color: white;
+    border-radius: 10px;
   }
 }
 
@@ -394,6 +415,16 @@ h3 {
   .cart-item-yes {
     background-color: #98694E;
     color: white;
+  }
+
+  .cart-Checkout{
+    background-color: #2C1C1A;
+  }
+
+  .checkout-btn {
+    background-color: #98694E;
+    color: white;
+    border-radius: 10px;
   }
 }
 

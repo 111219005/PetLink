@@ -26,7 +26,7 @@ export default function Home() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                 >
                     <h1 className="xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">DOGS 狗</h1>
@@ -44,14 +44,13 @@ export default function Home() {
                         </Link>
                     </motion.div>
                 </div>
-
             </div>
 
             <div id="cat_section" className="w-full flex flex-col items-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                 >
                     <h1 className="xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">CATS 貓</h1>

@@ -6,7 +6,6 @@ import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar";
 import TopBar from "../components/TopBar";
 import CartHeader from "../components/CartHeader";
-import CancelIcon from "../components/CancelIcon";
 import DonateBox from "../components/DonateBox";
 
 export default function Cart() {
@@ -15,7 +14,7 @@ export default function Cart() {
 
     const getTotalPrice = () => {
         return (cartItems.length > 0)
-            ? cartItems.reduce((sum, item) => sum + item.price * item.qty, 0)
+            ? cartItems.reduce((sum, item) => sum + item.qty, 0)
             : 0;
     };
 
@@ -31,26 +30,6 @@ export default function Cart() {
             [id]: !selectedItems[id], // 切換選中狀態
         });
     };
-
-    // const [counts, setCounts] = useState(
-    //     data.map(() => 0) // 初始化每個項目的數量為 0
-    // );
-    // // 處理數量增減
-    // const handleIncrement = (index) => {
-    //     const newCounts = [...counts];
-    //     newCounts[index] += 100;
-    //     setCounts(newCounts);
-    // };
-    // const handleDecrement = (index) => {
-    //     const newCounts = [...counts];
-    //     if (newCounts[index] > 0) {
-    //         newCounts[index] -= 100;
-    //     }
-    //     setCounts(newCounts);
-    // };
-
-    // 處理數量增減
-
 
     return (
         <div className="cart-bg">
@@ -72,48 +51,41 @@ export default function Cart() {
                     ) : (
                         cartItems.map(item => (
                             <li key={item.id} className={`xl:grid-cols-5 grid justify-between items-center py-[25px] px-12 mb-4 cart-item rounded-md ${selectedItems[item.id] ? "cart-item-yes" : "cart-item-no"}`}>
-                                <div className="col-span-1 flex items-center flex-row">
-                                    <input type="checkbox" defaultChecked className="checkbox checkbox-item checkbox-sm me-10" checked={selectedItems[item.id]} onChange={() => handleCheckboxChange(item.id)} />
+                                <div className=" flex items-center flex-row">
+                                    <input type="checkbox" defaultChecked className="checkbox checkbox-item checkbox-sm" checked={selectedItems[item.id]} onChange={() => handleCheckboxChange(item.id)} />
                                     <Link to={`/dog/${item.id}`}>
                                         <img className="w-[170px] h-[100px] rounded-sm flex-1 object-cover" src={item.image} alt={item.name} />
                                     </Link>
                                 </div>
 
-                                <div className="ml-4 flex-8 w-48 text-left">
+                                <div className="ml-4 flex-8 w-auto text-left col-span-1">
                                     <div className="text-[20px] mb-1">{item.name}</div>
                                     <div className="text-[15px] mb-1">{item.area}</div>
                                     <div className="text-[15px]">{item.personality}</div>
                                 </div>
-
-                                <div className="grid grid-cols-5 col-start-3 col-end-6">
-                                    <DonateBox item={item} type="food" />
-                                    <DonateBox item={item} type="medical" />
-                                    <DonateBox item={item} type="daily" />
-                                    <DonateBox item={item} type="train" />
-                                    <div
-                                        className="text-xl cursor-pointer flex justify-center items-center"
-                                        onClick={() => dispatch(removeCartItems(item.id))}
-                                    >
-                                        <CancelIcon size={25} />
-                                    </div>
+                                <div className="col-span-3">
+                                    <DonateBox item={item} />
                                 </div>
+                                {/* <div className="xl:col-span-3 flex justify-center items-center">test</div> */}
                             </li>
                         ))
                     )}
 
+                    <div className="cart-Checkout flex flex-row p-4 justify-end items-center h-18">
                     {/* Total */}
-                    <div className="flex justify-between items-center mt-4">
-                        <div className="font-semibold">Total</div>
-                        <div className="font-bold text-right">${getTotalPrice()}</div>
+                    <div className="flex justify-between items-center me-3">
+                        <div className="text-[20px]">總金額 (已選{Object.values(selectedItems).filter(Boolean).length})：</div>
+                        <div className="text-[30px]">${getTotalPrice()}</div>
                     </div>
 
                     {/* Checkout Button */}
                     <button
-                        className="btn btn-primary shadow-none w-full text-base font-light py-3 mt-8 flex justify-center items-center"
+                        className="checkout-btn shadow-none w-50 h-10 text-base flex justify-center items-center"
                     >
                         {/* <CartIcon strokeWidth={1} className="w-5 h-5 md:w-6 md:h-6 text-current group-hover:scale-105 transition-transform" /> */}
-                        <span className="font-thin ml-3">START CHECKOUT</span>
+                        <span className="text-[20px]">去轉帳</span>
                     </button>
+                    </div>
                 </div>
             </div>
 
