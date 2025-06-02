@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { addCartItems, removeCartItems, selectCartItems } from "../redux/cartSlice";
+import { removeCartItems, selectCartItems } from "../redux/cartSlice";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar";
 import TopBar from "../components/TopBar";
@@ -83,7 +83,7 @@ export default function Cart() {
                         className="checkout-btn shadow-none w-50 h-10 text-base flex justify-center items-center"
                     >
                         {/* <CartIcon strokeWidth={1} className="w-5 h-5 md:w-6 md:h-6 text-current group-hover:scale-105 transition-transform" /> */}
-                        <span className="text-[20px]">去轉帳</span>
+                        <span className="text-[20px] cursor-pointer">去轉帳</span>
                     </button>
                     </div>
                 </div>

@@ -255,6 +255,13 @@ h3 {
     color: white;
     border-radius: 10px;
   }
+
+  .checkout-btn:hover {
+    background-color: white;
+    color: #FAAA5D;
+    border-radius: 10px;
+    border: 1px solid #FAAA5D;
+  }
 }
 
 @media (min-width: 640px) {
@@ -424,6 +431,12 @@ h3 {
   .checkout-btn {
     background-color: #98694E;
     color: white;
+    border-radius: 10px;
+  }
+
+  .checkout-btn:hover {
+    background-color: white;
+    color: #98694E;
     border-radius: 10px;
   }
 }
