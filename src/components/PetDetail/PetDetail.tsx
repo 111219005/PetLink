@@ -124,7 +124,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <AddToBasket className="btn btn-secondary" product={product} style={{ width: "100%" }} />
+                  <AddToBasket className="btn btn-secondary w-full" product={product} />
                 </motion.div>
 
                 <motion.button

@@ -12,6 +12,7 @@ export default function AddToBasket({ product, className }) {
         // 將產品加入 Redux 狀態
         dispatch(addCartItems({
             id: product.id,
+            species: product.species,
             name: product.name,
             image: product.cover,
             area: product.area,

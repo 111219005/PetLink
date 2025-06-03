@@ -64,6 +64,8 @@ export default function Cart() {
 
     const [donationValues, setDonationValues] = useState(getInitialDonationValues());
 
+    console.log(cartItems);
+
     return (
         <div className="cart-bg">
             <Navbar />
@@ -80,13 +82,13 @@ export default function Cart() {
                 <div className="flex flex-col items-center">
                     {/* Cart Items */}
                     {cartItems.length === 0 ? (
-                        <div className="flex justify-center items-center h-90"><h2>Cart is empty</h2></div>
+                        <div className="flex justify-center items-center h-45"><h2>Cart is empty</h2></div>
                     ) : (
                         cartItems.map(item => (
                             <li key={item.id} className={`xl:grid-cols-5 grid justify-between items-center py-[25px] px-12 mb-4 cart-item rounded-md ${selectedItems[item.id] ? "cart-item-yes" : "cart-item-no"}`}>
                                 <div className=" flex items-center flex-row">
-                                    <input type="checkbox" defaultChecked className="checkbox checkbox-item checkbox-sm" checked={selectedItems[item.id]} onChange={() => handleCheckboxChange(item.id)} />
-                                    <Link to={`/dog/${item.id}`}>
+                                    <input type="checkbox" className="checkbox checkbox-item checkbox-sm" checked={selectedItems[item.id]} onChange={() => handleCheckboxChange(item.id)} />
+                                    <Link to={item.species === "貓" ? `/cat/${item.id}` : `/dog/${item.id}`}>
                                         <img className="w-[170px] h-[100px] rounded-sm flex-1 object-cover" src={item.image} alt={item.name} />
                                     </Link>
                                 </div>

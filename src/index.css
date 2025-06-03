@@ -37,6 +37,7 @@ h3 {
   position: absolute;
   top: 30px;
   left: 50%;
+  z-index: 999;
   color: #fff;
   font-size: .8em;
   background: #474747;

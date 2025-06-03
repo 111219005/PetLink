@@ -22,8 +22,8 @@ const NavBarContent = ({ isMobile = false, onToggleTheme }) => (
             }`}
         >
             {!isMobile && <SetColorMode onToggleTheme={onToggleTheme} />}
-            <UserInfo />
             <Link to="/cart" className="box"><CartSummary /><div className="box-word">收藏</div></Link>
+            <div className="box"><UserInfo /><div className="box-word">用戶資訊</div></div>
             {isMobile && <SetColorMode onToggleTheme={onToggleTheme} />}
         </div>
     </div>
