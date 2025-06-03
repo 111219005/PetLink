@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import React, { useEffect } from 'react';
 import { Link } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { removeCartItems, selectCartItems } from "../redux/cartSlice";
@@ -20,13 +21,20 @@ export default function Cart() {
             }, 0);
     };
 
-
-    const [selectedItems, setSelectedItems] = useState(
-        cartItems.reduce((acc, item) => {
-            acc[item.id] = false; // 預設所有項目未被選中
+    const [selectedItems, setSelectedItems] = useState(() => {
+        const saved = localStorage.getItem('selectedItems');
+        if (saved) return JSON.parse(saved);
+        // 若無資料則預設全部未選
+        return cartItems.reduce((acc, item) => {
+            acc[item.id] = false;
             return acc;
-        }, {})
-    );
+        }, {});
+    });
+
+    useEffect(() => {
+        localStorage.setItem('selectedItems', JSON.stringify(selectedItems));
+    }, [selectedItems]);
+
     const handleCheckboxChange = (id) => {
         setSelectedItems({
             ...selectedItems,
@@ -34,18 +42,27 @@ export default function Cart() {
         });
     };
 
-    const [donationValues, setDonationValues] = useState(
-        cartItems.reduce((acc, item) => {
-            acc[item.id] = {
-                food: parseInt(item.food.replace('$', '')) || 0,
-                daily: parseInt(item.daily.replace('$', '')) || 0,
-                medical: parseInt(item.medical.replace('$', '')) || 0,
-                train: parseInt(item.train.replace('$', '')) || 0,
-            };
-            return acc;
-        }, {})
-    );
+    // Removed duplicate donationValues state initialization
 
+    const getInitialDonationValues = () => {
+        const values = {};
+        cartItems.forEach(item => {
+            const saved = localStorage.getItem(`donation-${item.id}`);
+            if (saved) {
+                values[item.id] = JSON.parse(saved);
+            } else {
+                values[item.id] = {
+                    food: parseInt(item.food.replace('$', '')) || 0,
+                    daily: parseInt(item.daily.replace('$', '')) || 0,
+                    medical: parseInt(item.medical.replace('$', '')) || 0,
+                    train: parseInt(item.train.replace('$', '')) || 0,
+                };
+            }
+        });
+        return values;
+    };
+
+    const [donationValues, setDonationValues] = useState(getInitialDonationValues());
 
     return (
         <div className="cart-bg">
