@@ -46,6 +46,12 @@ h3 {
   /* 確保文字不會換行 */
 }
 
+input[type=number].no-spinner::-webkit-outer-spin-button,
+input[type=number].no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 @media screen and (min-width: 1536px) {
   .card_list {
     width: auto;

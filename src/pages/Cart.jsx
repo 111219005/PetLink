@@ -13,10 +13,13 @@ export default function Cart() {
     const cartItems = useSelector(selectCartItems);
 
     const getTotalPrice = () => {
-        return (cartItems.length > 0)
-            ? cartItems.reduce((sum, item) => sum + item.qty, 0)
-            : 0;
+        return Object.entries(donationValues)
+            .filter(([id]) => selectedItems[id])
+            .reduce((sum, [id, values]) => {
+                return sum + values.food + values.daily + values.medical + values.train;
+            }, 0);
     };
+
 
     const [selectedItems, setSelectedItems] = useState(
         cartItems.reduce((acc, item) => {
@@ -30,6 +33,19 @@ export default function Cart() {
             [id]: !selectedItems[id], // 切換選中狀態
         });
     };
+
+    const [donationValues, setDonationValues] = useState(
+        cartItems.reduce((acc, item) => {
+            acc[item.id] = {
+                food: parseInt(item.food.replace('$', '')) || 0,
+                daily: parseInt(item.daily.replace('$', '')) || 0,
+                medical: parseInt(item.medical.replace('$', '')) || 0,
+                train: parseInt(item.train.replace('$', '')) || 0,
+            };
+            return acc;
+        }, {})
+    );
+
 
     return (
         <div className="cart-bg">
@@ -64,7 +80,17 @@ export default function Cart() {
                                     <div className="text-[15px]">{item.personality}</div>
                                 </div>
                                 <div className="col-span-3">
-                                    <DonateBox item={item} />
+                                    <DonateBox
+                                        item={item}
+                                        values={donationValues[item.id]}
+                                        setValues={(newValues) =>
+                                            setDonationValues((prev) => ({
+                                                ...prev,
+                                                [item.id]: newValues,
+                                            }))
+                                        }
+                                    />
+
                                 </div>
                                 {/* <div className="xl:col-span-3 flex justify-center items-center">test</div> */}
                             </li>
@@ -72,19 +98,19 @@ export default function Cart() {
                     )}
 
                     <div className="cart-Checkout flex flex-row p-4 justify-end items-center h-18">
-                    {/* Total */}
-                    <div className="flex justify-between items-center me-3">
-                        <div className="text-[20px]">總金額 (已選{Object.values(selectedItems).filter(Boolean).length})：</div>
-                        <div className="text-[30px]">${getTotalPrice()}</div>
-                    </div>
+                        {/* Total */}
+                        <div className="flex justify-between items-center me-3">
+                            <div className="text-[20px]">總金額 (已選{Object.values(selectedItems).filter(Boolean).length})：</div>
+                            <div className="text-[30px]">${getTotalPrice()}</div>
+                        </div>
 
-                    {/* Checkout Button */}
-                    <button
-                        className="checkout-btn shadow-none w-50 h-10 text-base flex justify-center items-center"
-                    >
-                        {/* <CartIcon strokeWidth={1} className="w-5 h-5 md:w-6 md:h-6 text-current group-hover:scale-105 transition-transform" /> */}
-                        <span className="text-[20px] cursor-pointer">去轉帳</span>
-                    </button>
+                        {/* Checkout Button */}
+                        <button
+                            className="checkout-btn shadow-none w-50 h-10 text-base flex justify-center items-center"
+                        >
+                            {/* <CartIcon strokeWidth={1} className="w-5 h-5 md:w-6 md:h-6 text-current group-hover:scale-105 transition-transform" /> */}
+                            <span className="text-[20px] cursor-pointer">去轉帳</span>
+                        </button>
                     </div>
                 </div>
             </div>
