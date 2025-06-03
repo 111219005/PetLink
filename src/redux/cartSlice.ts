@@ -30,7 +30,7 @@ const cartSlice = createSlice({
       const item = action.payload;
       const exists = state.cartItems.some((x) => x.cartKey === item.cartKey);
       if (!exists) {
-        state.cartItems.push(item);
+        state.cartItems.unshift(item); // 讓新 item 加在最前面
       }
     },
     removeCartItems: (state, action: PayloadAction<string>) => {
