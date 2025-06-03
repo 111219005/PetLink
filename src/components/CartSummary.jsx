@@ -8,7 +8,7 @@ function CartSummary() {
     const cartItems = useSelector(selectCartItems);
 
     // 計算購物車中的商品總數
-    const count = cartItems.reduce((sum, item) => sum + (item.qty || 0), 0);
+    const count = cartItems.length;
 
     const toggleOpen = () => setIsOpen(!isOpen);
 
