@@ -1,4 +1,11 @@
 export default function Category() {
+    const scrollToSection = (sectionId) => {
+        const element = document.querySelector(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    };
+
     return (
         <>
             <div className="w-full md:flex items-center h-[50px] px-30 categoryBar hidden">
@@ -6,8 +13,18 @@ export default function Category() {
                     <img className="items-start cursor-pointer" src="/img/PetLink.png" alt="PetLink" />
                 </div>
                 <div className="flex-grow flex justify-center space-x-10">
-                    <a href="#dog_section"><h2 className="inline-block col-span-1 hover:scale-150 category flex justify-center items-center">狗</h2></a>
-                    <a href="#cat_section"><h2 className="inline-block col-span-1 hover:scale-150 category flex justify-center items-center">貓</h2></a>
+                    <button
+                        onClick={() => scrollToSection("#dog_section")}
+                        className="inline-block col-span-1 hover:scale-150 category flex justify-center items-center"
+                    >
+                        <h2>狗</h2>
+                    </button>
+                    <button
+                        onClick={() => scrollToSection("#cat_section")}
+                        className="inline-block col-span-1 hover:scale-150 category flex justify-center items-center"
+                    >
+                        <h2>貓</h2>
+                    </button>
                 </div>
             </div>
         </>
