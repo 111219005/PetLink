@@ -4,9 +4,13 @@ import AddToBasket from '../AddToBasket';
 import Footer from '../../components/Footer/Footer';
 import { motion } from 'framer-motion';
 import React from 'react';
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
+import { addCartItems } from "../../redux/cartSlice"; // 根據你的實際路徑調整
 
 // 定義 Product 型別
 interface Product {
+  id: string;
   name: string;
   cover: string;
   area: string;
@@ -22,6 +26,7 @@ interface Product {
   medical: string;
   train: string;
   comment: string;
+  price: number;
 }
 
 // 定義 props
@@ -30,6 +35,23 @@ interface ProductDetailProps {
 }
 
 const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleAdoptNow = () => {
+    // 1. 加入購物車
+    dispatch(addCartItems(product));
+
+    // 2. 設定 selectedItems 並存到 localStorage
+    const selected = localStorage.getItem("selectedItems");
+    let selectedItems = selected ? JSON.parse(selected) : {};
+    selectedItems[product.id] = true;
+    localStorage.setItem("selectedItems", JSON.stringify(selectedItems));
+
+    // 3. 導向 cart 頁面
+    navigate("/cart");
+  };
+
   return (
     <>
       <Navbar />
@@ -133,6 +155,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 300 }}
+                  onClick={handleAdoptNow}
                 >
                   直接認養
                 </motion.button>

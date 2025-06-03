@@ -6,7 +6,7 @@ export interface CartItem {
   id: string;
   name: string;
   price: number;
-  qty: number;
+  cover: string;
   // 可以根據需要補上更多欄位，例如 image, category 等
 }
 
@@ -25,19 +25,13 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addCartItems: (state, action: PayloadAction<Omit<CartItem, "qty">>) => {
+    addCartItems: (state, action: PayloadAction<CartItem>) => {
       const item = action.payload;
-      const existingItem = state.cartItems.find((x) => x.id === item.id);
-
-      if (existingItem) {
-        // 若已存在則增加數量
-        state.cartItems = state.cartItems.map((x) =>
-          x.id === item.id ? { ...x, qty: x.qty + 1 } : x
-        );
-      } else {
-        // 若不存在則新增商品，初始 qty = 1
-        state.cartItems.push({ ...item, qty: 1 });
+      const exists = state.cartItems.some((x) => x.id === item.id);
+      if (!exists) {
+        state.cartItems.push(item);
       }
+      // 若已存在則不重複加入
     },
     removeCartItems: (state, action: PayloadAction<string>) => {
       state.cartItems = state.cartItems.filter(

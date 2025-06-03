@@ -114,7 +114,7 @@ export default function Cart() {
                                 <div className=" flex items-center flex-row">
                                     <input type="checkbox" className="checkbox checkbox-item checkbox-sm" checked={selectedItems[item.id]} onChange={() => handleCheckboxChange(item.id)} />
                                     <Link to={item.species === "貓" ? `/cat/${item.id}` : `/dog/${item.id}`}>
-                                        <img className="w-[170px] h-[100px] rounded-sm flex-1 object-cover" src={item.image} alt={item.name} />
+                                        <img className="w-[170px] h-[100px] rounded-sm flex-1 object-cover" src={item.image || item.cover} alt={item.name} />
                                     </Link>
                                 </div>
 
