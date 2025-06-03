@@ -10,6 +10,7 @@ export default function AddToBasket({ product, className }) {
 
     const addToCart = () => {
         // 將產品加入 Redux 狀態
+        const cartKey = `${product.species}-${product.id}`;
         dispatch(addCartItems({
             id: product.id,
             species: product.species,
@@ -21,6 +22,7 @@ export default function AddToBasket({ product, className }) {
             daily: product.daily,
             medical: product.medical,
             train: product.train,
+            cartKey, // 一定要加這一行
         }));
 
         // 顯示通知

@@ -11,6 +11,7 @@ import { addCartItems } from "../../redux/cartSlice"; // 根據你的實際路�
 // 定義 Product 型別
 interface Product {
   id: string;
+  species: string;
   name: string;
   cover: string;
   area: string;
@@ -27,6 +28,7 @@ interface Product {
   train: string;
   comment: string;
   price: number;
+  cartKey: string;
 }
 
 // 定義 props
@@ -39,14 +41,26 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
   const navigate = useNavigate();
 
   const handleAdoptNow = () => {
-    // 1. 加入購物車
-    dispatch(addCartItems(product));
+    // 加入購物車
+    dispatch(addCartItems({ ...product, cartKey: `${product.species}-${product.cartKey}` }));
 
-    // 2. 設定 selectedItems 並存到 localStorage
+    // 設定 selectedItems
     const selected = localStorage.getItem("selectedItems");
     let selectedItems = selected ? JSON.parse(selected) : {};
-    selectedItems[product.id] = true;
+    const cartKey = `${product.species}-${product.cartKey}`;
+    selectedItems[cartKey] = true;
     localStorage.setItem("selectedItems", JSON.stringify(selectedItems));
+
+    // localStorage donation
+    localStorage.setItem(
+      `donation-${cartKey}`,
+      JSON.stringify({
+        food: parseInt(product.food.replace('$', '')) || 0,
+        daily: parseInt(product.daily.replace('$', '')) || 0,
+        medical: parseInt(product.medical.replace('$', '')) || 0,
+        train: parseInt(product.train.replace('$', '')) || 0,
+      })
+    );
 
     // 3. 導向 cart 頁面
     navigate("/cart");

@@ -16,8 +16,8 @@ export default function Cart() {
 
     const getTotalPrice = () => {
         return Object.entries(donationValues)
-            .filter(([id]) => selectedItems[id])
-            .reduce((sum, [id, values]) => {
+            .filter(([cartKey]) => selectedItems[cartKey])
+            .reduce((sum, [cartKey, values]) => {
                 return sum + values.food + values.daily + values.medical + values.train;
             }, 0);
     };
@@ -27,7 +27,7 @@ export default function Cart() {
         if (saved) return JSON.parse(saved);
         // 若無資料則預設全部未選
         return cartItems.reduce((acc, item) => {
-            acc[item.id] = false;
+            acc[item.cartKey] = false;
             return acc;
         }, {});
     });
@@ -39,21 +39,21 @@ export default function Cart() {
     useEffect(() => {
         // 只保留還存在於 cartItems 的 key
         setSelectedItems(prev => {
-            const validIds = new Set(cartItems.map(item => item.id));
+            const validIds = new Set(cartItems.map(item => item.cartKey));
             const updated = {};
-            for (const id in prev) {
-                if (validIds.has(Number(id))) {
-                    updated[id] = prev[id];
+            for (const cartKey in prev) {
+                if (validIds.has(cartKey)) {
+                    updated[cartKey] = prev[cartKey];
                 }
             }
             return updated;
         });
     }, [cartItems]);
 
-    const handleCheckboxChange = (id) => {
+    const handleCheckboxChange = (cartKey) => {
         setSelectedItems({
             ...selectedItems,
-            [id]: !selectedItems[id], // 切換選中狀態
+            [cartKey]: !selectedItems[cartKey], // 切換選中狀態
         });
     };
 
@@ -62,15 +62,15 @@ export default function Cart() {
     const getInitialDonationValues = () => {
         const values = {};
         cartItems.forEach(item => {
-            const saved = localStorage.getItem(`donation-${item.id}`);
+            const saved = localStorage.getItem(`${item.cartKey}`);
             if (saved) {
-                values[item.id] = JSON.parse(saved);
+                values[item.cartKey] = JSON.parse(saved);
             } else {
-                values[item.id] = {
-                    food: parseInt(item.food.replace('$', '')) || 0,
-                    daily: parseInt(item.daily.replace('$', '')) || 0,
-                    medical: parseInt(item.medical.replace('$', '')) || 0,
-                    train: parseInt(item.train.replace('$', '')) || 0,
+                values[item.cartKey] = {
+                    food: parseInt((item.food ?? '').replace('$', '')) || 0,
+                    daily: parseInt((item.daily ?? '').replace('$', '')) || 0,
+                    medical: parseInt((item.medical ?? '').replace('$', '')) || 0,
+                    train: parseInt((item.train ?? '').replace('$', '')) || 0,
                 };
             }
         });
@@ -79,12 +79,12 @@ export default function Cart() {
 
     const [donationValues, setDonationValues] = useState(getInitialDonationValues());
 
-    const allSelected = cartItems.length > 0 && cartItems.every(item => selectedItems[item.id]);
+    const allSelected = cartItems.length > 0 && cartItems.every(item => selectedItems[item.cartKey]);
     const handleSelectAllChange = (e) => {
         const checked = e.target.checked;
         const newSelected = {};
         cartItems.forEach(item => {
-            newSelected[item.id] = checked;
+            newSelected[item.cartKey] = checked;
         });
         setSelectedItems(newSelected);
     };
@@ -110,10 +110,10 @@ export default function Cart() {
                         <div className="flex justify-center items-center h-45"><h2>Cart is empty</h2></div>
                     ) : (
                         cartItems.map(item => (
-                            <li key={item.id} className={`xl:grid-cols-5 grid justify-between items-center py-[25px] px-12 mb-4 cart-item rounded-md ${selectedItems[item.id] ? "cart-item-yes" : "cart-item-no"}`}>
+                            <li key={item.cartKey} className={`xl:grid-cols-5 grid justify-between items-center py-[25px] px-12 mb-4 cart-item rounded-md ${selectedItems[item.cartKey] ? "cart-item-yes" : "cart-item-no"}`}>
                                 <div className=" flex items-center flex-row">
-                                    <input type="checkbox" className="checkbox checkbox-item checkbox-sm" checked={selectedItems[item.id]} onChange={() => handleCheckboxChange(item.id)} />
-                                    <Link to={item.species === "貓" ? `/cat/${item.id}` : `/dog/${item.id}`}>
+                                    <input type="checkbox" className="checkbox checkbox-item checkbox-sm" checked={selectedItems[item.cartKey]} onChange={() => handleCheckboxChange(item.cartKey)} />
+                                    <Link to={item.species === "cat" ? `/cat/${item.id}` : `/dog/${item.id}`}>
                                         <img className="w-[170px] h-[100px] rounded-sm flex-1 object-cover" src={item.image || item.cover} alt={item.name} />
                                     </Link>
                                 </div>
@@ -126,11 +126,11 @@ export default function Cart() {
                                 <div className="col-span-3">
                                     <DonateBox
                                         item={item}
-                                        values={donationValues[item.id]}
+                                        values={donationValues[item.cartKey]}
                                         setValues={(newValues) =>
                                             setDonationValues((prev) => ({
                                                 ...prev,
-                                                [item.id]: newValues,
+                                                [item.cartKey]: newValues,
                                             }))
                                         }
                                     />

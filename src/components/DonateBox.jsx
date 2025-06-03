@@ -42,8 +42,8 @@ export default function DonateBox({ item, values, setValues }) {
   };
 
   useEffect(() => {
-    localStorage.setItem(`donation-${item.id}`, JSON.stringify(values));
-  }, [values, item.id]);
+    localStorage.setItem(`donation-${item.cartKey}`, JSON.stringify(values));
+  }, [values, item.cartKey]);
 
   return (
     <div className="grid grid-cols-5 items-center justify-center w-auto">
@@ -67,7 +67,7 @@ export default function DonateBox({ item, values, setValues }) {
           </div>
         ))}
       </div>
-      <div className="text-xl cursor-pointer flex justify-center items-center" onClick={() => dispatch(removeCartItems(item.id))}>
+      <div className="text-xl cursor-pointer flex justify-center items-center" onClick={() => dispatch(removeCartItems(item.cartKey))}>
         <CancelIcon size={25} />
       </div>
     </div>
