@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { Link } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { removeCartItems, selectCartItems } from "../redux/cartSlice";
+import { motion } from "framer-motion";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar";
 import TopBar from "../components/TopBar";
@@ -148,12 +149,15 @@ export default function Cart() {
                         </div>
 
                         {/* Checkout Button */}
-                        <button
+                        <motion.button
                             className="checkout-btn shadow-none w-50 h-10 text-base flex justify-center items-center"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            transition={{ type: "spring", stiffness: 300 }}
                         >
                             {/* <CartIcon strokeWidth={1} className="w-5 h-5 md:w-6 md:h-6 text-current group-hover:scale-105 transition-transform" /> */}
                             <span className="text-[20px] cursor-pointer">去轉帳</span>
-                        </button>
+                        </motion.button>
                     </div>
                 </div>
             </div>
