@@ -35,6 +35,20 @@ export default function Cart() {
         localStorage.setItem('selectedItems', JSON.stringify(selectedItems));
     }, [selectedItems]);
 
+    useEffect(() => {
+        // 只保留還存在於 cartItems 的 key
+        setSelectedItems(prev => {
+            const validIds = new Set(cartItems.map(item => item.id));
+            const updated = {};
+            for (const id in prev) {
+                if (validIds.has(Number(id))) {
+                    updated[id] = prev[id];
+                }
+            }
+            return updated;
+        });
+    }, [cartItems]);
+
     const handleCheckboxChange = (id) => {
         setSelectedItems({
             ...selectedItems,
@@ -64,6 +78,16 @@ export default function Cart() {
 
     const [donationValues, setDonationValues] = useState(getInitialDonationValues());
 
+    const allSelected = cartItems.length > 0 && cartItems.every(item => selectedItems[item.id]);
+    const handleSelectAllChange = (e) => {
+        const checked = e.target.checked;
+        const newSelected = {};
+        cartItems.forEach(item => {
+            newSelected[item.id] = checked;
+        });
+        setSelectedItems(newSelected);
+    };
+
     console.log(cartItems);
 
     return (
@@ -76,7 +100,7 @@ export default function Cart() {
                 </div>
             </div>
             <div className="h-3"></div>
-            <CartHeader />
+            <CartHeader allSelected={allSelected} onSelectAllChange={handleSelectAllChange} />
 
             <div className="flex flex-col items-center w-full">
                 <div className="flex flex-col items-center">
