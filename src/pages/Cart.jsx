@@ -9,6 +9,7 @@ import Navbar from "../components/Navbar";
 import TopBar from "../components/TopBar";
 import CartHeader from "../components/CartHeader";
 import DonateBox from "../components/DonateBox";
+import CancelIcon from "../components/CancelIcon";
 
 export default function Cart() {
     const dispatch = useDispatch();
@@ -96,7 +97,7 @@ export default function Cart() {
             <Navbar />
             <TopBar />
             <div className="flex justify-center items-center">
-                <div className="cart-bg cart-title mt-5">
+                <div className="cart-bg cart-title mt-5 md:w-[644px]">
                     <h1 className="text-black">收藏清單</h1>
                 </div>
             </div>
@@ -110,11 +111,11 @@ export default function Cart() {
                         <div className="flex justify-center items-center h-45"><h2>Cart is empty</h2></div>
                     ) : (
                         cartItems.map(item => (
-                            <li key={item.cartKey} className={`xl:grid-cols-5 grid justify-between items-center py-[25px] px-12 mb-4 cart-item rounded-md ${selectedItems[item.cartKey] ? "cart-item-yes" : "cart-item-no"}`}>
-                                <div className=" flex items-center flex-row">
+                            <li key={item.cartKey} className={`cart-item-grid grid justify-between items-center py-[25px] px-12 mb-4 cart-item md:w-[644px] rounded-md ${selectedItems[item.cartKey] ? "cart-item-yes" : "cart-item-no"}`}>
+                                <div className=" flex items-center flex-row justify-between md:justify-start">
                                     <input type="checkbox" className="checkbox checkbox-item checkbox-sm" checked={selectedItems[item.cartKey]} onChange={() => handleCheckboxChange(item.cartKey)} />
                                     <Link to={item.species === "cat" ? `/cat/${item.id}` : `/dog/${item.id}`}>
-                                        <img className="w-[170px] h-[100px] rounded-sm flex-1 object-cover" src={item.image || item.cover} alt={item.name} />
+                                        <img className="w-[204px] h-[119px] lg:w-[139px] xl:w-[170px] lg:h-[100px] rounded-sm flex-1 object-cover" src={item.image || item.cover} alt={item.name} />
                                     </Link>
                                 </div>
 
@@ -123,6 +124,11 @@ export default function Cart() {
                                     <div className="text-[15px] mb-1">{item.area}</div>
                                     <div className="text-[15px]">{item.personality}</div>
                                 </div>
+
+                                <div className="text-xl cursor-pointer lg:hidden" onClick={() => dispatch(removeCartItems(item.cartKey))}>
+                                    <CancelIcon size={25} />
+                                </div>
+
                                 <div className="col-span-3">
                                     <DonateBox
                                         item={item}
@@ -141,7 +147,7 @@ export default function Cart() {
                         ))
                     )}
 
-                    <div className="cart-Checkout flex flex-row p-4 justify-end items-center h-18">
+                    <div className="cart-Checkout flex flex-row p-4 justify-end items-center h-18 md:w-[644px]">
                         {/* Total */}
                         <div className="flex justify-between items-center me-3">
                             <div className="text-[20px]">總金額 (已選{Object.values(selectedItems).filter(Boolean).length})：</div>

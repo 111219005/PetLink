@@ -36,7 +36,7 @@ export default function Filter({ gender, size, ageRange, setGender, setSize, set
 
     return (
         <div className="w-full flex flex-col items-center">
-            <div className="relative w-[93%] xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">
+            <div className="filter-w relative w-[93%] xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">
                 {/* Filter Icon for Mobile */}
                 <div className="h-5">
                     <button
@@ -50,7 +50,7 @@ export default function Filter({ gender, size, ageRange, setGender, setSize, set
 
                 {/* Filter Content */}
                 <div
-                    className={`ms-3 filter-w w-full transition-all duration-300 ${isFilterOpen ? "max-h-screen opacity-100" : "max-h-0 overflow-hidden opacity-0"} md:max-h-none md:opacity-100 md:block`}
+                    className={`ms-3 filter-w transition-all duration-300 ${isFilterOpen ? "max-h-screen opacity-100" : "max-h-0 overflow-hidden opacity-0"} md:max-h-none md:opacity-100 md:block`}
                 >
                     <h3 className="h-fit">條件篩選</h3>
 

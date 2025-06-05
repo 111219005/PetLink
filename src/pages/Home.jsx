@@ -29,7 +29,7 @@ export default function Home() {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                 >
-                    <h1 className="xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">DOGS 狗</h1>
+                    <h1 className="dog-tile xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">DOGS 狗</h1>
                     <ProductList products={dog} start={0} end={10} className="layout-content" />
                 </motion.div>
                 <div className="flex justify-center items-center mb-10">

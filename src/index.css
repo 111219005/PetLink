@@ -53,9 +53,10 @@ input[type=number].no-spinner::-webkit-inner-spin-button {
   margin: 0;
 }
 
-@media screen and (min-width: 1536px) {
+@media screen and (min-width: 1537px) {
   .card_list {
     width: auto;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .filter-w,
@@ -69,11 +70,24 @@ input[type=number].no-spinner::-webkit-inner-spin-button {
   .checkbox-item {
     margin-right: 15px;
   }
+
+  .cart-header-visible {
+    display: flex;
+  }
+
+  .cart-item-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .dog-tile{
+    width: 1250px;
+  }
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1535px) {
+@media screen and (min-width: 1024px) and (max-width: 1536px) {
   .card_list {
     width: 961px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .filter-w,
@@ -87,9 +101,21 @@ input[type=number].no-spinner::-webkit-inner-spin-button {
   .checkbox-item {
     margin-right: 7px;
   }
+
+  .cart-header-visible {
+    display: flex;
+  }
+
+  .cart-item-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+   .dog-tile{
+    width: 940px;
+  }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 769px) and (max-width: 1023px) {
 
   .filter-w,
   .cart-title,
@@ -98,21 +124,32 @@ input[type=number].no-spinner::-webkit-inner-spin-button {
   .cart-Checkout {
     width: 644px;
   }
+
+  .checkbox-item {
+    margin-right: 15px;
+  }
+
+  .cart-item-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .filter-w {
     width: 95%;
   }
 }
 
 .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;    /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-    display: none;  /* Chrome, Safari, Opera */
+  display: none;
+  /* Chrome, Safari, Opera */
 }
 
 .custom-toast-progress {

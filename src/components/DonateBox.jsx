@@ -46,30 +46,31 @@ export default function DonateBox({ item, values, setValues }) {
   }, [values, item.cartKey]);
 
   return (
-    <div className="grid grid-cols-5 items-center justify-center w-auto">
-      <div className="grid grid-cols-4 col-span-4 items-center justify-center">
-        {['food', 'daily', 'medical', 'train'].map((type) => (
-          <div key={type} className="flex flex-col items-center justify-center">
-            <div className="flex items-center justify-between mb-2">
-              <button onClick={() => handleDecrement(type)} className="text-black py-1 rounded w-4 donate h-[44px] cursor-pointer">-</button>
-              <input
-                type="number"
-                min="0"
-                value={values[type]}
-                onChange={(e) => handleInputChange(type, e)}
-                className="w-12 text-center donate rounded mx-1 text-black py-1 h-[44px] text-[13px] no-spinner"
-              />
-              <button onClick={() => handleIncrement(type)} className="donate text-black py-1 rounded w-4 h-[44px] cursor-pointer">+</button>
-            </div>
-            <div className="need text-[10px] flex items-center justify-center">
-              需求：{item[type]}
-            </div>
-          </div>
-        ))}
+    <div className="grid lg:grid-cols-5 lg:items-center lg:justify-center w-auto">
+  <div className="grid lg:grid-cols-4 lg:col-span-4 lg:items-center lg:justify-center">
+    {['food', 'daily', 'medical', 'train'].map((type) => (
+      <div key={type} className="flex flex-col lg:items-center lg:justify-center">
+        <div className="flex lg:items-center lg:justify-between mb-2">
+          <button onClick={() => handleDecrement(type)} className="text-black py-1 rounded w-4 donate h-[44px] cursor-pointer">-</button>
+          <input
+            type="number"
+            min="0"
+            value={values[type]}
+            onChange={(e) => handleInputChange(type, e)}
+            className="w-12 text-center donate rounded mx-1 text-black py-1 h-[44px] text-[13px] no-spinner"
+          />
+          <button onClick={() => handleIncrement(type)} className="donate text-black py-1 rounded w-4 h-[44px] cursor-pointer">+</button>
+        </div>
+        <div className="need text-[10px] flex lg:items-center lg:justify-center">
+          需求：{item[type]}
+        </div>
       </div>
-      <div className="text-xl cursor-pointer flex justify-center items-center" onClick={() => dispatch(removeCartItems(item.cartKey))}>
-        <CancelIcon size={25} />
-      </div>
-    </div>
+    ))}
+  </div>
+  <div className="text-xl cursor-pointer lg:flex lg:justify-center lg:items-center hidden" onClick={() => dispatch(removeCartItems(item.cartKey))}>
+    <CancelIcon size={25} />
+  </div>
+</div>
+
   );
 }
