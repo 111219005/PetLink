@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { motion } from "framer-motion";
 import { selectLightMode } from "../redux/colorSlice";
 
 export default function Filter({ gender, size, ageRange, setGender, setSize, setAgeRange }) {
@@ -35,7 +36,7 @@ export default function Filter({ gender, size, ageRange, setGender, setSize, set
 
     return (
         <div className="w-full flex flex-col items-center">
-            <div className="relative w-[95%] xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">
+            <div className="relative w-[93%] xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">
                 {/* Filter Icon for Mobile */}
                 <div className="h-5">
                     <button
@@ -49,38 +50,44 @@ export default function Filter({ gender, size, ageRange, setGender, setSize, set
 
                 {/* Filter Content */}
                 <div
-                    className={`ms-3 filter w-full transition-all duration-300 ${isFilterOpen ? "max-h-screen opacity-100" : "max-h-0 overflow-hidden opacity-0"} md:max-h-none md:opacity-100 md:block`}
+                    className={`ms-3 filter-w w-full transition-all duration-300 ${isFilterOpen ? "max-h-screen opacity-100" : "max-h-0 overflow-hidden opacity-0"} md:max-h-none md:opacity-100 md:block`}
                 >
-                    <h3>條件篩選</h3>
+                    <h3 className="h-fit">條件篩選</h3>
 
                     {/* 性別篩選 */}
-                    <div className="flex flex-col md:flex-row gap-1 md:gap-4 my-2 justify-start items-start md:items-center">
+                    <div className="w-fit flex flex-col md:flex-row gap-1 md:gap-4 my-2 justify-start items-start md:items-center">
                         <h3 className="text-lg font-bold">性別</h3>
                         <div className="flex gap-2">
                             {genders.map((item) => (
-                                <button
+                                <motion.button
                                     key={item}
                                     className={`text-[12px] md:text-base rounded-lg md:py-2 py-1 md:px-4 px-2 cursor-pointer hover:filter-h ${gender.includes(item) ? "filter-h text-white" : "filter-bg text-white"}`}
                                     onClick={() => toggleSelection(gender, item, setGender)}
+                                    whileHover={{ scale: 1.05, clipPath: "inset(-10% -10% -10% -10%)" }} // 擴展裁剪區域
+                                    whileTap={{ scale: 0.95, clipPath: "inset(-5% -5% -5% -5%)" }}
+                                    transition={{ type: "spring", stiffness: 300 }}
                                 >
                                     {item}
-                                </button>
+                                </motion.button>
                             ))}
                         </div>
                     </div>
 
                     {/* 體型篩選 */}
-                    <div className="flex flex-col md:flex-row gap-1 md:gap-4 my-2 justify-start items-start md:items-center">
+                    <div className="w-fit flex flex-col md:flex-row gap-1 md:gap-4 my-2 justify-start items-start md:items-center">
                         <h3 className="text-lg font-bold">體型</h3>
                         <div className="flex gap-2">
                             {sizes.map((item) => (
-                                <button
+                                <motion.button
                                     key={item}
-                                    className={`text-[12px] md:text-base rounded-lg md:py-2 py-1 md:px-4 px-2 cursor-pointer hover:filter-h ${size.includes(item) ? "filter-h text-white" : "filter-bg text-white"}`}
+                                    className={`text-[12px] md:text-base rounded-lg md:py-2 py-1 md:px-4 px-2 cursor-pointer !hover:filter-h ${size.includes(item) ? "filter-h text-white" : "filter-bg text-white"}`}
                                     onClick={() => toggleSelection(size, item, setSize)}
+                                    whileHover={{ scale: 1.05, clipPath: "inset(-10% -10% -10% -10%)" }} // 擴展裁剪區域
+                                    whileTap={{ scale: 0.95, clipPath: "inset(-5% -5% -5% -5%)" }}
+                                    transition={{ type: "spring", stiffness: 300 }}
                                 >
                                     {item}
-                                </button>
+                                </motion.button>
                             ))}
                         </div>
                     </div>
@@ -88,15 +95,25 @@ export default function Filter({ gender, size, ageRange, setGender, setSize, set
                     {/* 年齡篩選 */}
                     <div className="flex flex-col md:flex-row gap-1 md:gap-4 my-2 justify-start items-start md:items-center">
                         <h3 className="text-lg font-bold">年齡</h3>
-                        <div className="flex gap-2">
+                        <div
+                            className="flex gap-2 overflow-x-auto md:overflow-visible whitespace-nowrap w-full md:w-auto scrollbar-hide"
+                            style={{
+                                WebkitOverflowScrolling: "touch", // 手機提供平滑滾動
+                            }}
+                        >
                             {ageRanges.map((range) => (
-                                <button
+                                <motion.button
                                     key={range}
-                                    className={`text-[12px] md:text-base rounded-lg md:py-2 py-1 md:px-4 px-2 cursor-pointer hover:filter-h ${ageRange.includes(range) ? "filter-h text-white" : "filter-bg text-white"}`}
+                                    className={`text-[12px] md:text-base rounded-lg md:py-2 py-1 md:px-4 px-2 cursor-pointer hover:filter-h ${ageRange.includes(range) ? "filter-h text-white" : "filter-bg text-white"
+                                        }`}
                                     onClick={() => toggleSelection(ageRange, range, setAgeRange)}
+                                    // 手機板無動畫，電腦版有動畫
+                                    whileHover={window.innerWidth >= 768 ? { scale: 1.05 } : {}}
+                                    whileTap={window.innerWidth >= 768 ? { scale: 0.95 } : {}}
+                                    transition={{ type: "spring", stiffness: 300 }}
                                 >
                                     {range}
-                                </button>
+                                </motion.button>
                             ))}
                         </div>
                     </div>
