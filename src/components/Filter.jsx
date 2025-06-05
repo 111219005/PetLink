@@ -96,7 +96,7 @@ export default function Filter({ gender, size, ageRange, setGender, setSize, set
                     <div className="flex flex-col md:flex-row gap-1 md:gap-4 my-2 justify-start items-start md:items-center">
                         <h3 className="text-lg font-bold">年齡</h3>
                         <div
-                            className="flex gap-2 overflow-x-auto md:overflow-visible whitespace-nowrap w-full md:w-auto scrollbar-hide"
+                            className="flex gap-2 overflow-x-auto md:overflow-visible whitespace-nowrap w-full md:w-auto"
                             style={{
                                 WebkitOverflowScrolling: "touch", // 手機提供平滑滾動
                             }}

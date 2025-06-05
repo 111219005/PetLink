@@ -79,7 +79,7 @@ input[type=number].no-spinner::-webkit-inner-spin-button {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
-  .dog-tile{
+  .dog-cat-title {
     width: 1250px;
   }
 }
@@ -110,7 +110,7 @@ input[type=number].no-spinner::-webkit-inner-spin-button {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
-   .dog-tile{
+  .dog-cat-title {
     width: 940px;
   }
 }
@@ -126,30 +126,37 @@ input[type=number].no-spinner::-webkit-inner-spin-button {
   }
 
   .checkbox-item {
-    margin-right: 15px;
+    margin-right: 20px;
   }
 
   .cart-item-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
 }
 
 @media screen and (max-width: 768px) {
   .filter-w {
     width: 95%;
   }
-}
 
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
-}
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-  /* Chrome, Safari, Opera */
+  .checkbox-item {
+    margin-right: 20px;
+  }
+
+  .cart-item-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .custom-toast-progress {
@@ -292,6 +299,17 @@ input[type=number].no-spinner::-webkit-inner-spin-button {
     width: 76px;
     color: white;
     background-color: #FAAA5D;
+    border-radius: 10px;
+    padding: 0px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cart-label-select {
+    width: 76px;
+    color: black;
+    background-color: #FFF7D8;
     border-radius: 10px;
     padding: 0px 6px;
     display: flex;
@@ -471,12 +489,16 @@ input[type=number].no-spinner::-webkit-inner-spin-button {
     background-color: #572918;
   }
 
-  .cart-label {
+  .cart-label,
+  .cart-label-select {
     width: 76px;
     color: black;
     background-color: #D3B997;
     border-radius: 10px;
     padding: 0px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .cart-item-no {
