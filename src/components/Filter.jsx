@@ -57,57 +57,62 @@ export default function Filter({ gender, size, ageRange, setGender, setSize, set
                     {/* 性別篩選 */}
                     <div className="w-fit flex flex-col md:flex-row gap-1 md:gap-4 my-2 justify-start items-start md:items-center">
                         <h3 className="text-lg font-bold">性別</h3>
-                        <div className="flex gap-2">
+                        <motion.div layout className="flex gap-2">
                             {genders.map((item) => (
                                 <motion.button
+                                    layout
                                     key={item}
-                                    className={`text-[12px] md:text-base rounded-lg md:py-2 py-1 md:px-4 px-2 cursor-pointer hover:filter-h ${gender.includes(item) ? "filter-h text-white" : "filter-bg text-white"}`}
+                                    className={`text-[12px] md:text-base rounded-lg md:py-2 py-1 md:px-4 px-2 cursor-pointer hover:filter-h ${gender.includes(item) ? "filter-h text-white" : "filter-bg text-white"
+                                        }`}
                                     onClick={() => toggleSelection(gender, item, setGender)}
-                                    whileHover={{ scale: 1.05, clipPath: "inset(-10% -10% -10% -10%)" }} // 擴展裁剪區域
+                                    whileHover={{ scale: 1.05, clipPath: "inset(-10% -10% -10% -10%)" }}
                                     whileTap={{ scale: 0.95, clipPath: "inset(-5% -5% -5% -5%)" }}
                                     transition={{ type: "spring", stiffness: 300 }}
                                 >
                                     {item}
                                 </motion.button>
                             ))}
-                        </div>
+                        </motion.div>
                     </div>
 
                     {/* 體型篩選 */}
                     <div className="w-fit flex flex-col md:flex-row gap-1 md:gap-4 my-2 justify-start items-start md:items-center">
                         <h3 className="text-lg font-bold">體型</h3>
-                        <div className="flex gap-2">
+                        <motion.div layout className="flex gap-2">
                             {sizes.map((item) => (
                                 <motion.button
+                                    layout
                                     key={item}
-                                    className={`text-[12px] md:text-base rounded-lg md:py-2 py-1 md:px-4 px-2 cursor-pointer !hover:filter-h ${size.includes(item) ? "filter-h text-white" : "filter-bg text-white"}`}
+                                    className={`text-[12px] md:text-base rounded-lg md:py-2 py-1 md:px-4 px-2 cursor-pointer hover:filter-h ${size.includes(item) ? "filter-h text-white" : "filter-bg text-white"
+                                        }`}
                                     onClick={() => toggleSelection(size, item, setSize)}
-                                    whileHover={{ scale: 1.05, clipPath: "inset(-10% -10% -10% -10%)" }} // 擴展裁剪區域
+                                    whileHover={{ scale: 1.05, clipPath: "inset(-10% -10% -10% -10%)" }}
                                     whileTap={{ scale: 0.95, clipPath: "inset(-5% -5% -5% -5%)" }}
                                     transition={{ type: "spring", stiffness: 300 }}
                                 >
                                     {item}
                                 </motion.button>
                             ))}
-                        </div>
+                        </motion.div>
                     </div>
 
                     {/* 年齡篩選 */}
                     <div className="flex flex-col md:flex-row gap-1 md:gap-4 my-2 justify-start items-start md:items-center">
                         <h3 className="text-lg font-bold">年齡</h3>
-                        <div
+                        <motion.div
+                            layout
                             className="flex gap-2 overflow-x-auto md:overflow-visible whitespace-nowrap w-full md:w-auto"
                             style={{
-                                WebkitOverflowScrolling: "touch", // 手機提供平滑滾動
+                                WebkitOverflowScrolling: "touch",
                             }}
                         >
                             {ageRanges.map((range) => (
                                 <motion.button
+                                    layout
                                     key={range}
                                     className={`text-[12px] md:text-base rounded-lg md:py-2 py-1 md:px-4 px-2 cursor-pointer hover:filter-h ${ageRange.includes(range) ? "filter-h text-white" : "filter-bg text-white"
                                         }`}
                                     onClick={() => toggleSelection(ageRange, range, setAgeRange)}
-                                    // 手機板無動畫，電腦版有動畫
                                     whileHover={window.innerWidth >= 768 ? { scale: 1.05 } : {}}
                                     whileTap={window.innerWidth >= 768 ? { scale: 0.95 } : {}}
                                     transition={{ type: "spring", stiffness: 300 }}
@@ -115,8 +120,12 @@ export default function Filter({ gender, size, ageRange, setGender, setSize, set
                                     {range}
                                 </motion.button>
                             ))}
-                        </div>
+                        </motion.div>
                     </div>
+
+
+
+
                 </div>
 
             </div>
