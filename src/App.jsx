@@ -17,30 +17,37 @@ import "react-toastify/dist/ReactToastify.css";
 import Profile from './pages/Profile/Profile';
 //import { feedProducts } from "./api/fireStore";
 //feedProducts();
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+const queryClient = new QueryClient()
 
 function App() {
   return (
     <>
       <ToastContainer position="top-right" autoClose={3000} />
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <HelmetProvider context={{}}>
-            <BrowserRouter>
-              <ScrollToTop />
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="introduction" element={<Intro />} />
-                <Route path=":productSpecies" element={<Species />} />
-                <Route path=":productSpecies/:productId" element={<Product />} />
-                <Route path="SignUp" element={<SignUp />} />
-                <Route path="LogIn" element={<LogIn />} />
-                <Route path="cart" element={<Cart />} />
-                <Route path="Profile" element={<Profile />} />
-              </Routes>
-            </BrowserRouter>
-          </HelmetProvider>
-        </PersistGate>
-      </Provider>
+      <QueryClientProvider client={queryClient}>
+        <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
+            <HelmetProvider context={{}}>
+              <BrowserRouter>
+                <ScrollToTop />
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="introduction" element={<Intro />} />
+                  <Route path=":productSpecies" element={<Species />} />
+                  <Route path=":productSpecies/:productId" element={<Product />} />
+                  <Route path="SignUp" element={<SignUp />} />
+                  <Route path="LogIn" element={<LogIn />} />
+                  <Route path="cart" element={<Cart />} />
+                  <Route path="Profile" element={<Profile />} />
+                </Routes>
+              </BrowserRouter>
+            </HelmetProvider>
+          </PersistGate>
+        </Provider>
+      </QueryClientProvider>
     </>
   );
 }

@@ -104,7 +104,7 @@ export default function Cart() {
             <div className="h-6 md:h-3"></div>
             <CartHeader allSelected={allSelected} onSelectAllChange={handleSelectAllChange} />
 
-            <div className="flex flex-col items-center md:w-full mx-3">
+            <div className="flex flex-col items-center md:w-full mx-3 md:mx-0">
                 <div className="flex flex-col items-center w-fit">
                     {/* Cart Items */}
                     {cartItems.length === 0 ? (

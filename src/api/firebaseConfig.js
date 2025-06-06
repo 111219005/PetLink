@@ -4,12 +4,12 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyC_2GgHM0wJf8ErsfQ0Eej9zFq-1O5l-oM',
-  authDomain: 'crossplatform-final.firebaseapp.com',
-  projectId: 'crossplatform-final',
-  storageBucket: 'crossplatform-final.appspot.com',
-  messagingSenderId: '487789723873',
-  appId: '1:487789723873:web:a19b06b10a24fa6b77b7a0',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECTID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APPID,
 };
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);

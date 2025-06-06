@@ -15,13 +15,13 @@ export default function Category() {
                 <div className="flex-grow flex justify-center space-x-10">
                     <button
                         onClick={() => scrollToSection("#dog_section")}
-                        className="inline-block col-span-1 hover:scale-150 category flex justify-center items-center"
+                        className="inline-block col-span-1 hover:scale-150 category flex justify-center items-center cursor-pointer"
                     >
                         <h2>狗</h2>
                     </button>
                     <button
                         onClick={() => scrollToSection("#cat_section")}
-                        className="inline-block col-span-1 hover:scale-150 category flex justify-center items-center"
+                        className="inline-block col-span-1 hover:scale-150 category flex justify-center items-center cursor-pointer"
                     >
                         <h2>貓</h2>
                     </button>

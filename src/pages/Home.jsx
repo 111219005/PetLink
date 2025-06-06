@@ -9,9 +9,13 @@ import cat from "../json/cat.json";
 import ProductList from "../components/ProductList.jsx";
 import Footer from "../components/Footer/Footer.jsx"
 import TopBar from "../components/TopBar.jsx";
+import { useProducts } from '../react-query/index.js';
 
 export default function Home() {
-    const title = "PetLink"
+    const title = "PetLink";
+    const { data, isLoading } = useProducts();
+    const products = data || [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }, { id: 7 }, { id: 8 }, { id: 9 }, { id: 10 }, { id: 11 }, { id: 12 }, { id: 13 }, { id: 14 }, { id: 15 }, { id: 16 }, { id: 17 }, { id: 18 }, { id: 19 }, { id: 20 }, { id: 21 }, { id: 22 }, { id: 23 }, { id: 24 }];
+
     return (
         <div className="home-bg">
             <Helmet>
