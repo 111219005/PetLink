@@ -108,7 +108,7 @@ export default function Cart() {
                 <div className="flex flex-col items-center w-fit">
                     {/* Cart Items */}
                     {cartItems.length === 0 ? (
-                        <div className="flex justify-center items-center md:h-45 h-80"><h2>Cart is empty</h2></div>
+                        <div className="flex justify-center items-center md:h-90 h-80"><h2>Cart is empty</h2></div>
                     ) : (
                         cartItems.map(item => (
                             <>
@@ -158,7 +158,7 @@ export default function Cart() {
                                 checked={allSelected}
                                 onChange={handleSelectAllChange}
                             />
-                            <a className="pl-5">全選</a>
+                            <a className="pl-1 md:pl-5">全選</a>
                         </div>
                         {/* Total */}
                         <div className="flex justify-between items-center me-3">
