@@ -43,7 +43,7 @@ export default function Home() {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                 >
-                    <h1 className="dog-cat-title xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">DOGS 狗</h1>
+                    <h1 className="ms-3 dog-cat-title xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">DOGS 狗</h1>
                     <ProductList
                         products={
                             products
@@ -76,7 +76,7 @@ export default function Home() {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                 >
-                    <h1 className="dog-cat-title xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">CATS 貓</h1>
+                    <h1 className="ms-3 dog-cat-title xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">CATS 貓</h1>
                     <ProductList products={cat} start={0} end={10} className="layout-content" />
                     {/* <ProductList
                         products={products.filter(item => item.species === 'cat').slice(0, 10)}
