@@ -108,7 +108,7 @@ export default function Cart() {
                 <div className="flex flex-col items-center w-fit">
                     {/* Cart Items */}
                     {cartItems.length === 0 ? (
-                        <div className="flex justify-center items-center h-45"><h2>Cart is empty</h2></div>
+                        <div className="flex justify-center items-center md:h-45 h-80"><h2>Cart is empty</h2></div>
                     ) : (
                         cartItems.map(item => (
                             <>

@@ -38,9 +38,9 @@ export default function Filter({ gender, size, ageRange, setGender, setSize, set
         <div className="w-full flex flex-col items-center">
             <div className="filter-w relative w-[93%] xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">
                 {/* Filter Icon for Mobile */}
-                <div className="h-5">
+                <div className="h-8">
                     <button
-                        className="absolute right-2 top-2 flex items-center justify-center text-white rounded-full w-10 h-5 md:hidden"
+                        className="absolute right-2 top-2 flex items-center justify-center text-white rounded-full w-10 h-5 md:hidden cursor-pointer"
                         onClick={() => setIsFilterOpen(!isFilterOpen)}
                     >
                         {/* 篩選圖標或文字 */}
