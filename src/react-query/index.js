@@ -6,6 +6,8 @@ export const useProducts = () => {
   return useQuery({
     queryKey: ['products'],
     queryFn: getProducts,
+    staleTime: 1000 * 60 * 5, // 5分鐘內不重新 fetch
+    refetchOnWindowFocus: false,
   });
 };
 

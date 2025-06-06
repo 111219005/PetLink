@@ -5,6 +5,9 @@ import dogs from "../../json/dog.json";
 
 const products = [...cats, ...dogs];
 const productsCollection = collection(db, "pets");
+console.log("Dogs:", dogs);
+console.log("Cats:", cats);
+console.log("Cats");
 
 export const feedProducts = async () => {
   const querySnapshot = await getDocs(productsCollection);
