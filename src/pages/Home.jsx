@@ -9,13 +9,22 @@ import cat from "../json/cat.json";
 import ProductList from "../components/ProductList.jsx";
 import Footer from "../components/Footer/Footer.jsx"
 import TopBar from "../components/TopBar.jsx";
+import Spinner from "../components/Spinner.jsx";
 import { useProducts } from '../react-query/index.js';
 
 export default function Home() {
     const title = "PetLink";
     const { data, isLoading } = useProducts();
     const products = data || [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }, { id: 7 }, { id: 8 }, { id: 9 }, { id: 10 }, { id: 11 }, { id: 12 }, { id: 13 }, { id: 14 }, { id: 15 }, { id: 16 }, { id: 17 }, { id: 18 }, { id: 19 }, { id: 20 }, { id: 21 }, { id: 22 }, { id: 23 }, { id: 24 }];
-    if (isLoading) return <div>載入中...</div>;
+
+    // 如果資料還在加載，顯示 Spinner
+    if (isLoading) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <Spinner />
+            </div>
+        );
+    }
 
     return (
         <div className="home-bg">
@@ -35,11 +44,6 @@ export default function Home() {
                     viewport={{ once: true }}
                 >
                     <h1 className="dog-cat-title xs:ms-10 sm:w-[400px] md:w-[660px] lg:w-[950px] xl:w-[940px] 2xl:w-[1250px] text-left">DOGS 狗</h1>
-                    {/* <ProductList products={dog} start={0} end={10} className="layout-content" /> */}
-                    {/* <ProductList
-                        products={products.filter(item => item.species === 'dog').slice(0, 10)}
-                        className="layout-content"
-                    /> */}
                     <ProductList
                         products={
                             products
@@ -47,6 +51,7 @@ export default function Home() {
                                 .sort((a, b) => Number(a.id) - Number(b.id))
                                 .slice(0, 10)
                         }
+                        isLoading={isLoading}
                         className="layout-content"
                     />
                 </motion.div>

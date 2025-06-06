@@ -168,6 +168,29 @@ input[type=number].no-spinner::-webkit-inner-spin-button {
 }
 
 [data-theme="light"] {
+  .spin-container {
+    background-color: #FFF7D8;
+  }
+
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #7392B9;
+    border-top: 4px solid #9AA57C;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   .Toastify__progress-bar--bg {
     background-color: #9AA57C;
   }
@@ -355,6 +378,29 @@ input[type=number].no-spinner::-webkit-inner-spin-button {
 }
 
 [data-theme="dark"] {
+  .spin-container {
+    background-color: #D3B997;
+  }
+
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #2C1C1A;
+    border-top: 4px solid #000;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   .Toastify__progress-bar--bg {
     background-color: #98694E;
   }
